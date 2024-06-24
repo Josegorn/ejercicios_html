@@ -22,7 +22,7 @@ const insertar_favicon = function(id, archivo) {
 // 🔴Insertar imagen
 const insertar_imagen = function(id, archivo) {
 	let link = document.getElementById(id);
-	link.style.backgroundImage = archivo;
+	link.style.backgroundImage = URL(archivo);
 };
 // 🔴Reajustar
 window.addEventListener("resize", function() {

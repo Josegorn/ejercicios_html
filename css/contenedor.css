@@ -25,22 +25,26 @@ div#cuerpo_primario {
     box-shadow: var(--sombra_marco);
 }
 #titulo {
+	
     font-size: var(--fuente_cabecera);
 	margin: var(--margen_cabecera);
 	white-space: nowrap;
+	display: flex;
+	flex-direction: row;
 }
 #caja_titulo_logo {
     color: var(--violeta);
     text-shadow: var(--sombra-texto);
     background-color: var(--gris);
-	display: inline-block;
-    padding: var(--relleno_cabecera);
+	background-image: none;
+    max-height: var(--tamv_caja);
+	width: auto;
+	padding: var(--relleno_cabecera);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
     cursor: pointer;
     transition: background-color var(--tiempo_fulgor);
-	height: 48px;
-	width: 48px;
+
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);
