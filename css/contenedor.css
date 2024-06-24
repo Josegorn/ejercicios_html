@@ -32,16 +32,15 @@ div#cuerpo_primario {
 	flex-direction: row;
 }
 #caja_titulo_logo {
-	background-color: var(--indigo);
-	filter:	var(--pastel); 
+	background-color: color-mix(in sRGB, var(--rosa) 30%, white 70%);
 	padding: var(--relleno_cabecera);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
     cursor: pointer;
     transition: background-color var(--tiempo_fulgor);
+	
 }
-#caja_titulo_logo>img {
-	filter: unset !important;
+#caja_titulo_logo img {
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
