@@ -21,8 +21,10 @@ const insertar_favicon = function(id, archivo) {
 };
 // 🔴Insertar imagen
 const insertar_imagen = function(id, archivo) {
-	let link = document.getElementById(id);
-	link.style.backgroundImage = URL(archivo);
+	let contenedor = document.getElementById(id);
+	let imagen = document.createElement("img");
+	imagen.src = URL(archivo);
+	contenedor.appendChild(imagen);
 };
 // 🔴Reajustar
 window.addEventListener("resize", function() {
