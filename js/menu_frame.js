@@ -1,6 +1,7 @@
 ﻿// 🔴 Inicialización
 import { DIC } from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
+import { FAVICON, HOME } from "/img/iconos.js";
 
 // 🔴Tamaño del boton secundario
 const ALTURA_BOTON = 45;
@@ -8,9 +9,15 @@ const ALTURA_SBOTON = 43;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
+	insertar_favicon(FAVICON);
 	iniciar_menus();
 	loadContent("portada");
 })
+// 🔴Insertar Favicon
+const insertar_favicon = function(archivo) {
+	let link = document.getElementById("favicon");
+	link.href = archivo;
+};
 // 🔴Reajustar
 window.addEventListener("resize", function() {
 	let cont = document.getElementById('contenido');
