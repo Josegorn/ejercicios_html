@@ -43,7 +43,7 @@ div#cuerpo_primario {
 
 }
 #caja_titulo_logo img {
-	mix-blend-mode: exclusion;
+	mix-blend-mode:  screen;
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
