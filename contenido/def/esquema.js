@@ -1,4 +1,4 @@
-const PAG_INDEX = Object.freeze({
+export const PAG_INDEX = Object.freeze({
 	atributos:	{nivel: "Digitalización 4ºESO", descripcion: "Introducción al lenguaje HTML"},
 	
 	menu_0:	{titulo: "Introdución", pag: { 
@@ -54,4 +54,4 @@ const PAG_INDEX = Object.freeze({
 		eje_9:		{titulo: "Ejercicios",			ruta: "/contenido/ejercicio_9.html"}
 	}}
 })
-export { PAG_INDEX };
+
