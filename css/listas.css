@@ -1,0 +1,36 @@
+﻿div.lista {
+	width: 100%;
+	display: block;
+	border: 2px solid rgba(0,0,255,0.1);
+}
+div.lista>article {
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-grow: row;
+}
+div.lista>article>figure {
+	min-height: 64px;
+	min-width: 64px;
+	background-color: aquamarine;
+	margin: 10px;
+}
+div.lista>article>.nombre {
+	min-width: 120px;
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	padding: 0px 8px 8px 8px;
+}
+div.lista>article>.nombre>p {
+	color: rgba(50,0,140,1.0);
+	font-size: 0.9em;
+	font-weight: bold;
+}
+div.lista>article>.descripcion {
+	font-size: 0.9em;
+	padding: 0px 5px 0px 10px;
+	height: auto;
+	width: 100%;
+}
+

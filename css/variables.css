@@ -1,0 +1,22 @@
+﻿:root {
+	/* Colores */
+	\--tinto: 	rgba(90, 0, 10, 1);
+	\--rojo: 	rgba(230, 60, 100, 1);
+	\--purpura: rgba(220, 20, 180, 1);
+	\--rosa: 	rgba(220, 130, 180, 1);
+	\--violeta: rgba(150, 20, 220, 1);
+	\--lavanda:	rgba(175, 120, 200, 1);
+	\--gris: 	rgba(160, 160, 200, 1);
+	\--indigo: 	rgba(100, 20, 220, 1);
+	\--azul: 	rgba(20, 20, 70, 1);
+	\--marino: 	rgba(10, 10, 30, 1);
+	/* Sombras */
+	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
+	/* Detalles cabecera */
+	\--tamv_img_cabecera: 30px;
+	\--tam_linea_marco: 5px;
+	\--color_cabecera: var(--rosa);
+	\--img_cabecera: url("/img/cabecera.webp");
+	\--fuente_cabecera: 20px;
+	\--margen_cabecera: 15px 10px 10px 10px;
+}

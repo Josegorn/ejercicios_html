@@ -1,0 +1,45 @@
+body {
+	font-family: Eras, Arial;
+	overflow: hidden;
+}
+#principal_portada {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+}
+#tcabecera_portada {
+	height: 100%;
+	padding: 20px;
+	border: 3px outset rgba(200,100,200,0.4) ;
+	background: url("/img/fondo_titulo.png") no-repeat 50% bottom;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+	margin-bottom: 25px;
+}
+
+header h1#pre_titulo_portada {
+  	font-size: 1.40em;
+	padding: 5px 5px 5px 10px;
+  	color: rgba(140,0,50,1);
+  	margin-top: 10px;
+}
+header h1#titulo_portada {
+  	font-size: 1.55em;
+  	color: rgba(80,0,90,1); 
+}
+
+#cuerpo_portada img {
+  	height: auto;
+  	max-width: 800px;
+  	width: 80%;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	vertical-align: middle;
+  	border: 4px solid rgba(50,15,50,1.00); 
+}
+#cuerpo_portada article {
+	padding: 5px 5px 0px 5px;
+}
+
+
