@@ -24,7 +24,7 @@ const insertar_favicon = function(id, archivo) {
 const insertar_imagen = function(id, archivo) {
 	let contenedor = document.getElementById(id);
 	let imagen = document.createElement("img");
-	imagen.src = URL(archivo);
+	imagen.src = archivo;
 	contenedor.appendChild(imagen);
 };
 // 🔴Reajustar

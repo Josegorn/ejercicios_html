@@ -43,6 +43,10 @@ div#cuerpo_primario {
     transition: background-color var(--tiempo_fulgor);
 
 }
+#caja_titulo_logo img {
+	height: var(--tam_logo);
+	width: auto;
+}
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);
     text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);
