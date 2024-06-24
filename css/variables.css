@@ -21,7 +21,7 @@
 	\--tamv_img_cabecera: 30px;
 	\--tam_linea_marco: 5px;
 	\--color_cabecera: var(--rosa);
-	\--img_cabecera: "/img/cabecera.webp";
+	\--img_cabecera: url("/img/cabecera.webp");
 	\--fuente_cabecera: 20px;
 	\--borde_caja: 2px outset rgba(255, 230, 255, 0.4);
 	\--radio_caja: 6px;
