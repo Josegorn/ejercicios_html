@@ -39,6 +39,7 @@ div#cuerpo_primario {
     border-radius: var(--radio_caja);
     cursor: pointer;
     transition: background-color var(--tiempo_fulgor);
+	height: 48px;
 	width: 48px;
 }
 #caja_titulo_nivel {
