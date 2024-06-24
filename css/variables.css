@@ -24,7 +24,7 @@
 	\--fuente_cabecera: 20px;
 	\--borde_caja: 2px outset rgba(255, 230, 255, 0.4);
 	\--radio_caja: 5px;
-	\--tam_logo: 45px;
+	\--tam_logo: 35px;
 	/* Transiciones */
 	\--tiempo_fulgor: 500ms;
 }

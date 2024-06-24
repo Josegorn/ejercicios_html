@@ -23,7 +23,7 @@ const insertar_favicon = function(id, archivo) {
 // 🔴Insertar imagen
 const insertar_imagen = function(id, archivo) {
 	let contenedor = document.getElementById(id);
-	let imagen = document.createElement("svg");
+	let imagen = document.createElement("img");
 	imagen.src = archivo;
 	contenedor.appendChild(imagen);
 };
