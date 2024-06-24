@@ -34,7 +34,7 @@ div#cuerpo_primario {
     text-shadow: var(--sombra-texto);
     background-color: var(--gris);
 	display: inline-block;
-    padding: 10px 15px;
+    padding: var(--relleno_cabecera);
     border: 2px outset rgba(255, 230, 255, 0.4);
     border-radius: 5px;
     cursor: pointer;
