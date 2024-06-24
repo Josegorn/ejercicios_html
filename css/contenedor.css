@@ -32,7 +32,7 @@ div#cuerpo_primario {
 	flex-direction: row;
 }
 #caja_titulo_logo {
-	background-color: color-mix(in sRGB, var(--rosa) 30%, white 70%);
+	background-color: var(--rosa_pastel);
 	padding: var(--relleno_cabecera);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
