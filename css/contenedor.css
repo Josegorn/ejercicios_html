@@ -33,9 +33,8 @@ div#cuerpo_primario {
 	flex-direction: row;
 }
 #caja_titulo_logo {
-    color: var(--violeta);
-    text-shadow: var(--sombra-texto);
-    background-color: var(--gris);
+	background: var(--lavanda);
+	filter:	var(--pastel); 
 	padding: var(--relleno_cabecera);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
@@ -44,6 +43,7 @@ div#cuerpo_primario {
 
 }
 #caja_titulo_logo img {
+	mix-blend-mode: exclusion;
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
