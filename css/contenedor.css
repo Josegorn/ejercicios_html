@@ -35,10 +35,11 @@ div#cuerpo_primario {
     background-color: var(--gris);
 	display: inline-block;
     padding: var(--relleno_cabecera);
-    border: 2px outset rgba(255, 230, 255, 0.4);
-    border-radius: 5px;
+    border: var(--borde_caja);
+    border-radius: var(--radio_caja);
     cursor: pointer;
-    transition: background-color 0.5s;
+    transition: background-color var(--tiempo_fulgor);
+	width: 48px;
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);

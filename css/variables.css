@@ -22,4 +22,8 @@
 	\--color_cabecera: var(--rosa);
 	\--img_cabecera: url("/img/cabecera.webp");
 	\--fuente_cabecera: 20px;
+	\--borde_caja: 2px outset rgba(255, 230, 255, 0.4);
+	\--radio_caja: 5px;
+	/* Transiciones */
+	\--tiempo_fulgor: 500ms;
 }
