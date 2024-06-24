@@ -1,7 +1,8 @@
 ﻿// 🔴 Inicialización
 import { DIC } from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON, HOME } from "/img/iconos.js";
+import { FAVICON } from "/img/iconos.js";
+import { HOME } from "/img/iconos.js";
 
 // 🔴Tamaño del boton secundario
 //const ALTURA_BOTON = 45;

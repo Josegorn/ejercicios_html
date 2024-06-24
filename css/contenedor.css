@@ -36,8 +36,6 @@ div#cuerpo_primario {
     color: var(--violeta);
     text-shadow: var(--sombra-texto);
     background-color: var(--gris);
-    max-height: var(--tamv_caja);
-	width: auto;
 	padding: var(--relleno_cabecera);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
