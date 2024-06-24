@@ -4,7 +4,7 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/img/iconos.js";
 
 // 🔴Tamaño del boton secundario
-const ALTURA_BOTON = 45;
+//const ALTURA_BOTON = 45;
 const ALTURA_SBOTON = 43;
 
 // 🔴 Inicialización
