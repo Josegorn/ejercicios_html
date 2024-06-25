@@ -17,21 +17,24 @@
 	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	\--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
 	/* Maquetación encabezado */
+	\--tamv_img_cabecera: 40px;
 	\--margen_cabecera: 15px 10px 10px 10px;
 	\--relleno_cabecera: 10px;
-	\--relleno_cajas: 5px;
+	\--relleno_imagen: 5px;
+	\--relleno_texto: 5px 20px;
 	\--espaciado_cajas: 10px;
-	/* Detalles cabecera */
-	\--tamv_img_cabecera: 40px;
-	\--tamv_caja_cabecera: 35px;
+	\--tamv_caja_cabecera: 34px;
 	\--tamh_caja_cabecera: var(--tamv_caja_cabecera);
 	\--tam_linea_marco: 5px;
+	/* Detalles cabecera */
 	\--color_cabecera: var(--rosa);
 	\--img_cabecera: url("/img/cabecera.webp");
 	\--fuente_cabecera: 20px;
 	\--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
 	\--radio_caja: 6px;
-	\--tam_logo: 35px;
+	\--tam_logo: 34px;
+	/* Maquetación pié */
+	\--tamv_pie: 50px;
 	/* Transiciones */
 	\--fulgor: blur(0.5px) brightness(1.1) hue-rotate(60deg);
 	\--tiempo_fulgor: 500ms;

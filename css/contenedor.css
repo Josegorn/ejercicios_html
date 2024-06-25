@@ -33,15 +33,19 @@ div#cuerpo_primario {
 	column-gap: var(--espaciado_cajas);
 }
 #titulo>div {
-	vertical-align: middle;
-	padding: var(--relleno_cajas);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	height: var(--tamv_caja_cabecera);
 }
 #caja_titulo_logo {
 	background-color: var(--lavanda_pastel);
-    cursor: pointer;
     transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
+	width: var(--tamh_caja_cabecera);
+	padding: var(--relleno_imagen);
+	cursor: pointer;
 	filter: none;
 }
 #caja_titulo_logo svg {
@@ -56,46 +60,44 @@ div#cuerpo_primario {
     color: var(--tinto);
     text-shadow: var(--sombra_texto);
     background-color: var(--rosa_pastel);
+	padding: var(--relleno_texto);
 }
 #caja_titulo_nombre {
     color: var(--azul);
     text-shadow: var(--sombra_texto);
     background-color: var(--lavanda_pastel);
+	padding: var(--relleno_texto);
 }
 /* 🟠CUERPO */
-main#mainframe {
+#mainframe {
+	height: auto;
+    width: 100%;
 	display: flex;   
     flex: 1;
-    height: auto;
-    width: 100%;
 }
-div#contenido {
-    display: block;
+#contenido {
     height: 100%;
     width: 100%;
-    margin: 0px;
     padding: 0px;
 	flex-grow: 1;
-	
 }
 iframe.frame {
     display: block;
     height: 100%;
     width: 100%;
-    margin: 0px;
     padding: 0px;
     border: none;
 }
 /* 🟠PIÉ */
 footer#pie_pagina {
-    height: 50px;
+    height: var(--tamv_pie);
 	position: relative;
 	bottom: 0px;
     background-repeat: no-repeat;
     background-position: left 0 100%;
-    background-image: url("/img/pie_pagina.png");
-    background-color: rgba(210, 180, 220, 1.00);
-    box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.4);
+    background-image: url("/img/pie_pagina.webp");
+    background-color: var(--lavanda_pastel);
+    box-shadow: var(--sombra_marco);
 }
 /* 🟡MENÚ */
 #sidebar {
