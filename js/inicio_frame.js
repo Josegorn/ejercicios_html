@@ -1,5 +1,5 @@
 ﻿// 🔴 Inicialización
-import { DIC } from "/js/diccionario.js";
+import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/img/iconos.js";
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto("#caja_titulo_nivel", PAG_INDEX.atributos.nivel);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
 	iniciar_menus();
-	loadContent("portada");
+	loadContent(PAG_INDEX.menu_0.pag.portada.ruta);
 })
 // 🔴Insertar texto
 const insertar_texto = function(id, texto) {
@@ -32,14 +32,20 @@ const insertar_favicon = function(id, archivo) {
 const insertar_home = function(id, codigo, ruta) {
 	let contenedor = document.getElementById(id);
 	let parser = new DOMParser();
-	let imagen = parser.parseFromString(codigo, "image/svg+xml");
-	imagen.documentElement.alt = "0";
-	contenedor.appendChild(imagen.documentElement);
-	contenedor.addEventListener("click", function() {
-		loadContent(ruta);
-		toggleSubmenu(DIC.RESET);
-	});
-};
+	let imagen = null;
+	try {
+		imagen = parser.parseFromString(codigo, "image/svg+xml");
+	} catch (error) {
+		throw new SyntaxError("Error parseando el SVG", error.message);
+	} finally {
+		imagen.documentElement.alt = "0";
+		contenedor.appendChild(imagen.documentElement);
+		contenedor.addEventListener("click", function() {
+			loadContent(ruta);
+			toggleSubmenu(DZ.RESET);
+		});
+	}
+}
 // 🔴Reajustar
 window.addEventListener("resize", function() {
 	let cont = document.getElementById('contenido');
@@ -55,24 +61,18 @@ function iniciar_menus() {
 	// 🟢Declaraciones de funciones auxiliares
 	
 	// 🔷Crear botón primario
-	const crear_bonton = function(clase, idb, nombre, submenu) {
+	const crear_bonton = function ({clase, id, nombre, tipo , submenu = null, enlace = null}) {
+		[DZ.]
+		
 		let nodo_boton = document.createElement("button");
 		nodo_boton.className = clase;
-		nodo_boton.id = idb;
+		nodo_boton.id = id;
 		nodo_boton.type = "button";
 		nodo_boton.innerHTML = nombre;
+		
 		nodo_boton.addEventListener("click", function(){
 			toggleSubmenu(submenu);
-		});
-		return nodo_boton;
-	}
-	// 🔷Crear botón secundario
-	const crear_sub_bonton = function(clase, idb, nombre, enlace) {
-		let nodo_boton = document.createElement("button");
-		nodo_boton.className = clase;
-		nodo_boton.id = idb;
-		nodo_boton.type = "button";
-		nodo_boton.innerHTML = nombre;
+		});	
 		nodo_boton.addEventListener("click", function(){
 			loadContent(enlace);
 		});
@@ -110,7 +110,7 @@ function iniciar_menus() {
 function toggleSubmenu(id_sub) {
 	
 	// 🟢Cerrar todos (cado particular)
-    if(id_sub === DIC.RESET) {
+    if(id_sub === DZ.RESET) {
 		document.querySelectorAll(".submenu").forEach(sub => {
 			sub.style.height = "0px";
 		});
