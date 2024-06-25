@@ -99,11 +99,9 @@ footer#pie_pagina {
 /* 🟡MENÚ */
 #sidebar {
 	float: left;
-	width: 250px;
-    padding: 10px;
-	background-repeat: no-repeat;
-    background-position: top;
-    background-image: linear-gradient(to bottom, rgba(240,220,240,1.00), rgba(140,100,140,1.00));
+	width: var(--ancho_panel_menu);
+    padding: var(--relleno_menu);
+    background: var(--degradado_menu);
 	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.4);
 	border-bottom: 2px inset rgba(100,50,100,0.6); 
 	z-index: auto;
