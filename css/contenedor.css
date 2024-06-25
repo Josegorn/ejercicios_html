@@ -38,9 +38,8 @@ div#cuerpo_primario {
     border-radius: var(--radio_caja);
     cursor: pointer;
     transition: background-color var(--tiempo_fulgor);
-	
 }
-#caja_titulo_logo img {
+#caja_titulo_logo svg {
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
