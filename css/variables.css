@@ -45,8 +45,11 @@
 	/* Maquetación del menú */
 	\--relleno_menu: 10px;
 	\--relleno_boton: 8px;
+	\--relleno_submenu: 0px 0px 0px 15px;
 	\--margen_boton: 0px 0px 5px 0px;
 	\--ancho_panel_menu: 250px;
+	\--tamv_submenu: 38px;
+	\--tamh_submenu: 233px;
 	/* Detalles del menú */
 	\--degradado_menu: linear-gradient(to bottom, var(--lavanda_pastel), var(--indigo_pastel)) top no-repeat;
 	\--borde_panel: 2px var(--lavanda);
@@ -54,10 +57,16 @@
 	\--borde_boton: 2px inset var(--violeta);
 	\--boton_radio: 5px;
 	\--fuente_boton: 18px;
+	\--fuente_submenu: 16px;
+	\--color_submenu: var(--purpura);
+	\--borde_submenu: 2px inset var(--rosa);
 	/* Transiciones */
 	\--tiempo_fulgor: 500ms;
+	\--tiempo_menu: 400ms;
 	\--fulgor_caja: blur(0.5px) brightness(1.1) hue-rotate(60deg);
 	\--alfa_fulgor_caja: 0.7;
 	\--fulgor_boton: blur(0.2px) brightness(1.8) hue-rotate(80deg);
 	\--alfa_fulgor_boton: 0.8;
+	\--fulgor_submenu: blur(0.2px) brightness(1.8) hue-rotate(80deg);
+	\--alfa_fulgor_submenu: 0.8;
 }

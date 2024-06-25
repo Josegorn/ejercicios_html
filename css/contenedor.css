@@ -132,24 +132,22 @@ button.boton-menu {
 .submenu {
     display: block;
 	overflow: hidden;
-    padding-left: 15px;
-	transition: 400ms ease-in-out;
+    padding: var(--relleno_submenu);
+	transition: var(--tiempo_menu) ease-in-out;
 }
 button.boton-submenu {
-	font-size: 16px;
-	color: rgba(224,224,224,1.00);
-	height: 38px;
-    width: 233px;
- 	background-color: rgba(170,60,120,1.00);
-	border: 2px outset rgba(240,110,200,0.4);
-	transition: background-color 0.5s; 
+	font-size: var(--fuente_submenu);
+	color: var(--gris_pastel);
+	height: var(--tamv_submenu);
+    width: var(--tamh_submenu);
+ 	background-color: var(--color_submenu);
+	border: var(--borde_submenu);
+	transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
+	filter: none;
 }
 .boton-submenu:hover {
-	color: rgba(240,240,240,1.00);
-	background-color: rgba(210,100,160,1.00);
+	filter: var(--fulgor_submenu);
+	opacity: var(--alfa_fulgor_submenu);
 }
-.boton-submenu:active {
-	color: rgba(240,200,200,1.00);
-	background-color: rgba(250,100,160,1.00);
-}
+
 
