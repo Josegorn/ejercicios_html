@@ -46,7 +46,7 @@ div#cuerpo_primario {
 	width: var(--tam_logo);
 }
 #caja_titulo_logo:hover {
-	filter: blur(2px) brightness(1.1) saturate(1.5) custom(0px 0px 2px 2px cyan);
+	filter: var(--fulgor);
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);

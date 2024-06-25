@@ -28,5 +28,6 @@
 	\--radio_caja: 6px;
 	\--tam_logo: 35px;
 	/* Transiciones */
+	\--fulgor: blur(0.2px) brightness(1.30) saturate(2) drop-shadow(16px 16px 20px var(--rojo));
 	\--tiempo_fulgor: 500ms;
 }

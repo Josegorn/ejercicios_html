@@ -11,7 +11,7 @@ const ALTURA_SBOTON = 43;
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	insertar_favicon("favicon", FAVICON);	
-	insertar_svg("caja_titulo_logo", HOME);
+	insertar_home("caja_titulo_logo", HOME, PAG_INDEX.menu_0.pag.portada.ruta);
 	iniciar_menus();
 	loadContent("portada");
 })
@@ -20,13 +20,17 @@ const insertar_favicon = function(id, archivo) {
 	let link = document.getElementById(id);
 	link.href = archivo;
 }
-// 🔴Insertar SVG
-const insertar_svg = function(id, codigo) {
+// 🔴Botón HOME
+const insertar_home = function(id, codigo, ruta) {
 	let contenedor = document.getElementById(id);
 	let parser = new DOMParser();
 	let imagen = parser.parseFromString(codigo, "image/svg+xml");
 	imagen.documentElement.alt = "svg";
 	contenedor.appendChild(imagen.documentElement);
+	contenedor.addEventListener("click", function() {
+		loadContent(ruta);
+		toggleSubmenu(DIC.RESET);
+	});
 };
 // 🔴Reajustar
 window.addEventListener("resize", function() {
@@ -36,13 +40,6 @@ window.addEventListener("resize", function() {
 
 // 🔴Montar menus
 function iniciar_menus() {
-	
-	// 🟢Bontón HOME
-	let boton_home = document.getElementById("caja_titulo2");
-	boton_home.addEventListener("click", function() {
-		loadContent("portada");
-		toggleSubmenu(DIC.RESET);
-	});
 	
 	// 🟢Nodo padre
 	let menu = document.getElementById("sidebar");
