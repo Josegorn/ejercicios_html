@@ -38,7 +38,6 @@ div#cuerpo_primario {
     border-radius: var(--radio_caja);
     cursor: pointer;
     transition: filter var(--tiempo_fulgor);
-    transition: filter var(--tiempo_fulgor);
 	filter: none;
 }
 #caja_titulo_logo svg {
@@ -47,7 +46,7 @@ div#cuerpo_primario {
 	width: var(--tam_logo);
 }
 #caja_titulo_logo:hover {
-	filter: invert(100%);
+	filter: blur(20px) brightness(4.0) hue-rotate(90deg);
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);
