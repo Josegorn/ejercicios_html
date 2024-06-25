@@ -5,7 +5,6 @@ import { FAVICON, HOME } from "/img/iconos.js";
 
 
 // 🔴Tamaño del boton secundario
-//const ALTURA_BOTON = 45;
 const ALTURA_SBOTON = 43;
 
 // 🔴 Inicialización
@@ -60,50 +59,53 @@ function iniciar_menus() {
 	
 	// 🟢Declaraciones de funciones auxiliares
 	
-	// 🔷Crear botón primario
-	const crear_bonton = function ({clase, id, nombre, tipo , submenu = null, enlace = null}) {
-		[DZ.]
-		
+	// 🔷Crear boton
+	const crear_boton = function (clase, id, texto, tipo , submenu = undefined, enlace = undefined) {
+		let funcion_final;
+		switch(tipo){
+			case DZ.TIPO_BOTON:
+				if(submenu.isUndefined){ throw new SyntaxError("Error: Submenú no definido"); }
+				funcion_final = (nodo) => {
+					nodo.addEventListener("click", function(){
+						toggleSubmenu(submenu); 
+					});
+				}
+				break;
+			case DZ.TIPO_SUBBOTON:
+				if(enlace.isUndefined){ throw new SyntaxError("Error: Enlace no definido"); }
+				funcion_final = (nodo) => { 
+					nodo.addEventListener("click", function(){
+						loadContent(enlace);
+					});
+				}
+				break;
+			default:
+				throw new SyntaxError("Error: Tipo no definido");					  
+		}	
 		let nodo_boton = document.createElement("button");
 		nodo_boton.className = clase;
 		nodo_boton.id = id;
 		nodo_boton.type = "button";
-		nodo_boton.innerHTML = nombre;
-		
-		nodo_boton.addEventListener("click", function(){
-			toggleSubmenu(submenu);
-		});	
-		nodo_boton.addEventListener("click", function(){
-			loadContent(enlace);
-		});
+		nodo_boton.innerHTML = texto;
+		funcion_final(nodo_boton);
 		return nodo_boton;
 	}
 	// 🔷Crear botón submenu
-	const crear_menu =function(clase, idm) {
+	const crear_menu =function(clase, id) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
-		nodo_submenu.id = idm;
+		nodo_submenu.id = id;
 		nodo_submenu.style.height = "0px";
 		return nodo_submenu;
 	}	
-	// 🟢Menú prologo
-	let submenu_prologo = crear_menu("submenu", "submenu0");
-	menu.appendChild(crear_bonton("boton-menu", "boton0", "Introducción", "submenu0"));
-	submenu_prologo.appendChild(crear_sub_bonton("boton-submenu", "suboton0_1", PAG_INDEX["intro_1"]["titulo"], "intro_1"));
-	submenu_prologo.appendChild(crear_sub_bonton("boton-submenu", "suboton0_2", PAG_INDEX["intro_2"]["titulo"], "intro_2"));
-	submenu_prologo.appendChild(crear_sub_bonton("boton-submenu", "suboton0_3", PAG_INDEX["intro_3"]["titulo"], "intro_3"));
-	submenu_prologo.appendChild(crear_sub_bonton("boton-submenu", "suboton0_4", PAG_INDEX["intro_4"]["titulo"], "intro_4"));
-	menu.appendChild(submenu_prologo);
-
-	// 🟢Menú de las prácticas
-	for ( let i = 1; i <= 9; i++ ) {
-		let submenu_actual = crear_menu("submenu", "submenu"+i );
-		menu.appendChild(crear_bonton("boton-menu", "boton"+i, "Práctica "+i, "submenu"+i));   
-		submenu_actual.appendChild(crear_sub_bonton("boton-submenu", "sboton"+i+"_1", PAG_INDEX["practica_"+i]["titulo"], "practica_"+i));
-		submenu_actual.appendChild(crear_sub_bonton("boton-submenu", "sboton"+i+"_2", PAG_INDEX["teo_"+i]["titulo"], "teo_"+i));
-		submenu_actual.appendChild(crear_sub_bonton("boton-submenu", "sboton"+i+"_3", PAG_INDEX["eje_"+i]["titulo"], "eje_"+i));
-		menu.appendChild(submenu_actual);
-	} 
+	// 🟢Menú 
+	for(let n = 0, i = 1; PAG_INDEX[i].isDefined; i++ & n++ ){
+		let submenu = crear_menu("submenu", "submenu"+n);
+		menu.appendChild(crear_boton( "boton-menu", "boton"+n, PAG_INDEX[i].titulo, DZ.TIPO_BOTON, "submenu"+n, undefined ));								 
+		for(let j = 0; PAG_INDEX[i].pag[j].isDefinede; j++){
+			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, PAG_INDEX[i].pag[j].ruta));
+		}
+		menu.appendChild(submenu);
 }
 
 // 🔴Manipular menú
@@ -167,3 +169,8 @@ function redim_iframe(contenido, continente) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
+	
+	
+	
+	
+;	
