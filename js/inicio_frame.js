@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto("#caja_titulo_nivel", PAG_INDEX.atributos.nivel);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
 	iniciar_menus();
-	loadContent(PAG_INDEX.menu_0.pag.portada.ruta);
+	loadContent("portada", PAG_INDEX.menu_0.pag.portada.ruta);
 })
 // 🔴Insertar texto
 const insertar_texto = function(id, texto) {
@@ -99,14 +99,15 @@ function iniciar_menus() {
 		return nodo_submenu;
 	}	
 	// 🟢Menú 
-	for(let n = 0, i = 1; PAG_INDEX[i].isDefined; i++ & n++ ){
+	for(let n = 0, i = 1; PAG_INDEX[i] ; i++ , n++ ){
 		let submenu = crear_menu("submenu", "submenu"+n);
-		menu.appendChild(crear_boton( "boton-menu", "boton"+n, PAG_INDEX[i].titulo, DZ.TIPO_BOTON, "submenu"+n, undefined ));								 
-		for(let j = 0; PAG_INDEX[i].pag[j].isDefinede; j++){
-			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, PAG_INDEX[i].pag[j].ruta));
+		menu.appendChild(crear_boton( "boton-menu", "boton"+n, PAG_INDEX[i].titulo, DZ.TIPO_BOTON, submenu, undefined ));								 
+		for(let j = 0; PAG_INDEX[i].pag[j] ; j++){
+			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, DZ.TIPO_SUBBOTON, undefined, PAG_INDEX[i].pag[j].ruta));
 		}
 		menu.appendChild(submenu);
 	}
+	
 }
 // 🔴Manipular menú
 function toggleSubmenu(id_sub) {
@@ -141,12 +142,12 @@ function toggleSubmenu(id_sub) {
 	})
 }
 // 🔴Cargar subpágina
-function loadContent(pagId) {
+function loadContent(id, ruta) {
 
     let nodo = document.createElement('iframe');
-	nodo.src = PAG_INDEX[pagId]["ruta"];
+	nodo.src = ruta;
 	nodo.className = "frame";
-	nodo.Id = pagId;
+	nodo.Id = id;
 	nodo.title = "Frame_Interior";
 	
 	let recipiente = document.getElementById('contenido');

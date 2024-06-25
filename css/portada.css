@@ -12,7 +12,7 @@ body {
 	height: 100%;
 	padding: 20px;
 	border: 3px outset rgba(200,100,200,0.4) ;
-	background: url("/img/fondo_titulo.png") no-repeat 50% bottom;
+	background: url("/img/fondo_titulo.webp") no-repeat 50% bottom;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 	margin-bottom: 25px;
 }
