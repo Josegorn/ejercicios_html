@@ -40,7 +40,7 @@ div#cuerpo_primario {
     transition: background-color var(--tiempo_fulgor);
 }
 #caja_titulo_logo svg {
-	mix-blend-mode: darken;
+	mix-blend-mode: screen;
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
