@@ -106,8 +106,8 @@ function iniciar_menus() {
 			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, PAG_INDEX[i].pag[j].ruta));
 		}
 		menu.appendChild(submenu);
+	}
 }
-
 // 🔴Manipular menú
 function toggleSubmenu(id_sub) {
 	
@@ -115,8 +115,8 @@ function toggleSubmenu(id_sub) {
     if(id_sub === DZ.RESET) {
 		document.querySelectorAll(".submenu").forEach(sub => {
 			sub.style.height = "0px";
-		});
-		return void 0;
+		})
+		return DZ.RESET;
 	}
 	// 🟢Abrir un menú, cerrar los demás
 	
@@ -169,8 +169,3 @@ function redim_iframe(contenido, continente) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
-	
-	
-	
-	
-;	
