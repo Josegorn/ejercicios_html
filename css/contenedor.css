@@ -102,19 +102,19 @@ footer#pie_pagina {
 	width: var(--ancho_panel_menu);
     padding: var(--relleno_menu);
     background: var(--degradado_menu);
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.4);
-	border-bottom: 2px inset rgba(100,50,100,0.6); 
+	box-shadow: var(--sombra_panel);
+	border-bottom: var(--borde_boton);
 	z-index: auto;
 }
 button{
 	font-family: Eras, Arial;
 	text-align: right;
-	text-shadow: -1px -1px 2px rgba(0,0,0,0.5);
 	display: block;
-	margin-bottom: 5px;
-	border-radius: 5px;
+	text-shadow: var(--sombra_texto);
+	border-radius: var(--boton_radio);
 	cursor: pointer;
-	position: relative;
+	/*position: relative;*/
+	margin-bottom: 5px;
 	padding: 8px;
 }
 button.boton-menu {
