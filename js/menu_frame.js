@@ -25,7 +25,7 @@ const insertar_home = function(id, codigo, ruta) {
 	let contenedor = document.getElementById(id);
 	let parser = new DOMParser();
 	let imagen = parser.parseFromString(codigo, "image/svg+xml");
-	imagen.documentElement.alt = "svg";
+	imagen.documentElement.alt = "0";
 	contenedor.appendChild(imagen.documentElement);
 	contenedor.addEventListener("click", function() {
 		loadContent(ruta);
