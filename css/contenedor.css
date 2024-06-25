@@ -37,16 +37,17 @@ div#cuerpo_primario {
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
     cursor: pointer;
-    transition: background-color var(--tiempo_fulgor);
+    transition: filter var(--tiempo_fulgor);
+    transition: filter var(--tiempo_fulgor);
+	filter: none;
 }
 #caja_titulo_logo svg {
-	mix-blend-mode: overlay;
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
 }
 #caja_titulo_logo:hover {
-    mix-blend-mode: overlay;
+	filter: invert(100%);
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);
