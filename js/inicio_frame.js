@@ -99,13 +99,15 @@ function iniciar_menus() {
 		return nodo_submenu;
 	}	
 	// 🟢Menú 
-	for(let n = 0, i = 1; PAG_INDEX[i] ; i++ , n++ ){
+	let n = 0;
+	for(let i = 1; PAG_INDEX[i] ; i++ ){
 		let submenu = crear_menu("submenu", "submenu"+n);
 		menu.appendChild(crear_boton( "boton-menu", "boton"+n, PAG_INDEX[i].titulo, DZ.TIPO_BOTON, submenu, undefined ));								 
 		for(let j = 0; PAG_INDEX[i].pag[j] ; j++){
 			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, DZ.TIPO_SUBBOTON, undefined, PAG_INDEX[i].pag[j].ruta));
 		}
 		menu.appendChild(submenu);
+		n++;
 	}
 	
 }
