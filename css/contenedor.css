@@ -30,6 +30,7 @@ div#cuerpo_primario {
 	white-space: nowrap;
 	display: flex;
 	flex-direction: row;
+	column-gap: var(--espaciado_cajas);
 }
 #caja_titulo_logo {
 	background-color: var(--lavanda_pastel);
@@ -37,7 +38,7 @@ div#cuerpo_primario {
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
     cursor: pointer;
-    transition: filter var(--tiempo_fulgor);
+    transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
 	filter: none;
 }
 #caja_titulo_logo svg {
@@ -47,30 +48,25 @@ div#cuerpo_primario {
 }
 #caja_titulo_logo:hover {
 	filter: var(--fulgor);
+	opacity: var(--alfa_fulgor);
 }
 #caja_titulo_nivel {
-    color: rgba(140, 0, 50, 1.00);
-    text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);
-    display: inline-block;
-    background-color: rgba(240, 180, 215, 1.00);
-    border: 2px outset rgba(255, 195, 230, 0.4);
-    border-radius: 5px;
-    padding: 10px;
-	margin-left: 30px;
+    color: var(--tinto);
+    text-shadow: var(--sombra_texto);
+    vertical-align: middle;
+    background-color: var(--rosa_pastel);
+    border: var(--borde_caja);
+    border-radius: var(--radio_caja);
+    padding: var(--relleno_cabecera);
 }
 #caja_titulo_nombre {
-    color: rgba(80, 0, 90, 1.0);
-    text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3);
-    display: inline-block;
-    background-color: rgba(240, 215, 240, 1.00);
-    padding: 10px 15px;
-    border: 2px outset rgba(255, 230, 255, 0.4);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.5s;
+    color: var(--azul);
+    text-shadow: var(--sombra_texto);
+    background-color: var(--lavanda_pastel);
+    padding: var(--relleno_cabecera);
+    border: var(--borde_caja);
+    border-radius: var(--radio_caja);
 }
-
-
 /* 🟠CUERPO */
 main#mainframe {
 	display: flex;   

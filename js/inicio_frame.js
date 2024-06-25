@@ -10,11 +10,19 @@ const ALTURA_SBOTON = 43;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
+	insertar_texto("head>title", PAG_INDEX.atributos.descripcion);
 	insertar_favicon("favicon", FAVICON);	
 	insertar_home("caja_titulo_logo", HOME, PAG_INDEX.menu_0.pag.portada.ruta);
+	insertar_texto("#caja_titulo_nivel", PAG_INDEX.atributos.nivel);
+	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
 	iniciar_menus();
 	loadContent("portada");
 })
+// 🔴Insertar texto
+const insertar_texto = function(id, texto) {
+	let contenedor = document.querySelector(id);
+	contenedor.innerHTML = texto;
+}
 // 🔴Insertar favicon
 const insertar_favicon = function(id, archivo) {
 	let link = document.getElementById(id);

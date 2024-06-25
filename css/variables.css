@@ -12,12 +12,14 @@
 	\--marino: 	rgba(10, 	10, 	30,  1);
 	/* Mezclas */
 	\--lavanda_pastel: color-mix(in srgb, var(--lavanda) 30%, white);
+	\--rosa_pastel: color-mix(in srgb, var(--rosa) 30%, white);
 	/* Sombras */
 	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	\--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
 	/* Maquetación encabezado */
 	\--margen_cabecera: 15px 10px 10px 10px;
-	\--relleno_cabecera: 5px;
+	\--relleno_cabecera: 10px;
+	\--espaciado_cajas: 10px;
 	/* Detalles cabecera */
 	\--tamv_img_cabecera: 30px;
 	\--tam_linea_marco: 5px;
@@ -28,6 +30,7 @@
 	\--radio_caja: 6px;
 	\--tam_logo: 35px;
 	/* Transiciones */
-	\--fulgor: blur(0.2px) brightness(1.30) saturate(2) drop-shadow(16px 16px 20px var(--rojo));
+	\--fulgor: blur(0.5px) brightness(1.1) hue-rotate(60deg);
 	\--tiempo_fulgor: 500ms;
+	\--alfa_fulgor:	0.70;
 }
