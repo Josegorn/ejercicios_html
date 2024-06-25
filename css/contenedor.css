@@ -40,9 +40,13 @@ div#cuerpo_primario {
     transition: background-color var(--tiempo_fulgor);
 }
 #caja_titulo_logo svg {
+	mix-blend-mode: darken;
 	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
+}
+#caja_titulo_logo:hover {
+    mix-blend-mode: overlay;
 }
 #caja_titulo_nivel {
     color: rgba(140, 0, 50, 1.00);
@@ -65,9 +69,7 @@ div#cuerpo_primario {
     cursor: pointer;
     transition: background-color 0.5s;
 }
-#caja_titulo_logo:hover {
-    background-color: rgba(255, 200, 200, 1.00);
-}
+
 
 /* 🟠CUERPO */
 main#mainframe {
