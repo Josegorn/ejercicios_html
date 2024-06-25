@@ -60,56 +60,51 @@ function iniciar_menus() {
 	// 🟢Declaraciones de funciones auxiliares
 	
 	// 🔷Crear boton
-	const crear_boton = function (clase, id, texto, tipo , submenu = undefined, enlace = undefined) {
-		let funcion_final;
-		switch(tipo){
-			case DZ.TIPO_BOTON:
-				if(submenu.isUndefined){ throw new SyntaxError("Error: Submenú no definido"); }
-				funcion_final = (nodo) => {
-					nodo.addEventListener("click", function(){
-						toggleSubmenu(submenu); 
-					});
-				}
-				break;
-			case DZ.TIPO_SUBBOTON:
-				if(enlace.isUndefined){ throw new SyntaxError("Error: Enlace no definido"); }
-				funcion_final = (id, nodo) => { 
-					nodo.addEventListener("click", function(){
-						loadContent(id, enlace);
-					});
-				}
-				break;
-			default:
-				throw new SyntaxError("Error: Tipo no definido");					  
-		}	
+	const crear_boton = function ({clase, id, texto, tipo , submenu = null, enlace = null}) {
+		const tipos = [DZ.TIPO_BOTON, DZ.TIPO_SUBBOTON]; 
+		if(!tipos.includes(tipo)){
+			throw new SyntaxError("Error: Submenú no definido");
+		}
 		let nodo_boton = document.createElement("button");
 		nodo_boton.className = clase;
 		nodo_boton.id = id;
-		nodo_boton.type = "button";
 		nodo_boton.innerHTML = texto;
-		funcion_final(nodo_boton);
+		nodo_boton.type = "button";
+		if(tipo === DZ.TIPO_BOTON){
+			nodo_boton.addEventListener("click", function(){
+					toggleSubmenu(submenu);
+			})
+		}
+		if(tipo === DZ.TIPO_SUBBOTON){
+			nodo_boton.addEventListener("click", function(){
+					loadContent(id, enlace);
+			})
+		}	
 		return nodo_boton;
 	}
 	// 🔷Crear botón submenu
-	const crear_menu =function(clase, id) {
+	const crear_menu = function({clase, id}) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
 		nodo_submenu.id = id;
 		nodo_submenu.style.height = "0px";
 		return nodo_submenu;
 	}	
-	// 🟢Menú 
-	let n = 0;
-	for(let i = 1; PAG_INDEX[i] ; i++ ){
-		let submenu = crear_menu("submenu", "submenu"+n);
-		menu.appendChild(crear_boton( "boton-menu", "boton"+n, PAG_INDEX[i].titulo, DZ.TIPO_BOTON, submenu, undefined ));								 
-		for(let j = 0; PAG_INDEX[i].pag[j] ; j++){
-			submenu.appendChild(crear_boton("boton-submenu", "suboton"+n+"_"+j, PAG_INDEX[i].pag[j].titulo, DZ.TIPO_SUBBOTON, undefined, PAG_INDEX[i].pag[j].ruta));
-		}
-		menu.appendChild(submenu);
-		n++;
-	}
+	// 🟢Menú
 	
+	
+	
+	for(let i = 1; i < PAG_INDEX.length ; i++ ){
+		let n= i - 1;
+		let nuevo_submenu = crear_menu({clase:"submenu", 
+										id:"submenu"+n});
+		menu.appendChild(crear_boton( {clase: "boton-menu", id: "boton"+n, texto: PAG_INDEX[i].titulo, tipo: DZ.TIPO_BOTON, submenu: nuevo_submenu }));								 
+		
+		for(let j = 0; j < PAG_INDEX[i].pag.length ; j++){
+			nuevo_submenu.appendChild(crear_boton({clase: "boton-submenu", id: "suboton"+n+"_"+j, texto: PAG_INDEX[i].pag[j].titulo, tipo: DZ.TIPO_SUBBOTON, ruta: PAG_INDEX[i].pag[j].ruta}));
+		}
+		menu.appendChild(nuevo_submenu);
+	}
 }
 // 🔴Manipular menú
 function toggleSubmenu(id_sub) {
