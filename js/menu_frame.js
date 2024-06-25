@@ -10,8 +10,8 @@ const ALTURA_SBOTON = 43;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
-	insertar_favicon("favicon", FAVICON);
-	insertar_imagen("caja_titulo_logo", HOME);
+	insertar_favicon("favicon", FAVICON);	
+	insertar_svg("caja_titulo_logo", HOME);
 	iniciar_menus();
 	loadContent("portada");
 })
@@ -20,13 +20,13 @@ const insertar_favicon = function(id, archivo) {
 	let link = document.getElementById(id);
 	link.href = archivo;
 }
-// 🔴Insertar imagen
-const insertar_imagen = function(id, archivo) {
+// 🔴Insertar SVG
+const insertar_svg = function(id, codigo) {
 	let contenedor = document.getElementById(id);
-	let imagen = document.createElement("img");
-	imagen.src = archivo;
-	imagen.atl = "logo"
-	contenedor.appendChild(imagen);
+	let parser = new DOMParser();
+	let imagen = parser.parseFromString(codigo, "image/svg+xml");
+	imagen.documentElement.alt = "svg";
+	contenedor.appendChild(imagen.documentElement);
 };
 // 🔴Reajustar
 window.addEventListener("resize", function() {
