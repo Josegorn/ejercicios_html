@@ -33,12 +33,12 @@ div#cuerpo_primario {
 	column-gap: var(--espaciado_cajas);
 }
 #titulo>div {
-    border: var(--borde_caja);
-    border-radius: var(--radio_caja);
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
 	height: var(--tamv_caja_cabecera);
+	border: var(--borde_caja);
+    border-radius: var(--radio_caja);
 }
 #caja_titulo_logo {
 	background-color: var(--lavanda_pastel);
@@ -53,8 +53,8 @@ div#cuerpo_primario {
 	width: var(--tam_logo);
 }
 #caja_titulo_logo:hover {
-	filter: var(--fulgor);
-	opacity: var(--alfa_fulgor);
+	filter: var(--fulgor_caja);
+	opacity: var(--alfa_fulgor_caja);
 }
 #caja_titulo_nivel {
     color: var(--tinto);
@@ -103,7 +103,7 @@ footer#pie_pagina {
     padding: var(--relleno_menu);
     background: var(--degradado_menu);
 	box-shadow: var(--sombra_panel);
-	border-bottom: var(--borde_boton);
+	border-bottom: var(--borde_panel);
 	z-index: auto;
 }
 button{
@@ -111,28 +111,23 @@ button{
 	text-align: right;
 	display: block;
 	text-shadow: var(--sombra_texto);
+	margin: var(--margen_boton);
+	padding: var(--relleno_boton);
 	border-radius: var(--boton_radio);
 	cursor: pointer;
-	/*position: relative;*/
-	margin-bottom: 5px;
-	padding: 8px;
 }
 button.boton-menu {
-	font-size: 18px;
-	letter-spacing: 1px;
-	color: rgba(224,224,224,1.00);
-	width: 250px;
-	background-color: rgba(100,50,140,1.00);
-	border: 2px outset rgba(150,100,190,0.4);
-	transition: background-color 0.5s;
+	min-width: 100%;
+	font-size: var(--fuente_boton);
+	color: var(--gris_pastel);
+	border: var(--borde_boton);
+	background-color: var(--indigo_oscuro);
+	transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
+	filter: none;
 }
 .boton-menu:hover {
-	color: rgba(240,240,240,1.00);
-	background-color: rgba(140,90,180,1.00);
-}
-.boton-menu:active {
-	color: rgba(240,200,200,1.00);
-	background-color: rgba(180,90,180,1.00);
+	filter: var(--fulgor_boton);
+	opacity: var(--alfa_fulgor_boton);
 }
 .submenu {
     display: block;
