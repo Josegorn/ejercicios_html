@@ -1,5 +1,5 @@
-const DIC = Object.freeze({ 
+export const DIC = Object.freeze({ 
 	RESET:	Symbol("RESET"),
 	ERROR:	Symbol("ERROR"),
 })
-export { DIC };
+

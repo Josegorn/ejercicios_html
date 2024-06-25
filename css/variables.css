@@ -11,7 +11,7 @@
 	\--azul: 	rgba(20, 	20, 	70,  1);
 	\--marino: 	rgba(10, 	10, 	30,  1);
 	/* Mezclas */
-	\--lavanda_pastel: color-mix(in srgb, var(--lavanda) 70%, white);
+	\--lavanda_pastel: color-mix(in srgb, var(--lavanda) 30%, white);
 	/* Sombras */
 	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	\--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
