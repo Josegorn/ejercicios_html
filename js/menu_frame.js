@@ -1,8 +1,7 @@
 ﻿// 🔴 Inicialización
 import { DIC } from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON } from "/img/iconos.js";
-import { HOME } from "/img/iconos.js";
+import { FAVICON, HOME } from "/img/iconos.js";
 
 // 🔴Tamaño del boton secundario
 //const ALTURA_BOTON = 45;
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_imagen("caja_titulo_logo", HOME);
 	iniciar_menus();
 	loadContent("portada");
-})
+});
 // 🔴Insertar favicon
 const insertar_favicon = function(id, archivo) {
 	let link = document.getElementById(id);
