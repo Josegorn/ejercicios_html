@@ -35,6 +35,9 @@
 	\--tam_logo: 34px;
 	/* Maquetación pié */
 	\--tamv_pie: 50px;
+	\--img_pie: url("/img/pie_pagina.webp");
+	/* Detalles pie */
+	\--color_pie: var(--lavanda_pastel);
 	/* Transiciones */
 	\--fulgor: blur(0.5px) brightness(1.1) hue-rotate(60deg);
 	\--tiempo_fulgor: 500ms;

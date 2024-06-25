@@ -93,10 +93,7 @@ footer#pie_pagina {
     height: var(--tamv_pie);
 	position: relative;
 	bottom: 0px;
-    background-repeat: no-repeat;
-    background-position: left 0 100%;
-    background-image: url("/img/pie_pagina.webp");
-    background-color: var(--lavanda_pastel);
+    background: var(--color_pie) var(--img_pie) left no-repeat;
     box-shadow: var(--sombra_marco);
 }
 /* 🟡MENÚ */
