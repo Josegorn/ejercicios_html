@@ -73,9 +73,9 @@ function iniciar_menus() {
 				break;
 			case DZ.TIPO_SUBBOTON:
 				if(enlace.isUndefined){ throw new SyntaxError("Error: Enlace no definido"); }
-				funcion_final = (nodo) => { 
+				funcion_final = (id, nodo) => { 
 					nodo.addEventListener("click", function(){
-						loadContent(enlace);
+						loadContent(id, enlace);
 					});
 				}
 				break;
