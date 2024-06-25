@@ -32,17 +32,19 @@ div#cuerpo_primario {
 	flex-direction: row;
 	column-gap: var(--espaciado_cajas);
 }
-#caja_titulo_logo {
-	background-color: var(--lavanda_pastel);
-	padding: var(--relleno_cabecera);
+#titulo>div {
+	vertical-align: middle;
+	padding: var(--relleno_cajas);
     border: var(--borde_caja);
     border-radius: var(--radio_caja);
+}
+#caja_titulo_logo {
+	background-color: var(--lavanda_pastel);
     cursor: pointer;
     transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
 	filter: none;
 }
 #caja_titulo_logo svg {
-	vertical-align: middle;
 	height: var(--tam_logo);
 	width: var(--tam_logo);
 }
@@ -53,19 +55,12 @@ div#cuerpo_primario {
 #caja_titulo_nivel {
     color: var(--tinto);
     text-shadow: var(--sombra_texto);
-    vertical-align: middle;
     background-color: var(--rosa_pastel);
-    border: var(--borde_caja);
-    border-radius: var(--radio_caja);
-    padding: var(--relleno_cabecera);
 }
 #caja_titulo_nombre {
     color: var(--azul);
     text-shadow: var(--sombra_texto);
     background-color: var(--lavanda_pastel);
-    padding: var(--relleno_cabecera);
-    border: var(--borde_caja);
-    border-radius: var(--radio_caja);
 }
 /* 🟠CUERPO */
 main#mainframe {

@@ -19,14 +19,17 @@
 	/* Maquetación encabezado */
 	\--margen_cabecera: 15px 10px 10px 10px;
 	\--relleno_cabecera: 10px;
+	\--relleno_cajas: 5px;
 	\--espaciado_cajas: 10px;
 	/* Detalles cabecera */
-	\--tamv_img_cabecera: 30px;
+	\--tamv_img_cabecera: 40px;
+	\--tamv_caja_cabecera: 35px;
+	\--tamh_caja_cabecera: var(--tamv_caja_cabecera);
 	\--tam_linea_marco: 5px;
 	\--color_cabecera: var(--rosa);
 	\--img_cabecera: url("/img/cabecera.webp");
 	\--fuente_cabecera: 20px;
-	\--borde_caja: 2px outset rgba(255, 230, 255, 0.4);
+	\--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
 	\--radio_caja: 6px;
 	\--tam_logo: 35px;
 	/* Transiciones */
