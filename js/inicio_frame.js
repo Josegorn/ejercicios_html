@@ -70,12 +70,12 @@ function iniciar_menus() {
 		nodo_boton.id = id;
 		nodo_boton.innerHTML = texto;
 		nodo_boton.type = "button";
-		if(tipo == DZ.TIPO_BOTON){
+		if(tipo === DZ.TIPO_BOTON.keyFor()){
 			nodo_boton.addEventListener("click", function(){
 					toggleSubmenu(submenu);
 			})
 		}
-		if(tipo == DZ.TIPO_SUBBOTON){
+		if(tipo === DZ.TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
 					loadContent(id, enlace);
 			})
@@ -107,7 +107,7 @@ function iniciar_menus() {
 function toggleSubmenu(id_sub) {
 	
 	// 🟢Cerrar todos (cado particular)
-    if(id_sub == DZ.RESET) {
+    if(id_sub === DZ.RESET) {
 		document.querySelectorAll(".submenu").forEach(sub => {
 			sub.style.height = "0px";
 		})
