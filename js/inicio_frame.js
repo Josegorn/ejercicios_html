@@ -70,12 +70,12 @@ function iniciar_menus() {
 		nodo_boton.id = id;
 		nodo_boton.innerHTML = texto;
 		nodo_boton.type = "button";
-		if(tipo === DZ.TIPO_BOTON){
+		if(tipo == DZ.TIPO_BOTON){
 			nodo_boton.addEventListener("click", function(){
 					toggleSubmenu(submenu);
 			})
 		}
-		if(tipo === DZ.TIPO_SUBBOTON){
+		if(tipo == DZ.TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
 					loadContent(id, enlace);
 			})
@@ -91,9 +91,6 @@ function iniciar_menus() {
 		return nodo_submenu;
 	}	
 	// 🟢Menú
-	
-	
-	
 	for(let i = 1; i < PAG_INDEX.length ; i++ ){
 		let n= i - 1;
 		let nuevo_submenu = crear_menu({clase:"submenu", 
@@ -110,11 +107,11 @@ function iniciar_menus() {
 function toggleSubmenu(id_sub) {
 	
 	// 🟢Cerrar todos (cado particular)
-    if(id_sub === DZ.RESET) {
+    if(id_sub == DZ.RESET) {
 		document.querySelectorAll(".submenu").forEach(sub => {
 			sub.style.height = "0px";
 		})
-		return DZ.RESET;
+		return 0;
 	}
 	// 🟢Abrir un menú, cerrar los demás
 	
@@ -141,24 +138,24 @@ function toggleSubmenu(id_sub) {
 // 🔴Cargar subpágina
 function loadContent(id, ruta) {
 
-    let nodo = document.createElement('iframe');
-	nodo.src = ruta;
-	nodo.className = "frame";
-	nodo.Id = id;
-	nodo.title = "Frame_Interior";
+    let cuadro = document.createElement('iframe');
+	cuadro.src = ruta;
+	cuadro.className = "frame";
+	cuadro.Id = id;
+	cuadro.title = "Frame_Interior";
 	
 	let recipiente = document.getElementById('contenido');
 	if(recipiente.childElementCount !== 0){
 		recipiente.removeChild(recipiente.firstChild);
 	}
-	recipiente.appendChild(nodo);	
+	recipiente.appendChild(cuadro);	
 	// 🔷Redimensionar al cargar
-	nodo.addEventListener("load", function() {
-		redim_iframe(nodo, recipiente);
+	cuadro.addEventListener("load", function() {
+		redim_iframe(cuadro, recipiente);
 	})
 	// 🔷Redimensionar cuando cambie
-	nodo.addEventListener("resize", function() {
-		redim_iframe(nodo, recipiente);
+	cuadro.addEventListener("resize", function() {
+		redim_iframe(cuadro, recipiente);
 	})
 	
 }
