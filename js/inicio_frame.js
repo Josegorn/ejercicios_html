@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto("#caja_titulo_nivel", PAG_INDEX.atributos.nivel);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
 	iniciar_menus();
-	loadContent("portada", PAG_INDEX.menu_0.pag.portada.ruta);
+	loadContent("portada", PAG_INDEX[1].pag[0].ruta);
 })
 // 🔴Insertar texto
 const insertar_texto = function(id, texto) {
