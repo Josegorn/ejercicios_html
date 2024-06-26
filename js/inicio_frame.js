@@ -80,7 +80,7 @@ function iniciar_menus() {
 		nodo_boton.id = id;
 		nodo_boton.innerHTML = texto;
 		nodo_boton.type = "button";
-		if(tipo === DZ.TIPO_BOTON.keyFor()){
+		if(tipo === DZ.TIPO_BOTON){
 			nodo_boton.addEventListener("click", function(){
 					toggleSubmenu(submenu);
 			})
@@ -128,7 +128,7 @@ function toggleSubmenu(id_sub) {
 	let nodo = document.getElementById(id_sub);
 	
 	// 🔷Números de botones
-	const n = nodo.childElementCount;
+	const n = nodo.childElementCount();
 	
 	// 🔷Tamaño final del submenú
 	let altura = n * ALTURA_SBOTON;
