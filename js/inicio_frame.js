@@ -1,21 +1,31 @@
 ﻿// 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON, HOME } from "/img/iconos.js";
+import { FAVICON } from "/img/iconos.js";
 
 
 // 🔴Tamaño del boton secundario
 const ALTURA_SBOTON = 43;
+const ID_PORTADA = "portada";
+const TITULO = PAG_INDEX.menu_0.pag.portada.descripcion;
+const NIVEL = PAG_INDEX.atributos.nivel;
+const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
-	insertar_texto("head>title", PAG_INDEX.atributos.descripcion);
-	insertar_favicon("favicon", FAVICON);	
-	insertar_home("caja_titulo_logo", HOME, PAG_INDEX.menu_0.pag.portada.ruta);
-	insertar_texto("#caja_titulo_nivel", PAG_INDEX.atributos.nivel);
+	// Título (Head)
+	insertar_texto("head>title", TITULO);
+	// Favicon
+	insertar_favicon("favicon", FAVICON);
+	// Botón HOME
+	insertar_home("caja_titulo_logo", RUTA_PORTADA);
+	// Texto
+	insertar_texto("#caja_titulo_nivel", NIVEL);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
+	// Menú
 	iniciar_menus();
-	loadContent("portada", PAG_INDEX[1].pag[0].ruta);
+	// Píe
+	loadContent(ID_PORTADA,RUTA_PORTADA);
 })
 // 🔴Insertar texto
 const insertar_texto = function(id, texto) {
@@ -91,14 +101,13 @@ function iniciar_menus() {
 		return nodo_submenu;
 	}	
 	// 🟢Menú
-	for(let i = 1; i < PAG_INDEX.length ; i++ ){
+	for(let i = 0; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
-		let nuevo_submenu = crear_menu({clase:"submenu", 
-										id:"submenu"+n});
-		menu.appendChild(crear_boton( {clase: "boton-menu", id: "boton"+n, texto: PAG_INDEX[i].titulo, tipo: DZ.TIPO_BOTON, submenu: nuevo_submenu }));								 
+		let nuevo_submenu = crear_menu({clase:"submenu", id:"submenu"+n});
+		menu.appendChild(crear_boton( {clase: "boton-menu", id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, tipo: DZ.TIPO_BOTON, submenu: nuevo_submenu }));								 
 		
-		for(let j = 0; j < PAG_INDEX[i].pag.length ; j++){
-			nuevo_submenu.appendChild(crear_boton({clase: "boton-submenu", id: "suboton"+n+"_"+j, texto: PAG_INDEX[i].pag[j].titulo, tipo: DZ.TIPO_SUBBOTON, ruta: PAG_INDEX[i].pag[j].ruta}));
+		for(let j = 0; j < Object.values(Object.values(PAG_INDEX)[1].pag).length ; j++){
+			nuevo_submenu.appendChild(crear_boton({clase: "boton-submenu", id: "suboton"+n+"_"+j, texto: Object.values(Object.values(PAG_INDEX)[1].pag)[j].titulo, tipo: DZ.TIPO_SUBBOTON, ruta: Object.values(Object.values(PAG_INDEX)[1].pag)[j].ruta}));
 		}
 		menu.appendChild(nuevo_submenu);
 	}
