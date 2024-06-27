@@ -50,7 +50,7 @@ const insertar_home = function(id, codigo, ruta) {
 		imagen.documentElement.alt = "0";
 		contenedor.appendChild(imagen.documentElement);
 		contenedor.addEventListener("click", function() {
-			loadContent(ruta);
+			loadContent(ID_PORTADA,RUTA_PORTADA);
 			toggleSubmenu(DZ.RESET);
 		});
 	}
