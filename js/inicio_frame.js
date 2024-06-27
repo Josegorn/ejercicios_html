@@ -1,7 +1,7 @@
 ﻿// 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON } from "/img/iconos.js";
+import { FAVICON, HOME } from "/img/iconos.js";
 
 
 // 🔴Tamaño del boton secundario
@@ -14,11 +14,11 @@ const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	// Título (Head)
-	insertar_texto("head>title", RUTA_PORTADA);
+	insertar_texto("head>title", TITULO);
 	// Favicon
 	insertar_favicon("favicon", FAVICON);
 	// Botón HOME
-	insertar_home("caja_titulo_logo", RUTA_PORTADA);
+	insertar_home("caja_titulo_logo", HOME);
 	// Texto
 	insertar_texto("#caja_titulo_nivel", NIVEL);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
@@ -38,7 +38,7 @@ const insertar_favicon = function(id, archivo) {
 	link.href = archivo;
 }
 // 🔴Botón HOME
-const insertar_home = function(id, codigo, ruta) {
+const insertar_home = function(id, codigo) {
 	let contenedor = document.getElementById(id);
 	let parser = new DOMParser();
 	let imagen = null;
