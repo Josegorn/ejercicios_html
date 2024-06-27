@@ -1,3 +1,4 @@
+"use strict";
 export const  	
 RESET = 		Symbol.for("RESET"), 
 ERROR = 		Symbol.for("ERROR"),

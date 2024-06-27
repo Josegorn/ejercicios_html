@@ -3,36 +3,36 @@
     font-family: Eras;
     font-style: normal;
     font-weight: normal;
-    src: local('Eras Medium'), url('/fuentes/ITC Eras Medium.woff') format('woff');
+    src: local('Eras ITC Medium'), url('/fuentes/ITC Eras Medium.woff') format('woff');
  }
 @font-face {
     font-family: 'Eras Light';
     font-style: normal;
     font-weight: normal;
-    src:  local('Eras Light'), url('/fuentes/ITC Eras Light Regular.woff') format('woff');
+    src:  local('Eras ITC Light '), url('/fuentes/ITC Eras Light Regular.woff') format('woff');
  }
  @font-face {
     font-family: 'Eras Ultra';
     font-style: normal;
     font-weight: normal;
-    src: local('Eras Ultra'), url('/fuentes/ITC Eras Ultra Regular.woff') format('woff');
+    src: local('Eras ITC Ultra'),  url('/fuentes/ITC Eras Ultra Regular.woff') format('woff');
  }
  @font-face {
     font-family: 'Eras Demi';
     font-style: normal;
     font-weight: normal;
-    src: local('Eras Demi'), url('/fuentes/ITC Eras Demi Regular.woff') format('woff');
+    src: local('Eras ITC Demi'), url('/fuentes/ITC Eras Demi Regular.woff') format('woff');
  }
  @font-face {
     font-family: 'Eras Book';
     font-style: normal;
     font-weight: normal;
-    src: local('Eras Book'), url('/fuentes/ITC Eras Book Regular.woff') format('woff');
+    src: local('Eras ITC Book'), url('/fuentes/ITC Eras Book Regular.woff') format('woff');
  }
  @font-face {
     font-family: 'Eras Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Eras Bold'), url('/fuentes/ITC Eras Bold.woff') format('woff');
+    src: local('Eras ITC Bold'), url('/fuentes/ITC Eras Bold.woff') format('woff');
 }
 

@@ -1,4 +1,5 @@
-﻿// 🔴 Inicialización
+﻿"use strict";
+// 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/img/iconos.js";
@@ -43,22 +44,16 @@ const insertar_favicon = function(id, archivo) {
 	link.href = archivo;
 }
 // 🔴Botón HOME
-const insertar_home = function(id, codigo, menu) {
+const insertar_home = function(id, url, menu) {
 	let contenedor = document.getElementById(id);
-	let parser = new DOMParser();
-	let imagen = null;
-	try {
-		imagen = parser.parseFromString(codigo, "image/svg+xml");
-	} catch (error) {
-		throw new SyntaxError("Error parseando el SVG", error.message);
-	} finally {
-		imagen.documentElement.alt = "Inicio";
-		contenedor.appendChild(imagen.documentElement);
-		contenedor.addEventListener("click", function() {
-			loadContent(ID_PORTADA,RUTA_PORTADA);
-			toggleSubmenu({menu: menu});
-		});
-	}
+	let imagen = document.createElement("img");
+	imagen.src = url;
+	imagen.alt = "Inicio";
+	contenedor.appendChild(imagen);
+	contenedor.addEventListener("click", function() {
+		loadContent(ID_PORTADA,RUTA_PORTADA);
+		toggleSubmenu({menu: menu});
+	});
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
@@ -110,8 +105,8 @@ function iniciar_menus({menu}) {
 		menu.appendChild(crear_boton({
 			clase: "boton-menu", 
 			id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, 
-			tipo: TIPO_BOTON, submenu: 
-			nuevo_submenu
+			tipo: TIPO_BOTON, 
+			submenu: nuevo_submenu
 		}));								 
 		for(let j = 0; j < Object.values(Object.values(PAG_INDEX)[i].pag).length ; j++){
 			nuevo_submenu.appendChild(crear_boton({
@@ -119,7 +114,7 @@ function iniciar_menus({menu}) {
 				id: "subboton"+n+"_"+j, 
 				texto: Object.values(Object.values(PAG_INDEX)[i].pag)[j].titulo, 
 				tipo: TIPO_SUBBOTON, 
-				ruta: Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta
+				enlace: Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta
 			}));
 		}
 		menu.appendChild(nuevo_submenu);
