@@ -101,7 +101,7 @@ function iniciar_menus() {
 		return nodo_submenu;
 	}	
 	// 🟢Menú
-	for(let i = 0; i < Object.values(PAG_INDEX).length; i++){
+	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
 		let nuevo_submenu = crear_menu({clase:"submenu", id:"submenu"+n});
 		menu.appendChild(crear_boton( {clase: "boton-menu", id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, tipo: DZ.TIPO_BOTON, submenu: nuevo_submenu }));								 
