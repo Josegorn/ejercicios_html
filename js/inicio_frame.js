@@ -14,7 +14,7 @@ const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	// Título (Head)
-	insertar_texto("head>title", TITULO);
+	insertar_texto("head>title", RUTA_PORTADA);
 	// Favicon
 	insertar_favicon("favicon", FAVICON);
 	// Botón HOME
