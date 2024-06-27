@@ -71,7 +71,9 @@ function iniciar_menus() {
 	
 	// 🔷Crear boton
 	const crear_boton = function ({clase, id, texto, tipo , submenu = null, enlace = null}) {
+		
 		const tipos = [DZ.TIPO_BOTON, DZ.TIPO_SUBBOTON]; 
+		
 		if(!tipos.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
 		}
@@ -80,6 +82,7 @@ function iniciar_menus() {
 		nodo_boton.id = id;
 		nodo_boton.innerHTML = texto;
 		nodo_boton.type = "button";
+		
 		if(tipo === DZ.TIPO_BOTON){
 			nodo_boton.addEventListener("click", function(){
 					toggleSubmenu(submenu);
@@ -104,10 +107,18 @@ function iniciar_menus() {
 	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
 		let nuevo_submenu = crear_menu({clase:"submenu", id:"submenu"+n});
-		menu.appendChild(crear_boton( {clase: "boton-menu", id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, tipo: DZ.TIPO_BOTON, submenu: "submenu"+n }));								 
+		menu.appendChild(crear_boton( {	clase: "boton-menu", 
+										id: "boton"+n, 
+										texto: Object.values(PAG_INDEX)[i].titulo, 
+										tipo: DZ.TIPO_BOTON, 
+										submenu: "submenu"+n }));								 
 		
 		for(let j = 0; j < Object.values(Object.values(PAG_INDEX)[1].pag).length ; j++){
-			nuevo_submenu.appendChild(crear_boton({clase: "boton-submenu", id: "suboton"+n+"_"+j, texto: Object.values(Object.values(PAG_INDEX)[1].pag)[j].titulo, tipo: DZ.TIPO_SUBBOTON, ruta: Object.values(Object.values(PAG_INDEX)[1].pag)[j].ruta}));
+			nuevo_submenu.appendChild(crear_boton({	clase: "boton-submenu",
+													id: "suboton"+n+"_"+j, 
+													texto: Object.values(Object.values(PAG_INDEX)[1].pag)[j].titulo, 
+													tipo: DZ.TIPO_SUBBOTON, 
+													ruta: Object.values(Object.values(PAG_INDEX)[1].pag)[j].ruta  }));
 		}
 		menu.appendChild(nuevo_submenu);
 	}
@@ -128,7 +139,7 @@ function toggleSubmenu(id_sub) {
 	let nodo = document.getElementById(id_sub);
 	
 	// 🔷Números de botones
-	const n = nodo.childElementCount();
+	const n = nodo.childElementCount;
 	
 	// 🔷Tamaño final del submenú
 	let altura = n * ALTURA_SBOTON;

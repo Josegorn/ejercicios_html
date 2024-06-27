@@ -11,11 +11,12 @@
 	\--azul: 	rgba(20, 	20, 	70,  1);
 	\--marino: 	rgba(10, 	10, 	30,  1);
 	/* Mezclas */
-	\--lavanda_pastel: 	color-mix(in srgb, var(--lavanda) 30%, white);
-	\--rosa_pastel: 	color-mix(in srgb, var(--rosa) 30%, white);
-	\--indigo_pastel: 	color-mix(in srgb, var(--indigo) 30%, white);
-	\--gris_pastel: 	color-mix(in srgb, var(--gris) 30%, white);
-	\--indigo_oscuro: 	color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
+	\--lavanda_pastel: 	 color-mix(in srgb, var(--lavanda) 30%, white);
+	\--rosa_pastel: 	 color-mix(in srgb, var(--rosa) 30%, white);
+	\--indigo_pastel: 	 color-mix(in srgb, var(--indigo) 30%, white);
+	\--gris_pastel: 	 color-mix(in srgb, var(--gris) 30%, white);
+	\--purpura_quebrado: color-mix(in srgb, var(--purpura) 80%, val(--gris));
+	\--indigo_oscuro: 	 color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
 	/* Sombras */
 	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	\--sombra_panel: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
@@ -53,12 +54,12 @@
 	/* Detalles del menú */
 	\--degradado_menu: linear-gradient(to bottom, var(--lavanda_pastel), var(--indigo_pastel)) top no-repeat;
 	\--borde_panel: 2px var(--lavanda);
-	\--color_coton: var(--indigo_oscuro);
+	\--fuente_boton: 18px;
+	\--color_boton: var(--indigo_oscuro);
 	\--borde_boton: 2px inset var(--violeta);
 	\--boton_radio: 5px;
-	\--fuente_boton: 18px;
 	\--fuente_submenu: 16px;
-	\--color_submenu: var(--purpura);
+	\--color_submenu: var(--purpura_quebrado);
 	\--borde_submenu: 2px inset var(--rosa);
 	/* Transiciones */
 	\--tiempo_fulgor: 500ms;
