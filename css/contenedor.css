@@ -97,7 +97,7 @@ footer#pie_pagina {
     box-shadow: var(--sombra_marco);
 }
 /* 🟡MENÚ */
-#sidebar {
+#menu {
 	float: left;
 	width: var(--ancho_panel_menu);
     padding: var(--relleno_menu);

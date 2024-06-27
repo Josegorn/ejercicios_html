@@ -1,27 +1,29 @@
 ﻿// 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON as ICONO_FAVICON, HOME as ICONO_HOME } from "/img/iconos.js";
+import { FAVICON, HOME } from "/img/iconos.js";
+ 
 
-
-// 🔴Tamaño del boton secundario
-const ALTURA_SBOTON = 43;
+// 🔴Algunós valores
+const PX_ABIERTO = 43;
+const PX_CERRADO = 0;
 const ID_PORTADA = "portada";
-const TITULO = PAG_INDEX.menu_0.pag.portada.descripcion;
+const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
 const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
+const MENU = document.getElementById("menu");
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	// Título (Head)
 	insertar_texto("head>title", TITULO);
 	// Favicon
-	insertar_favicon("favicon", ICONO_FAVICON);
+	insertar_favicon("favicon", FAVICON);
 	// Botón HOME
-	insertar_home("caja_titulo_logo", ICONO_HOME);
+	insertar_home("caja_titulo_logo", HOME, MENU);
 	// Texto
 	insertar_texto("#caja_titulo_nivel", NIVEL);
-	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
+	insertar_texto("#caja_titulo_nombre", TITULO);
 	// Menú
 	iniciar_menus();
 	// Píe
@@ -38,7 +40,7 @@ const insertar_favicon = function(id, archivo) {
 	link.href = archivo;
 }
 // 🔴Botón HOME
-const insertar_home = function(id, codigo) {
+const insertar_home = function(id, codigo, menu) {
 	let contenedor = document.getElementById(id);
 	let parser = new DOMParser();
 	let imagen = null;
@@ -47,11 +49,11 @@ const insertar_home = function(id, codigo) {
 	} catch (error) {
 		throw new SyntaxError("Error parseando el SVG", error.message);
 	} finally {
-		imagen.documentElement.alt = "0";
+		imagen.documentElement.alt = "Inicio";
 		contenedor.appendChild(imagen.documentElement);
 		contenedor.addEventListener("click", function() {
 			loadContent(ID_PORTADA,RUTA_PORTADA);
-			toggleSubmenu(DZ.RESET);
+			toggleSubmenu({menu: menu});
 		});
 	}
 }
@@ -70,11 +72,9 @@ function iniciar_menus() {
 	// 🟢Declaraciones de funciones auxiliares
 	
 	// 🔷Crear boton
-	const crear_boton = function ({clase, id, texto, tipo , submenu = null, enlace = null}) {
-		
-		const tipos = [DZ.TIPO_BOTON, DZ.TIPO_SUBBOTON]; 
-		
-		if(!tipos.includes(tipo)){
+	const crear_boton = function ({clase, id, texto, tipo , submenu, enlace}) {
+				
+		if(!DZ.TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
 		}
 		let nodo_boton = document.createElement("button");
@@ -84,8 +84,8 @@ function iniciar_menus() {
 		nodo_boton.type = "button";
 		
 		if(tipo === DZ.TIPO_BOTON){
-			nodo_boton.addEventListener("click", function(){
-					toggleSubmenu(submenu);
+			nodo_boton.addEventListener("click", function(){	
+				toggleSubmenu(submenu.parent, submenu);
 			})
 		}
 		if(tipo === DZ.TIPO_SUBBOTON){
@@ -95,23 +95,24 @@ function iniciar_menus() {
 		}	
 		return nodo_boton;
 	}
-	// 🔷Crear botón submenu
-	const crear_menu = function({clase, id}) {
+	// 🔷Crear submenu
+	const crear_submenu = function({clase, id}) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
 		nodo_submenu.id = id;
-		nodo_submenu.style.height = "0px";
+		nodo_submenu.style.height = PX_CERRADO+"px";
+		nodo_submenu.type = "submenu"
 		return nodo_submenu;
 	}	
 	// 🟢Menú
 	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
-		let nuevo_submenu = crear_menu({clase:"submenu", id:"submenu"+n});
+		let nuevo_submenu = crear_submenu({clase:"submenu", id:"submenu"+n});
 		menu.appendChild(crear_boton( {	clase: "boton-menu", 
 										id: "boton"+n, 
 										texto: Object.values(PAG_INDEX)[i].titulo, 
 										tipo: DZ.TIPO_BOTON, 
-										submenu: "submenu"+n }));								 
+										submenu: nuevo_submenu }));								 
 		
 		for(let j = 0; j < Object.values(Object.values(PAG_INDEX)[1].pag).length ; j++){
 			nuevo_submenu.appendChild(crear_boton({	clase: "boton-submenu",
@@ -124,35 +125,41 @@ function iniciar_menus() {
 	}
 }
 // 🔴Manipular menú
-function toggleSubmenu(id_sub) {
+function toggleSubmenu({menu: nodo_menu, submenu: nodo_submenu}) {
+	
+	// 🔷Submenú 
+	//let nodo_submenu = document.getElementById(id_sub);
+	
+	// 🔷Menú 
+	//let nodo_menu = nodo_submenu.parentElement;
 	
 	// 🟢Cerrar todos (cado particular)
-    if(id_sub === DZ.RESET) {
-		document.querySelectorAll(".submenu").forEach(sub => {
-			sub.style.height = "0px";
+    if(nodo_submenu === undefined) {
+		nodo_menu.querySelectorAll(".submenu").forEach(sub => {
+			sub.style.height = PX_CERRADO+"px";
 		})
 		return 0;
 	}
 	// 🟢Abrir un menú, cerrar los demás
 	
 	// 🔷Submenú 
-	let nodo = document.getElementById(id_sub);
+	//let nodo_objetivo = nodo_menu.querySelector("#");
 	
 	// 🔷Números de botones
-	const n = nodo.childElementCount;
+	let n_botones = nodo_submenu.childElementCount;
 	
 	// 🔷Tamaño final del submenú
-	let altura = n * ALTURA_SBOTON;
+	let altura = PX_ABIERTO * n_botones;
 	
 	// 🔷Manipular submenú
-    if (nodo.style.height === "0px") {
-        nodo.style.height = altura.toString()+"px";
+    if (nodo_submenu.style.height === PX_CERRADO) {
+        nodo_submenu.style.height = altura;
     } else {
-        nodo.style.height = "0px";
+        nodo_submenu.style.height = PX_CERRADO;
     }
 	// 🔷Cerrar todos los demas
-	document.querySelectorAll(".submenu").forEach(sub => {
-		if(sub.id !== id_sub) sub.style.height = "0px";
+	nodo_menu.querySelectorAll(".submenu").forEach(sub => {
+		if(sub !== nodo_submenu) sub.style.height = PX_CERRADO;
 	})
 }
 // 🔴Cargar subpágina

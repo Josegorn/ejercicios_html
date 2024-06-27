@@ -15,7 +15,7 @@
 	\--rosa_pastel: 	 color-mix(in srgb, var(--rosa) 30%, white);
 	\--indigo_pastel: 	 color-mix(in srgb, var(--indigo) 30%, white);
 	\--gris_pastel: 	 color-mix(in srgb, var(--gris) 30%, white);
-	\--purpura_quebrado: color-mix(in srgb, var(--purpura) 80%, val(--gris));
+	\--purpura_quebrado: color-mix(in srgb, color-mix(in srgb, var(--purpura) 80%, var(--gris)) 80%, black);
 	\--indigo_oscuro: 	 color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
 	/* Sombras */
 	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
