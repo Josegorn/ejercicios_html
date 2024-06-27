@@ -1,4 +1,4 @@
-export const 	
+export const  	
 RESET = 		Symbol.for("RESET"), 
 ERROR = 		Symbol.for("ERROR"),
 TIPO_BOTON =	Symbol.for("BOTON"),
