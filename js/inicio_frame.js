@@ -1,7 +1,7 @@
 ﻿// 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON, HOME } from "/img/iconos.js";
+import { FAVICON as ICONO_FAVICON, HOME as ICONO_HOME } from "/img/iconos.js";
 
 
 // 🔴Tamaño del boton secundario
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Título (Head)
 	insertar_texto("head>title", TITULO);
 	// Favicon
-	insertar_favicon("favicon", FAVICON);
+	insertar_favicon("favicon", ICONO_FAVICON);
 	// Botón HOME
-	insertar_home("caja_titulo_logo", HOME);
+	insertar_home("caja_titulo_logo", ICONO_HOME);
 	// Texto
 	insertar_texto("#caja_titulo_nivel", NIVEL);
 	insertar_texto("#caja_titulo_nombre", PAG_INDEX.atributos.descripcion);
