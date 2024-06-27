@@ -51,13 +51,15 @@
 	\--ancho_panel_menu: 250px;
 	\--tamv_submenu: 38px;
 	\--tamh_submenu: 233px;
+	\--tamv_efectivo_subboton: 43px;
+	\--tamv_nulo: 0px;
 	/* Detalles del menú */
 	\--degradado_menu: linear-gradient(to bottom, var(--lavanda_pastel), var(--indigo_pastel)) top no-repeat;
 	\--borde_panel: 2px var(--lavanda);
 	\--fuente_boton: 18px;
 	\--color_boton: var(--indigo_oscuro);
 	\--borde_boton: 2px inset var(--violeta);
-	\--boton_radio: 5px;
+	\--boton_radio: 6px;
 	\--fuente_submenu: 16px;
 	\--color_submenu: var(--purpura_quebrado);
 	\--borde_submenu: 2px inset var(--rosa);
