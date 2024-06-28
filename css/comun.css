@@ -1,54 +1,59 @@
+@charset "utf-8";
+@import "/css/variables.css";
+@import "/css/fuentes.css";
+
 body {
-	font-family: Eras, Arial;
+	font-family: var(--fuente_primaria);
 	height: 100%;
-	color: rgba(50,15,50,1.00);
-	padding-bottom: 30px;
-	background: rgba(255,255,255,0.00);
+	color: var(--color_texto_normal);
+	padding-bottom: var(--separacion_pie);
+	background: var(--color_fondo);
 }
 header h1 {
-	font-family: "Eras Demi", Arial;
+	font-family: var(--fuente_enfasis);
 	text-align: left;
-	letter-spacing: 0.4px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+	text-shadow: var(--sombra_texto);
 }
 .tablon {
-	color: rgba(50,15,50,1.00);
-	padding: 5px 20px;
-	margin-bottom: 15px;
-	background: rgba(255,235,255,1.0);
-	box-shadow:3px 3px 5px 1px rgba(0, 0, 0, 0.5); 
+	color: var(--color_texto_normal);
+	padding: var(--relleno_tablo);
+	margin-bottom: var(--separacion_inferior_tablon);
+	background: var(--papel);
+	box-shadow: var(--sombra_tablon); 
 }
 .tablon>ul {
 	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
+	margin: var(--margen_lista);
+	padding: var(--relleno_lista);
 }
 .tablon>ul li {
-	padding-left: 30px;
+	padding-left: var(--sangria_lista);
 }
 .tablon>ul li:before {
-	content: '►';
+	content: var(--glifo_lista);
 	position: absolute;
-	left: 30px;
-	color: rgba(200, 50, 200, 1.0);
+	left: var(--posicion_lista);
+	color: var(--color_glifo_lista);
 }
 button.boton_enlace {
-	font-family: Eras, Arial;
-	font-size: 0.8em;
-	color: rgba(0, 0, 100,1.0); 
-	text-shadow: -0.5px -0.5px 0.5px rgba(0,0,0,0.4);
-	background-color: rgba(200,200,255,0.7);
-	padding: 5px 8px;
-	border: 2px solid rgba(200, 200, 230,0.4);
-	border-radius: 5px;
+	font-family: var(--fuente_primaria);
+	font-size: var(--tam_fuente_boton_enlace);
+	color: var(--color_texto_boton_enlace); 
+	text-shadow: var(--sombra_texto);
+	background-color: var(--color_fondo_boton_enlace);
+	padding: var(--relleno_boton_enlace);
+	border: var(--borde_boton_enlace);
+	border-radius: var(--borde_radio_boton_enlace);
 	cursor: pointer;
-	transition: background-color 0.5s;
+	transition: filter var(--tiempo_fulgor), opacity var(--tiempo_fulgor);
+	filter: none;
 }
 button.boton_enlace:hover {
-	background-color: rgba(255,150,250,1.00);
+	filter: var(--fulgor_boton_enlace);
+	opacity: var(--alfa_fulgor_boton_enlace);
 }
 
 .comunFooter {

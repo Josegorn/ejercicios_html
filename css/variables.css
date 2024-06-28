@@ -10,6 +10,7 @@
 	--indigo: 	rgba(100, 	20, 	220, 1);
 	--azul: 	rgba(20, 	20, 	70,  1);
 	--marino: 	rgba(10, 	10, 	30,  1);
+	--papel:	rgba(255,	235,	255, 1);
 	/* Mezclas */
 	--lavanda_pastel:	color-mix(in srgb, var(--lavanda) 30%, white);
 	--rosa_pastel:		color-mix(in srgb, var(--rosa) 30%, white);
@@ -21,6 +22,7 @@
 	--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	--sombra_panel: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
 	--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
+	--sombra_tablon: 3px 3px 5px 1px rgba(0, 0, 0, 0.5); 
 	/* Fuentes */
 	--fuente_enfasis: "Eras Demi", Arial, Segoe;
 	--fuente_primaria: Eras, Arial, Segoe;
@@ -29,7 +31,7 @@
 	--margen_cabecera: 15px 10px 10px 10px;
 	--relleno_cabecera: 10px;
 	--relleno_imagen: 5px;
-	--relleno_texto: 5px 20px;
+	--relleno_texto: 5px 20px; 
 	--espaciado_cajas: 10px;
 	--tamv_caja_cabecera: 34px;
 	--tamh_caja_cabecera: var(--tamv_caja_cabecera);
@@ -75,6 +77,13 @@
 	--separacion_inferior_cabecera: 25px;
 	--relleno_cabecera_contenido: 20px;
 	--relleno_titulos: 5px 5px 5px 10px;
+	--separacion_pie: 30px;
+	--relleno_tablon: 5px 20px;
+	--separacion_inferior_tablon: 15px;
+	--relleno_lista: 0px;
+	--margen_lista: 0px;
+	--sangria_lista: 30px;
+	--posicion_lista: 30px;
 	/* Detalles del contenido */
 	--borde_cabecera_contenido: 3px outset var(--rosa_pastel);
 	--tam_fuente_pretitulo: 22px;
@@ -82,10 +91,21 @@
 	--tam_fuente_titulo: 25px;
 	--color_titulo: var(--indigo_oscuro);
 	--relleno_articulo: 5px 15px 5px 15px;
+	--color_texto_normal: var(--indigo_oscuro);
+	--color_fondo: blanco;
+	--glifo_lista: '►';
+	--color_glifo_lista: var(--purpura);
 	/* Imágenes */
 	--ancho_imagen_max: 800px;
 	--ancho_imagen_relativo: 80%;
 	--borde_imagen: 4px solid var(--marino);
+	/* Botones (enlaces) */
+	--relleno_boton_enlace: 5px 8px;
+	--borde_boton_enlace: 2px solid rgba(200, 200, 230,0.4);
+	--borde_radio_boton_enlace: 5px; 
+	--tam_fuente_boton_enlace: 0.8em;
+	--color_texto_boton_enlace: var(--azul);
+	--color_fondo_boton_enlace: var(--lavanda_pastel);
 	/* Transiciones */
 	--tiempo_fulgor: 500ms;
 	--tiempo_menu: 400ms;
@@ -95,4 +115,6 @@
 	--alfa_fulgor_boton: 0.8;
 	--fulgor_submenu: blur(0.2px) brightness(1.8) hue-rotate(80deg);
 	--alfa_fulgor_submenu: 0.8;
+	--fulgor_boton_enlace: blur(0.2px) brightness(1.8) hue-rotate(80deg);
+	--alfa_fulgor_boton_enlace: 0.8;
 }
