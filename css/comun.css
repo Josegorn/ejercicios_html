@@ -19,7 +19,7 @@ header h1 {
 }
 .tablon {
 	color: var(--color_texto_normal);
-	padding: var(--relleno_tablo);
+	padding: var(--relleno_tablon);
 	margin-bottom: var(--separacion_inferior_tablon);
 	background: var(--papel);
 	box-shadow: var(--sombra_tablon); 
@@ -55,21 +55,21 @@ button.boton_enlace:hover {
 	filter: var(--fulgor_boton_enlace);
 	opacity: var(--alfa_fulgor_boton_enlace);
 }
-
 .comunFooter {
-	font-size:.95em;
+	font-family: var(--fuente_enfasis);
+	font-size: var(--tam_fuente_pie);
 	font-weight: bold;
-	color: rgba(80,0,90,1);
+	color: var(--color_texto_pie);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	background: rgba(180,50,200,0.5);
-	box-shadow:3px 3px 5px 1px rgba(0, 0, 0, 0.5);
-	padding: 8px;
+	background: var(--color_fondo_pie);
+	box-shadow: var(--sombra_tablon);
+	padding: var(--relleno_pie);
 }
 .comunFooter strong {
-	color: rgba(140,0,50,1);
+	color:var(--color_texto_pie_enfasis);
 }
 p strong, li strong {
-	color: rgba(140,0,50,1);
+	color: var(--color_texto_enfasis);
 }

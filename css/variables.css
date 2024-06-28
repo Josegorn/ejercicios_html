@@ -16,6 +16,7 @@
 	--rosa_pastel:		color-mix(in srgb, var(--rosa) 30%, white);
 	--indigo_pastel:	color-mix(in srgb, var(--indigo) 30%, white);
 	--gris_pastel:		color-mix(in srgb, var(--gris) 30%, white);
+	--tinto_quebrado: 	color-mix(in srgb, color-mix(in srgb, var(--tinto) 90%, var(--indigo)) 50%, var(--rojo));
 	--purpura_quebrado:	color-mix(in srgb, color-mix(in srgb, var(--purpura) 80%, var(--gris)) 80%, black);
 	--indigo_oscuro:	color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
 	/* Sombras */
@@ -91,10 +92,17 @@
 	--tam_fuente_titulo: 25px;
 	--color_titulo: var(--indigo_oscuro);
 	--relleno_articulo: 5px 15px 5px 15px;
-	--color_texto_normal: var(--indigo_oscuro);
+	--color_texto_normal: var(--marino);
+	--color_texto_enfasis: var(--tinto_quebrado);
 	--color_fondo: blanco;
 	--glifo_lista: '►';
 	--color_glifo_lista: var(--purpura);
+	/* Pié del contenido*/
+	--tam_fuente_pie: 0.95em;
+	--color_texto_pie: var(--azul);
+	--color_texto_pie_enfasis: var(--tinto);
+	--color_fondo_pie: var(--indigo_pastel);
+	--relleno_pie: 10px;
 	/* Imágenes */
 	--ancho_imagen_max: 800px;
 	--ancho_imagen_relativo: 80%;
