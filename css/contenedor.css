@@ -3,7 +3,7 @@
 @import "/css/fuentes.css";
 
 body {
-    font-family:"Eras Demi", Arial, Segoe;
+    font-family: var(--fuente_enfasis);
 	margin: 0px;
 }
 div#cuerpo_primario {

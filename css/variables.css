@@ -1,76 +1,79 @@
 ﻿:root {
 	/* Colores */
-	\--tinto: 	rgba(90, 	0, 		10,  1); 
-	\--rojo: 	rgba(230, 	60, 	100, 1);
-	\--purpura: rgba(220, 	20, 	180, 1);
-	\--rosa: 	rgba(220, 	130, 	180, 1);
-	\--violeta: rgba(150, 	20, 	220, 1);
-	\--lavanda:	rgba(175, 	120, 	200, 1);
-	\--gris: 	rgba(160, 	160, 	200, 1);
-	\--indigo: 	rgba(100, 	20, 	220, 1);
-	\--azul: 	rgba(20, 	20, 	70,  1);
-	\--marino: 	rgba(10, 	10, 	30,  1);
+	--tinto: 	rgba(90, 	0, 		10,  1); 
+	--rojo: 	rgba(230, 	60, 	100, 1);
+	--purpura: 	rgba(220, 	20, 	180, 1);
+	--rosa: 	rgba(220, 	130, 	180, 1);
+	--violeta: 	rgba(150, 	20, 	220, 1);
+	-lavanda:	rgba(175, 	120, 	200, 1);
+	--gris: 	rgba(160, 	160, 	200, 1);
+	--indigo: 	rgba(100, 	20, 	220, 1);
+	--azul: 	rgba(20, 	20, 	70,  1);
+	--marino: 	rgba(10, 	10, 	30,  1);
 	/* Mezclas */
-	\--lavanda_pastel: 	 color-mix(in srgb, var(--lavanda) 30%, white);
-	\--rosa_pastel: 	 color-mix(in srgb, var(--rosa) 30%, white);
-	\--indigo_pastel: 	 color-mix(in srgb, var(--indigo) 30%, white);
-	\--gris_pastel: 	 color-mix(in srgb, var(--gris) 30%, white);
-	\--purpura_quebrado: color-mix(in srgb, color-mix(in srgb, var(--purpura) 80%, var(--gris)) 80%, black);
-	\--indigo_oscuro: 	 color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
+	--lavanda_pastel: 	 color-mix(in srgb, var(--lavanda) 30%, white);
+	--rosa_pastel: 	 color-mix(in srgb, var(--rosa) 30%, white);
+	--indigo_pastel: 	 color-mix(in srgb, var(--indigo) 30%, white);
+	--gris_pastel: 	 color-mix(in srgb, var(--gris) 30%, white);
+	--purpura_quebrado: color-mix(in srgb, color-mix(in srgb, var(--purpura) 80%, var(--gris)) 80%, black);
+	--indigo_oscuro: 	 color-mix(in srgb, color-mix(in srgb, var(--indigo) 60%, var(--tinto)) 80%, black);
 	/* Sombras */
-	\--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
-	\--sombra_panel: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
-	\--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
+	--sombra_marco: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
+	--sombra_panel: 2px 2px 5px 0px rgba(0, 0, 0, 0.4);
+	--sombra_texto: -1px -1px 2px rgba(0, 0, 0, 0.3);
+	/* Fuentes */
+	--fuente_enfasis: "Eras Demi", Arial, Segoe;
+	--fuente_primaria: Eras, Arial, Segoe;
 	/* Maquetación encabezado */
-	\--tamv_img_cabecera: 40px;
-	\--margen_cabecera: 15px 10px 10px 10px;
-	\--relleno_cabecera: 10px;
-	\--relleno_imagen: 5px;
-	\--relleno_texto: 5px 20px;
-	\--espaciado_cajas: 10px;
-	\--tamv_caja_cabecera: 34px;
-	\--tamh_caja_cabecera: var(--tamv_caja_cabecera);
-	\--tam_linea_marco: 5px;
+	--tamv_img_cabecera: 40px;
+	--margen_cabecera: 15px 10px 10px 10px;
+	--relleno_cabecera: 10px;
+	--relleno_imagen: 5px;
+	--relleno_texto: 5px 20px;
+	--espaciado_cajas: 10px;
+	--tamv_caja_cabecera: 34px;
+	--tamh_caja_cabecera: var(--tamv_caja_cabecera);
+	--tam_linea_marco: 5px;
 	/* Detalles cabecera */
-	\--color_cabecera: var(--rosa);
-	\--img_cabecera: url("/img/cabecera.webp");
-	\--fuente_cabecera: 20px;
-	\--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
-	\--radio_caja: 6px;
-	\--tam_logo: 34px;
-	\--color_logo: var(--indigo_oscuro);
+	--color_cabecera: var(--rosa);
+	--img_cabecera: url("/img/cabecera.webp");
+	--fuente_cabecera: 20px;
+	--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
+	--radio_caja: 6px;
+	--tam_logo: 34px;
+	--color_logo: var(--indigo_oscuro);
 	/* Maquetación pié */
-	\--tamv_pie: 50px;
-	\--img_pie: url("/img/pie_pagina.webp");
+	--tamv_pie: 50px;
+	--img_pie: url("/img/pie_pagina.webp");
 	/* Detalles pie */
-	\--color_pie: var(--lavanda_pastel);
+	--color_pie: var(--lavanda_pastel);
 	/* Maquetación del menú */
-	\--relleno_menu: 10px;
-	\--relleno_boton: 8px;
-	\--relleno_submenu: 0px 0px 0px 15px;
-	\--margen_boton: 0px 0px 5px 0px;
-	\--ancho_panel_menu: 250px;
-	\--tamv_submenu: 38px;
-	\--tamh_submenu: 233px;
-	\--tamv_efectivo_subboton: 43px;
-	\--tamv_nulo: 0px;
+	--relleno_menu: 10px;
+	--relleno_boton: 8px;
+	--relleno_submenu: 0px 0px 0px 15px;
+	--margen_boton: 0px 0px 5px 0px;
+	--ancho_panel_menu: 250px;
+	--tamv_submenu: 38px;
+	--tamh_submenu: 233px;
+	--tamv_efectivo_subboton: 43px;
+	--tamv_nulo: 0px;
 	/* Detalles del menú */
-	\--degradado_menu: linear-gradient(to bottom, var(--lavanda_pastel), var(--indigo_pastel)) top no-repeat;
-	\--borde_panel: 2px var(--lavanda);
-	\--fuente_boton: 18px;
-	\--color_boton: var(--indigo_oscuro);
-	\--borde_boton: 2px inset var(--violeta);
-	\--boton_radio: 6px;
-	\--fuente_submenu: 16px;
-	\--color_submenu: var(--purpura_quebrado);
-	\--borde_submenu: 2px inset var(--rosa);
+	--degradado_menu: linear-gradient(to bottom, var(--lavanda_pastel), var(--indigo_pastel)) top no-repeat;
+	--borde_panel: 2px var(--lavanda);
+	--fuente_boton: 18px;
+	--color_boton: var(--indigo_oscuro);
+	--borde_boton: 2px inset var(--violeta);
+	--boton_radio: 6px;
+	--fuente_submenu: 16px;
+	--color_submenu: var(--purpura_quebrado);
+	--borde_submenu: 2px inset var(--rosa);
 	/* Transiciones */
-	\--tiempo_fulgor: 500ms;
-	\--tiempo_menu: 400ms;
-	\--fulgor_caja: blur(0.5px) brightness(1.1) hue-rotate(60deg);
-	\--alfa_fulgor_caja: 0.7;
-	\--fulgor_boton: blur(0.2px) brightness(1.8) hue-rotate(80deg);
-	\--alfa_fulgor_boton: 0.8;
-	\--fulgor_submenu: blur(0.2px) brightness(1.8) hue-rotate(80deg);
-	\--alfa_fulgor_submenu: 0.8;
+	--tiempo_fulgor: 500ms;
+	--tiempo_menu: 400ms;
+	--fulgor_caja: blur(0.5px) brightness(1.1) hue-rotate(60deg);
+	--alfa_fulgor_caja: 0.7;
+	--fulgor_boton: blur(0.2px) brightness(1.8) hue-rotate(80deg);
+	--alfa_fulgor_boton: 0.8;
+	--fulgor_submenu: blur(0.2px) brightness(1.8) hue-rotate(80deg);
+	--alfa_fulgor_submenu: 0.8;
 }
