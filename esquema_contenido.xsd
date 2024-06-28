@@ -1,12 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xsi="http://tempuri.org/XMLSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mstns="http://tempuri.org/XMLSchema.xsd" elementFormDefault="qualified" targetNamespace="http://tempuri.org/XMLSchema.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:xsi="http://tempuri.org/XMLSchema.xsd"
+            xmlns:hfp="http://www.w3.org/2001/XMLSchema-hasFacetAndProperty" 
+            targetNamespace="http://www.w3.org/2001/XMLSchema" blockDefault="#all" elementFormDefault="qualified" version="1.0" xml:lang="ES">
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>	
   <xs:element name="pagina">
     <xs:complexType>
       <xs:sequence >
         <xs:element name="metadatos" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:simpleContent>
-              <xs:extension base="xs:unsignedByte">
+              <xs:extension base="xs:Byte">
                 <xs:attribute name="titulo_head"      type="xs:string" use="required"/>
                 <xs:attribute name="nivel"            type="xs:string" use="required"/>
                 <xs:attribute name="titulo_principal" type="xs:string" use="required"/>
@@ -18,18 +21,7 @@
         <xs:element name="seccion" minOccurs="1" maxOccurs="unbounded">
           <xs:complexType>
             <xs:choice>
-              <xs:element name='ilustracion' minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:anyURI">
-                      <xs:attribute name="Descripcion"  type="xs:string" use="optional"/>
-                      <xs:attribute name="Alto"         type="xs:short"  use="required"/>
-                      <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
-                      <xs:attribute name="alt"          type="xs:string" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
+              <xs:element ref='ilustracion' minOccurs="0" maxOccurs="unbounded"/>
               <xs:element name="bloque_texto" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:choice>
@@ -43,6 +35,20 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+<xs:element name='ilustracion'>
+  <xs:complexType>
+     <xs:simpleContent>
+        <xs:extension base="xs:anyURI">
+          <xs:attribute name="Descripcion"  type="xs:string" use="optional"/>
+          <xs:attribute name="Alto"         type="xs:short"  use="required"/>
+          <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
+          <xs:attribute name="alt"          type="xs:string" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
     </xs:complexType>
   </xs:element>
 </xs:schema>
