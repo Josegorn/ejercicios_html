@@ -25,7 +25,7 @@ div#cuerpo_primario {
     box-shadow: var(--sombra_marco);
 }
 #titulo {
-    font-size: var(--fuente_cabecera);
+    font-size: var(--tam_fuente_cabecera);
 	margin: var(--margen_cabecera);
 	white-space: nowrap;
 	display: flex;
@@ -113,7 +113,7 @@ footer#pie_pagina {
 	z-index: auto;
 }
 button{
-	font-family: Eras, Arial;
+	font-family: var(--fuente_primaria);
 	text-align: right;
 	display: block;
 	text-shadow: var(--sombra_texto);
@@ -124,7 +124,7 @@ button{
 }
 button.boton-menu {
 	min-width: 100%;
-	font-size: var(--fuente_boton);
+	font-size: var(--tam_fuente_boton);
 	color: var(--gris_pastel);
 	border: var(--borde_boton);
 	background-color: var(--indigo_oscuro);
@@ -142,7 +142,7 @@ button.boton-menu {
 	transition: var(--tiempo_menu) ease-in-out;
 }
 button.boton-submenu {
-	font-size: var(--fuente_submenu);
+	font-size: var(--tam_fuente_submenu);
 	color: var(--gris_pastel);
 	height: var(--tamv_submenu);
     width: var(--tamh_submenu);
