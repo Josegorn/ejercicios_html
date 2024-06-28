@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema  xmlns:xs="http://html.kimikaze.myds.me/esquema_contenido.xsd"  xmlns:xsi="http://tempuri.org/XMLSchema.xsd"
-            xmlns:hfp="http://www.w3.org/2001/XMLSchema-hasFacetAndProperty" 
-            targetNamespace="http://html.kimikaze.myds.me/esquema_contenido" blockDefault="#all" elementFormDefault="qualified" version="1.0" xml:lang="ES">
+<xs:schema  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+            xmlns="http://html.kimikaze.myds.me/esquema_contenido.xsd"  
+            targetNamespace="http://html.kimikaze.myds.me"
+            elementFormDefault="unqualified" version="1.0" xml:lang="EN">
   <xs:element name="pagina">
     <xs:complexType>
       <xs:sequence >
         <xs:element name="metadatos" minOccurs="1" maxOccurs="1">
           <xs:complexType>
             <xs:simpleContent>
-              <xs:extension base="xs:Byte">
+              <xs:extension base="xs:unsignedByte">
                 <xs:attribute name="titulo_head"      type="xs:string" use="required"/>
                 <xs:attribute name="nivel"            type="xs:string" use="required"/>
                 <xs:attribute name="titulo_principal" type="xs:string" use="required"/>
