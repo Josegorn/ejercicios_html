@@ -39,9 +39,11 @@
 	--img_cabecera: url("/img/cabecera.webp");
 	--tam_fuente_cabecera: 20px;
 	--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
-	--radio_caja: 6px;
+	--radio_caja: 8px;
 	--tam_logo: 34px;
 	--color_logo: var(--indigo_oscuro);
+	--color_cajas: var(--azul);
+	--color_cajas_enfasis: var(--tinto);
 	/* Maquetación pié */
 	--tamv_pie: 50px;
 	--img_pie: url("/img/pie_pagina.webp");
@@ -62,13 +64,28 @@
 	--borde_panel: 2px var(--lavanda);
 	--tam_fuente_boton: 18px;
 	--color_boton: var(--indigo_oscuro);
-	--borde_boton: 2px inset var(--violeta);
-	--boton_radio: 6px;
+	--borde_boton: 1px inset var(--violeta);
+	--boton_radio: 7px;
 	--tam_fuente_submenu: 16px;
 	--color_submenu: var(--purpura_quebrado);
 	--borde_submenu: 2px inset var(--rosa);
 	/* Maquetación del contenido */
 	--margen_externo: 8px;
+	--separacion_superior_cabecera: 10px;
+	--separacion_inferior_cabecera: 25px;
+	--relleno_cabecera_contenido: 20px;
+	--relleno_titulos: 5px 5px 5px 10px;
+	/* Detalles del contenido */
+	--borde_cabecera_contenido: 3px outset var(--rosa_pastel);
+	--tam_fuente_pretitulo: 22px;
+	--color_pretitulo: var(--tinto);
+	--tam_fuente_titulo: 25px;
+	--color_titulo: var(--indigo_oscuro);
+	--relleno_articulo: 5px 15px 5px 15px;
+	/* Imágenes */
+	--ancho_imagen_max: 800px;
+	--ancho_imagen_relativo: 80%;
+	--borde_imagen: 4px solid var(--marino);
 	/* Transiciones */
 	--tiempo_fulgor: 500ms;
 	--tiempo_menu: 400ms;

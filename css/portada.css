@@ -14,35 +14,36 @@ body {
 }
 #tcabecera_portada {
 	height: 100%;
-	padding: 20px;
-	border: 3px outset rgba(200,100,200,0.4) ;
-	background: url("/img/fondo_titulo.webp") no-repeat 50% bottom;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-	margin-bottom: 25px;
+	padding: var(--relleno_cabecera_contenido);
+	border: var(--borde_cabecera_contenido) ;
+	background: url("/img/fondo_titulo.webp");
+	box-shadow: var(--sombra_marco);
+	margin-top: var(--separacion_superior_cabecera);
+	margin-bottom: var(--separacion_inferior_cabecera);
 }
 
 header h1#pre_titulo_portada {
-  	font-size: 1.40em;
-	padding: 5px 5px 5px 10px;
-  	color: rgba(140,0,50,1);
-  	margin-top: 10px;
+  	font-size: var(--tam_fuente_pretitulo);
+	padding: var(--relleno_titulos);
+  	color: var(--color_pretitulo);
 }
 header h1#titulo_portada {
-  	font-size: 1.55em;
-  	color: rgba(80,0,90,1); 
+  	font-size: var(--tam_fuente_titulo);
+	padding: var(--relleno_titulos);
+  	color: var(--color_titulo); 
 }
 
 #cuerpo_portada img {
   	height: auto;
-  	max-width: 800px;
-  	width: 80%;
+  	max-width: var(--ancho_imagen_max);
+  	width: var(--ancho_imagen_relativo);
   	display: block;
   	margin-left: auto;
   	margin-right: auto;
-  	border: 4px solid rgba(50,15,50,1.00); 
+  	border: var(--borde_imagen); 
 }
 #cuerpo_portada article {
-	padding: 5px 5px 0px 5px;
+	padding: var(--relleno_articulo);
 }
 
 

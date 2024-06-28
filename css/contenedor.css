@@ -55,7 +55,7 @@ div#cuerpo_primario {
 /* SVG */
 svg#logo_svg {	
 	fill: var(--color_logo);
-	stroke: 10px var(--tinto);
+	stroke: 10px var(--color_cajas_enfasis);
 	stroke-width: 2px;
 }
 #caja_titulo_logo:hover {
@@ -63,13 +63,13 @@ svg#logo_svg {
 	opacity: var(--alfa_fulgor_caja);
 }
 #caja_titulo_nivel {
-    color: var(--tinto);
+    color: var(--color_cajas_enfasis);
     text-shadow: var(--sombra_texto);
     background-color: var(--rosa_pastel);
 	padding: var(--relleno_texto);
 }
 #caja_titulo_nombre {
-    color: var(--azul);
+    color: var(--color_cajas);
     text-shadow: var(--sombra_texto);
     background-color: var(--lavanda_pastel);
 	padding: var(--relleno_texto);
