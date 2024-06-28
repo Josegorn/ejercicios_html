@@ -52,6 +52,12 @@ div#cuerpo_primario {
 	height: var(--tam_logo);
 	width: var(--tam_logo);
 }
+/* SVG */
+svg#logo_svg {	
+	fill: var(--color_logo);
+	stroke: 10px var(--tinto);
+	stroke-width: 2px;
+}
 #caja_titulo_logo:hover {
 	filter: var(--fulgor_caja);
 	opacity: var(--alfa_fulgor_caja);

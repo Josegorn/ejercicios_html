@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
-	loadContent(ID_PORTADA,RUTA_PORTADA);
+	cargarContenido(ID_PORTADA,RUTA_PORTADA);
 })
 // 🔴Insertar texto
 const insertar_texto = function(id, texto) {
@@ -46,13 +46,17 @@ const insertar_favicon = function(id, archivo) {
 // 🔴Botón HOME
 const insertar_home = function(id, url, menu) {
 	let contenedor = document.getElementById(id);
-	let imagen = document.createElement("img");
-	imagen.src = url;
-	imagen.alt = "Inicio";
-	contenedor.appendChild(imagen);
+	fetch(HOME)
+		.then((response) => response.text())
+		.then((text) => {
+		const parser = new DOMParser();
+		const imagen = parser.parseFromString(text, "text/xml");
+		contenedor.appendChild(imagen.documentElement);
+	})
+	
 	contenedor.addEventListener("click", function() {
-		loadContent(ID_PORTADA,RUTA_PORTADA);
-		toggleSubmenu({menu: menu});
+		cargarContenido(ID_PORTADA,RUTA_PORTADA);
+		cambiarSubmenu({menu: menu});
 	});
 }
 // 🔴Reajustar
@@ -80,12 +84,12 @@ function iniciar_menus({menu}) {
 		
 		if(tipo === TIPO_BOTON){
 			nodo_boton.addEventListener("click", function(){	
-				toggleSubmenu({menu: menu, submenu: submenu});
+				cambiarSubmenu({menu: menu, submenu: submenu});
 			})
 		}
 		if(tipo === TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
-					loadContent(id, enlace);
+				cargarContenido(id, enlace);
 			})
 		}	
 		return nodo_boton;
@@ -121,7 +125,7 @@ function iniciar_menus({menu}) {
 	}
 }
 // 🔴Manipular menú
-function toggleSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
+function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -140,7 +144,7 @@ function toggleSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function loadContent(id, ruta) {
+function cargarContenido(id, ruta) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;

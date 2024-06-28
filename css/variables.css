@@ -38,6 +38,7 @@
 	\--borde_caja: 3px outset rgba(255, 255, 255, 0.4);
 	\--radio_caja: 6px;
 	\--tam_logo: 34px;
+	\--color_logo: var(--indigo_oscuro);
 	/* Maquetación pié */
 	\--tamv_pie: 50px;
 	\--img_pie: url("/img/pie_pagina.webp");
