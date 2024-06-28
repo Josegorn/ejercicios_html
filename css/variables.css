@@ -67,6 +67,8 @@
 	--tam_fuente_submenu: 16px;
 	--color_submenu: var(--purpura_quebrado);
 	--borde_submenu: 2px inset var(--rosa);
+	/* Maquetación del contenido */
+	--margen_externo: 8px;
 	/* Transiciones */
 	--tiempo_fulgor: 500ms;
 	--tiempo_menu: 400ms;
