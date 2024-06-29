@@ -22,12 +22,12 @@ body {
 	margin-bottom: var(--separacion_inferior_cabecera);
 }
 
-header h1#pre_titulo_portada {
+#tcabecera_portada div:first-child {
   	font-size: var(--tam_fuente_pretitulo);
 	padding: var(--relleno_titulos);
   	color: var(--color_pretitulo);
 }
-header h1#titulo_portada {
+#tcabecera_portada div:last-child {
   	font-size: var(--tam_fuente_titulo);
 	padding: var(--relleno_titulos);
   	color: var(--color_titulo); 

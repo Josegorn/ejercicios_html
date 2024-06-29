@@ -12,6 +12,11 @@ const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
 const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
 const MENU = document.getElementById("menu");
+const ID_H_TITULO = "head>title";
+const ID_FAVICON = "head>link[rel=icon]";
+const ID_CAJA_LOGO = "caja_titulo_logo";
+const ID_CAJA_NIVEL = "caja_titulo_nivel";
+const ID_CAJA_NOMBRE = "caja_titulo_nombre";
 const TIPO_BOTON = DZ.TIPO_BOTON;
 const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
@@ -20,21 +25,21 @@ const TIPOS_NODOS = DZ.TIPOS_NODOS;
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	// Título (Head)
-	insertar_texto("head>title", TITULO);
+	insertar_texto(ID_H_TITULO, TITULO);
 	// Favicon
-	insertar_favicon("favicon", FAVICON);
+	insertar_favicon(ID_FAVICON, FAVICON);
 	// Botón HOME
-	insertar_home("caja_titulo_logo", HOME, MENU);
+	insertar_home(ID_CAJA_LOGO, HOME, MENU);
 	// Texto
-	insertar_texto("#caja_titulo_nivel", NIVEL);
-	insertar_texto("#caja_titulo_nombre", TITULO);
+	insertar_texto(ID_CAJA_NIVEL, NIVEL);
+	insertar_texto(ID_CAJA_NOMBRE, TITULO);
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
 	cargarContenido(ID_PORTADA,RUTA_PORTADA);
 })
 // 🔴Insertar texto
-const insertar_texto = function(id, texto) {
+export const insertar_texto = function(id, texto) {
 	let contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
