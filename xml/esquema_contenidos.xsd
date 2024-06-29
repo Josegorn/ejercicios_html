@@ -2,7 +2,6 @@
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:nskimi="http://www.kimikaze.myds.me"
             nskimi:schemaLocation="http://html.kimikaze.myds.me/xml/esquema_contenido.xsd"
-            targetNamespace="http://html.kimikaze.myds.me/xml"
             elementFormDefault="qualified" version="1.0" >
   <!-- #region esquema de contenido -->
   <xs:element name="pagina" >
