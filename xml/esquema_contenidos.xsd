@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:nskimi="http://www.kimikaze.myds.me"
-            nskimi:schemaLocation="http://html.kimikaze.myds.me/esquema_contenido.xsd"
+            nskimi:schemaLocation="http://html.kimikaze.myds.me/xml/esquema_contenido.xsd"
+            targetNamespace="http://html.kimikaze.myds.me/xml"
             elementFormDefault="qualified" version="1.0" >
   <!-- #region esquema de contenido -->
   <xs:element name="pagina" >
@@ -52,6 +53,19 @@
       </xs:complexType>
    </xs:element>
   <!-- #endregion-->
+  <!-- #Objeto Ilustración -->
+  <xs:element name="video">
+    <xs:complexType>    
+      <xs:simpleContent>
+          <xs:extension base="xs:anyURI">
+            <xs:attribute name="Descripcion"  type="xs:string" use="optional"/>
+            <xs:attribute name="Alto"         type="xs:short"  use="required"/>
+            <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+   </xs:element>
+  <!-- #endregion-->
   <!-- #Instrumentos -->
    <xs:element name="bloque_texto">
     <xs:complexType>
@@ -62,7 +76,7 @@
         <xs:element ref="lista"        minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="tabla"        minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="ilustracion"  minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="video"            type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="video"        minOccurs="0" maxOccurs="unbounded"/>
       </xs:choice>
     </xs:complexType>
   </xs:element>
