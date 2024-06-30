@@ -1,6 +1,6 @@
 <!ENTITY bi "&lt;b&gt;">
-<!ENTITY bo "&lt;b&gt;">
+<!ENTITY bo "&lt;/b&gt;">
 <!ENTITY ui "&lt;u&gt;">
-<!ENTITY uo "&lt;u&gt;">
+<!ENTITY uo "&lt;/u&gt;">
 <!ENTITY ii "&lt;i&gt;">
-<!ENTITY io "&lt;i&gt;">
+<!ENTITY io "&lt;/i&gt;">
