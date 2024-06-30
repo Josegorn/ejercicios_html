@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pagina SYSTEM [
+<!DOCTYPE pagina [
   <!ENTITY bi SYSTEM "&lt;b&gt;">
   <!ENTITY bo SYSTEM "&lt;/b&gt;">
   <!ENTITY ui SYSTEM "&lt;u&gt;">
