@@ -50,7 +50,7 @@ const insertar_favicon = function(id, archivo) {
 }
 // 🔴Botón HOME
 const insertar_home = function(id, url, menu) {
-	let contenedor = document.getElementById(id);
+	let contenedor = document.querySelector(id);
 	fetch(new Request(url))
 		.then((response) => response.text())
 		.then((text) => {
