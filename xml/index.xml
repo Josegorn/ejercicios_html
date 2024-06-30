@@ -3,14 +3,22 @@
 <pagina xmlns="http://html.kimikaze.myds.me/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://html.kimikaze.myds.me/ pagina.xsd">      
-  <propiedades numero="0" xsi:nil="true"></propiedades>
-  <seccion>
-    <ilustracion ruta="/img/img_portada.webp" Alto="400" Ancho="800" alt="🎨">"Conectando Mundos</ilustracion>
-  </seccion>
-  <seccion>
+  <titulo numero="0"/>
+  <section>
+    <ilustracion>
+      <imagen alto="400" ancho="800" alt="🎨">/img/img_portarda.webp</imagen>
+      <comentario>Conectando Mundos</comentario>
+    </ilustracion>
     <bloque_texto>
-        <pt>¿Alguna vez os habéis preguntado cómo es posible que hoy en día podamos acceder a información almacenada en cualquier parte del mundo?</pt>
-        <pt>¿Cómo es posible que si necesito ver una foto del Himalaya para un trabajo de geografía pueda en unos segundos encontrarla a través de un buscador como &bi;Google&bo;?</pt>
+      <parrafo>¿Alguna vez os habéis preguntado cómo es posible que hoy en día podamos acceder a información almacenada en cualquier parte del mundo?</parrafo>
+      <parrafo>¿Cómo es posible que si necesito ver una foto del Himalaya para un trabajo de geografía pueda en unos segundos encontrarla a través de un buscador como &bi;Google&bo;?</parrafo>
+      <parrafo>¿O si me apetece reírme un rato viendo un video divertido en &bi;TikTok&bo;, en unos segundos sea posible?</parrafo>
+      <parrafo>La respuesta es más sencilla de lo que crees. &bi;Internet&bo;, al igual que las matemáticas, se basa en un lenguaje universal llamado &bi;HTML&bo;.</parrafo>
+      <parrafo>Te propongo que trates de aprender este nuevo lenguaje que te abrirá muchas puertas. De esta forma, comprenderás cómo funciona este maravilloso mundo del que todos estamos enganchados. Y quién sabe, lo mismo decides pasar de ser un mero observador a un creador de contenido o editor de páginas web.</parrafo>
+      <parrafo>&bi;HTML&bo; es la base de todo lo que ves en &bi;Internet&bo;. Cada página web, cada imagen, cada video, todo está organizado y presentado gracias a este lenguaje. Aprender &bi;HTML&bo; te permitirá entender cómo se construyen las páginas web y cómo puedes personalizarlas a tu gusto.</parrafo>
+      <parrafo>Además, conocer &bi;HTML&bo; te dará una ventaja si decides explorar más sobre programación y diseño web. Podrás crear tu propio blog, un portfolio para mostrar tus trabajos, o incluso una tienda online.</parrafo>
+      <parrafo>Así que, ¿estás listo para descubrir el poder de &bi;HTML&bo; y empezar a crear en &bi;Internet&bo;? ¡Vamos a aprender juntos y a divertirnos en el proceso!</parrafo>
     </bloque_texto>
   </seccion>
 </pagina>
+<ilustracion ruta="/img/img_portada.webp" Alto="400" Ancho="800" alt="🎨">"Conectando Mundos</ilustracion>

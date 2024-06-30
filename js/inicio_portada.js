@@ -7,8 +7,8 @@ import { insertar_texto } from "./inicio_frame";
 // 🔴Algunós valores
 const IDP = "portada";
 const ID_H_TITULO = "head>title";
-const ID_PRETITULO = "#pre_titulo_portada";
-const ID_TITULO = "#texto_cabecera_portada>h1";
+const ID_PRETITULO = "#tcabecera_portada>div:nth-child(0)";
+const ID_TITULO = "#tcabecera_portada>div:nth-child(1)";
 const ID_CUERPO = "#cuerpo_portada";
 const ID_PIE = "#epitafio";
 const TITULO = PAG_INDEX.descripcion;
@@ -39,7 +39,8 @@ const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
 				sec.appendChild(document.createElement("article"));
 				break;
 			}
+
 		}
-		doc_xml.propiedades ("propiedades");
+		
 	}) ;
 }
