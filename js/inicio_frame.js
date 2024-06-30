@@ -8,9 +8,6 @@ import { FAVICON, HOME } from "/img/iconos.js";
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 const IDP_PORTADA = "portada";
-const TITULO = PAG_INDEX.atributos.descripcion;
-const NIVEL = PAG_INDEX.atributos.nivel;
-const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link[rel=icon]";
@@ -23,6 +20,10 @@ const TIPOS_NODOS = DZ.TIPOS_NODOS;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
+	
+	const TITULO = PAG_INDEX.atributos.descripcion;
+	const NIVEL = PAG_INDEX.atributos.nivel;
+	const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
 	// Título (Head)
 	insertar_texto(ID_H_TITULO, TITULO);
 	// Favicon
