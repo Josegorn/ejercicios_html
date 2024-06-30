@@ -35,9 +35,10 @@ const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
 	
 	doc_xml.getRootNode().childNodes.forEach((articulo) => (
 		switch (articulo.tagName) {
-			case XPathExpression(doc_xml) ;
-				}
-		
+			case "bloque_texto":
+				sec.
+
+		}
 		doc_xml.propiedades ("propiedades")
 	) );
 }

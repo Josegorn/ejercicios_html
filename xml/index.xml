@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="pagina.dtd" type="application/xml+dtd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model href="pagina_nodos.dtd" type="application/xml+dtd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <pagina xmlns="http://html.kimikaze.myds.me/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://html.kimikaze.myds.me/ pagina.xsd">      

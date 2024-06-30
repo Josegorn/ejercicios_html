@@ -1,3 +1,4 @@
+<!--#Formato de texto-->
 <!ENTITY bi SYSTEM "&lt;b&gt;">
 <!ENTITY bo SYSTEM "&lt;/b&gt;">
 <!ENTITY ui SYSTEM "&lt;u&gt;">
