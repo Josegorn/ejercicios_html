@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
 	const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
-	// Título (Head)
+	// Título (HEAD)
 	insertar_texto(ID_H_TITULO, TITULO);
 	// Favicon
 	insertar_favicon(ID_FAVICON, FAVICON);
