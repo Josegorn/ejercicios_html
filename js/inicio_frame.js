@@ -10,7 +10,7 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
-const RUTA_PORTADA = PAG_INDEX.menu0.pag.archivo;
+const RUTA_PORTADA = PAG_INDEXmenu0.pag.archivo;
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link[rel=icon]";
@@ -20,7 +20,6 @@ const ID_CAJA_NOMBRE = "caja_titulo_nombre";
 const TIPO_BOTON = DZ.TIPO_BOTON;
 const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
-
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
