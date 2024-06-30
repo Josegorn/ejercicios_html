@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pagina [
-  <!ENTITY bi SYSTEM "&lt;b&gt;">
-  <!ENTITY bo SYSTEM "&lt;/b&gt;">
-  <!ENTITY ui SYSTEM "&lt;u&gt;">
-  <!ENTITY uo SYSTEM "&lt;/u&gt;">
-  <!ENTITY ii SYSTEM "&lt;i&gt;">
-  <!ENTITY io SYSTEM "&lt;/i&gt;">
-]> <!-- #region DOCTYPE -->
-
-<!-- #endregion -->
+<?xml-model version="1.0" encoding="UTF-8"?>
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            xmlns:nskimi="http://html.kimikaze.myds.me/xml/"
-            nskimi:schemaLocation="http://html.kimikaze.myds.me/xml"
+            xmlns="http://html.kimikaze.myds.me/"
+            targetNamespace="http://html.kimikaze.myds.me/"
             elementFormDefault="qualified" version="1.0">
   <!-- #region esquema de contenido -->
   <xs:element name="pagina">
