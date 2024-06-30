@@ -10,7 +10,7 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
-const RUTA_PORTADA = PAG_INDEXmenu0.pag.archivo;
+const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link[rel=icon]";
