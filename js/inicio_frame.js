@@ -149,12 +149,12 @@ function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido(idz, ruta) {
+function cargarContenido(idp, ruta) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;
 	cuadro.className = "frame";
-	cuadro.Id = idz;
+	cuadro.Id = idp;
 	cuadro.title = "Frame_Interior";
 	
 	let recipiente = document.getElementById('contenido');
