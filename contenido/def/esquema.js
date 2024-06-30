@@ -2,7 +2,7 @@ export const PAG_INDEX = Object.freeze({
 	// 0
 	atributos:{	nivel: "Digitalización 4ºESO",
 				descripcion: "Introducción al lenguaje HTML",
-				portada: PAG_INDEX.menu_0.pag.archivo,
+				portada: "/contenido/index.html",
 				ruta: "/XML/"},
 	// 1
 	menu_0:	{titulo: "Introdución", pag: { 
