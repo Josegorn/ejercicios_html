@@ -5,14 +5,16 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { insertar_texto } from "./inicio_frame";
 
 // 🔴Algunós valores
-const TITULO = PAG_INDEX.atributos.descripcion;
-const NIVEL = PAG_INDEX.atributos.nivel;
-const TITULO_PAGINA = ;
+const ID_CONTENIDO = "";
 const ID_H_TITULO = "head>title";
 const ID_PRETITULO = "#pre_titulo_portada";
 const ID_TITULO = "#texto_cabecera_portada>h1";
 const ID_CUERPO = "#texto_cabecera_portada>h2";
 const ID_PIE = "#epitafio";
+const TITULO = PAG_INDEX.atributos.descripcion;
+const NIVEL = PAG_INDEX.atributos.nivel;
+const TITULO_PAGINA = ;
+const RUTA = "";
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {

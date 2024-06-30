@@ -7,10 +7,10 @@ import { FAVICON, HOME } from "/img/iconos.js";
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
-const IDZ_PORTADA = "portada";
-const TITULO = PAG_INDEX.atributos.descripcion;
-const NIVEL = PAG_INDEX.atributos.nivel;
-const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
+const IDP_PORTADA = "portada";
+const TITULO = PAG_INDEX.descripcion;
+const NIVEL = PAG_INDEX.nivel;
+const RUTA_PORTADA = PAG_INDEX.portada.ruta+PAG_INDEX.portada.archivo;
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link[rel=icon]";
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
-	cargarContenido(IDZ_PORTADA,RUTA_PORTADA);
+	cargarContenido(IDP_PORTADA,RUTA_PORTADA);
 })
 // 🔴Insertar texto
 export const insertar_texto = function(id, texto) {
