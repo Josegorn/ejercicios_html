@@ -1,5 +1,6 @@
-<?xml version="1.1" encoding="utf-8"?>
-<?xml-model href="../xml/esquema_contenidos.xsd"?> 
+<?xml version="1.0" encoding="utf-8"?>
+<!--<!DOCTYPE pagina SYSTEM "../xml/esquema_contenidos.dtd">-->
+<?xml-model href="../xml/esquema_contenidos.xsd"?>
 <pagina>
   <propiedades subtitulo="Digitalización 4ºESO" numero="1">Introducción al lenguaje de programación HTML</propiedades>
   <seccion>

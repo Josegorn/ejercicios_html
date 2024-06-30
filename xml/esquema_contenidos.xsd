@@ -1,15 +1,14 @@
-<?xml version="1.1" encoding="utf-8"?>
-  <!-- #region DOCTYPE -->
-<!DOCTYPE pagina SYSTEM "../xml/esquema_contenidos.dtd" [
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pagina SYSTEM [
   <!ENTITY bi SYSTEM "&lt;b&gt;">
   <!ENTITY bo SYSTEM "&lt;/b&gt;">
   <!ENTITY ui SYSTEM "&lt;u&gt;">
   <!ENTITY uo SYSTEM "&lt;/u&gt;">
   <!ENTITY ii SYSTEM "&lt;i&gt;">
   <!ENTITY io SYSTEM "&lt;/i&gt;">
-]>
-<!-- #endregion -->
+]> <!-- #region DOCTYPE -->
 
+<!-- #endregion -->
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:nskimi="http://html.kimikaze.myds.me/xml/"
             nskimi:schemaLocation="http://html.kimikaze.myds.me/xml"
