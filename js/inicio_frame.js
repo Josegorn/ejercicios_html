@@ -7,7 +7,7 @@ import { FAVICON, HOME } from "/img/iconos.js";
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
-const ID_PORTADA = "portada";
+const IDZ_PORTADA = "portada";
 const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
 const RUTA_PORTADA = PAG_INDEX.menu_0.pag.portada.ruta;
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
-	cargarContenido(ID_PORTADA,RUTA_PORTADA);
+	cargarContenido(IDZ_PORTADA,RUTA_PORTADA);
 })
 // 🔴Insertar texto
 export const insertar_texto = function(id, texto) {
@@ -149,12 +149,12 @@ function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido(id, ruta) {
+function cargarContenido(idz, ruta) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;
 	cuadro.className = "frame";
-	cuadro.Id = id;
+	cuadro.Id = idz;
 	cuadro.title = "Frame_Interior";
 	
 	let recipiente = document.getElementById('contenido');
@@ -170,7 +170,6 @@ function cargarContenido(id, ruta) {
 	cuadro.addEventListener("resize", function() {
 		redim_iframe(cuadro, recipiente);
 	})
-	
 }
 // 🔴Redimensionar contenido
 function redim_iframe(contenido, continente) {
