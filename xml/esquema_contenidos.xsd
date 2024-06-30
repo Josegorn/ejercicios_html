@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            xmlns:nskimi="http://www.kimikaze.myds.me"
-            nskimi:schemaLocation="http://html.kimikaze.myds.me/xml/esquema_contenido.xsd"
-            elementFormDefault="qualified" version="1.0" >
+            xmlns:nskimi="http://html.kimikaze.myds.me/xml/"
+            nskimi:schemaLocation="http://html.kimikaze.myds.me/xml"
+            elementFormDefault="qualified" version="1.0">
   <!-- #region esquema de contenido -->
-  <xs:element name="pagina" >
+  <xs:element name="pagina">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="propiedades" minOccurs="1" maxOccurs="1"/>
@@ -16,12 +16,10 @@
   <!-- #region Propiedades-->
     <xs:element name="propiedades">
     <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:unsignedByte">
-          <xs:attribute name="titulo_head"      type="xs:string" use="required"/>
-          <xs:attribute name="nivel"            type="xs:string" use="required"/>
-          <xs:attribute name="titulo_principal" type="xs:string" use="required"/>
-          <xs:attribute name="subtitulo"        type="xs:string" use="required"/>
+      <xs:simpleContent >
+        <xs:extension base="xs:string">
+          <xs:attribute name="subtitulo" type="xs:string" use="required"/>
+          <xs:attribute name="numero" type="xs:unsignedByte" use="required"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
@@ -42,8 +40,8 @@
   <xs:element name="ilustracion">
     <xs:complexType>    
       <xs:simpleContent>
-          <xs:extension base="xs:anyURI">
-            <xs:attribute name="Descripcion"  type="xs:string" use="optional"/>
+          <xs:extension base="xs:string">
+            <xs:attribute name="ruta"         type="xs:anyURI" use="required"/>
             <xs:attribute name="Alto"         type="xs:short"  use="required"/>
             <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
             <xs:attribute name="alt"          type="xs:string" use="optional"/>
@@ -70,7 +68,7 @@
     <xs:complexType>
       <xs:choice>
         <xs:element name="titulo_apartado"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="parrafo"          type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="pt" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="boton_enlace" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="lista"        minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="tabla"        minOccurs="0" maxOccurs="unbounded"/>

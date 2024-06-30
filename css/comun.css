@@ -67,9 +67,9 @@ button.boton_enlace:hover {
 	box-shadow: var(--sombra_tablon);
 	padding: var(--relleno_pie);
 }
-#epitafio strong {
+#epitafio:first-child :last-child {
 	color:var(--color_texto_pie_enfasis);
 }
-p strong, li strong {
+p b, li b {
 	color: var(--color_texto_enfasis);
 }

@@ -8,7 +8,6 @@ import { insertar_texto } from "./inicio_frame";
 const TITULO = PAG_INDEX.atributos.descripcion;
 const NIVEL = PAG_INDEX.atributos.nivel;
 const TITULO_PAGINA = Object.values(PAG_INDEX)[0].pag[0].titulo;
-const RUTA_PORTADA = Object.values(PAG_INDEX)[0].pag[0].ruta;
 const ID_H_TITULO = "head>title";
 const ID_PRETITULO = "#pre_titulo_portada";
 const ID_TITULO = "#texto_cabecera_portada>h1";

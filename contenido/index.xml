@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<?xml-model href="../xml/esquema_contenidos.xsd"?>
-<pagina>
-  <propiedades  titulo_head="Introducción al HTML" 
-                nivel="4º ESO" 
-                titulo_principal="" 
-                subtitulo=""/>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model XMLSchema="../xml/esquema_contenidos.xsd" type="application/xml"?>
+<!DOCTYPE pagina SYSTEM "../xml/esquema_contenidos.dtd">
+<pagina> 
+  <propiedades subtitulo="Digitalización 4ºESO" numero="1">Introducción al lenguaje de programación HTML</propiedades>
+  <seccion>
+    <ilustracion ruta="/img/img_portada.webp" Alto="400" Ancho="800" alt="🎨">"Conectando Mundos</ilustracion>
+  </seccion>
+  <seccion>
+    <bloque_texto>
+        <pt>¿Alguna vez os habéis preguntado cómo es posible que hoy en día podamos acceder a información almacenada en cualquier parte del mundo?</pt>
+        <pt>¿Cómo es posible que si necesito ver una foto del Himalaya para un trabajo de geografía pueda en unos segundos encontrarla a través de un buscador como &bi;Google&bi;?</pt>
+    </bloque_texto>
+  </seccion>
 </pagina>
