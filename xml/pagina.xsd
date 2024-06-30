@@ -5,7 +5,7 @@
             targetNamespace="http://html.kimikaze.myds.me/"
             elementFormDefault="qualified" version="1.0">
   <!-- #region esquema de contenido -->
-  <xs:element name="pagina">
+  <xs:element name="pagina" id="pagina">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="propiedades" minOccurs="1" maxOccurs="1"/>
@@ -15,19 +15,19 @@
   </xs:element> 
   <!-- #endregion-->
   <!-- #region Propiedades-->
-    <xs:element name="propiedades">
+    <xs:element name="propiedades" id="propiedades" nillable="true">
     <xs:complexType>
-      <xs:simpleContent >
+      <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute name="subtitulo" type="xs:string" use="required"/>
-          <xs:attribute name="numero" type="xs:unsignedByte" use="required"/>
+          <xs:attribute name="subtitulo" id="subtitulo" type="xs:string" use="optional"/>
+          <xs:attribute name="numero"    id="numero"    type="xs:unsignedByte" use="required"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
   <!-- #endregion-->
   <!-- #Bloques principales-->
-  <xs:element name="seccion">
+  <xs:element name="seccion" id="seccion">
     <xs:complexType>
       <xs:choice>
         <xs:element ref="ilustracion"  minOccurs="0" maxOccurs="unbounded"/>
@@ -38,37 +38,37 @@
   </xs:element>
   <!-- #endregion-->
   <!-- #Objeto Ilustración -->
-  <xs:element name="ilustracion">
+  <xs:element name="ilustracion" id="ilustracion">
     <xs:complexType>    
       <xs:simpleContent>
           <xs:extension base="xs:string">
-            <xs:attribute name="ruta"         type="xs:anyURI" use="required"/>
-            <xs:attribute name="Alto"         type="xs:short"  use="required"/>
-            <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
-            <xs:attribute name="alt"          type="xs:string" use="optional"/>
+            <xs:attribute name="ruta"   id="ruta_ilustracion"   type="xs:anyURI" use="required"/>
+            <xs:attribute name="alto"   id="alto_ilustracion"   type="xs:short"  use="required"/>
+            <xs:attribute name="ancho"  id="ancho_ilustracion"  type="xs:short"  use="required"/>
+            <xs:attribute name="alt"    id="alt_ilustracion"    type="xs:string" use="optional"/>
           </xs:extension>
         </xs:simpleContent>
       </xs:complexType>
    </xs:element>
   <!-- #endregion-->
   <!-- #Objeto Ilustración -->
-  <xs:element name="video">
+  <xs:element name="video" id="video">
     <xs:complexType>    
       <xs:simpleContent>
           <xs:extension base="xs:anyURI">
-            <xs:attribute name="Descripcion"  type="xs:string" use="optional"/>
-            <xs:attribute name="Alto"         type="xs:short"  use="required"/>
-            <xs:attribute name="Ancho"        type="xs:short"  use="required"/>
+            <xs:attribute name="descripcion"  id="descripcion_video" type="xs:string" use="optional"/>
+            <xs:attribute name="alto"         id="alto_video" type="xs:short"  use="required"/>
+            <xs:attribute name="ancho"        id="ancho_video" type="xs:short"  use="required"/>
           </xs:extension>
         </xs:simpleContent>
       </xs:complexType>
    </xs:element>
   <!-- #endregion-->
   <!-- #Instrumentos -->
-   <xs:element name="bloque_texto">
+   <xs:element name="bloque_texto" id="bloque_texto">
     <xs:complexType>
       <xs:choice>
-        <xs:element name="titulo_apartado"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="titulo"  id="titulo_apartado"  type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element name="pt" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="boton_enlace" minOccurs="0" maxOccurs="unbounded"/>
         <xs:element ref="lista"        minOccurs="0" maxOccurs="unbounded"/>
@@ -80,7 +80,7 @@
   </xs:element>
   <!-- #Tablon-->
   <!-- #Instrumentos -->
-  <xs:element name="tablon">
+  <xs:element name="tablon" id="tablon">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="bloque_texto"  minOccurs="1" maxOccurs="unbounded"/>
@@ -89,27 +89,27 @@
   </xs:element>
    <!-- #endregion-->
   <!-- #Boton (Enlace) -->
-  <xs:element name="boton_enlace">
+  <xs:element name="boton_enlace" id="boton_enlace">
     <xs:complexType>    
       <xs:simpleContent>
           <xs:extension base="xs:anyURI">
-            <xs:attribute name="Descripcion" type="xs:string"  use="required"/>
+            <xs:attribute name="descripcion" id="descripcion_enlace" type="xs:string"  use="required"/>
           </xs:extension>
         </xs:simpleContent>
       </xs:complexType>
    </xs:element>
   <!-- #endregion-->
   <!-- #Lista -->
-    <xs:element name="lista">
+    <xs:element name="lista" id="lista">
       <xs:complexType>    
         <xs:sequence>
-              <xs:element name="apartado" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+              <xs:element name="apartado" id="apartado" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
      </xs:element>
     <!-- #endregion-->
     <!-- #Tabla -->
-    <xs:element name="tabla">
+    <xs:element name="tabla" id="tabla">
       <xs:complexType>    
         <xs:sequence>
               <xs:element ref="tupla" minOccurs="1" maxOccurs="unbounded"/>
@@ -118,13 +118,13 @@
      </xs:element>
     <!-- #endregion-->
     <!-- #Boton (Enlace) -->
-  <xs:element name="tupla">
+  <xs:element name="tupla" id="tupla">
     <xs:complexType>    
       <xs:simpleContent>
           <xs:extension base="xs:anyURI">
-            <xs:attribute name="Titulo"       type="xs:string"  use="required"/>
-            <xs:attribute name="Descripcion"  type="xs:string"  use="optional"/>
-            <xs:attribute name="Imagen_tabla" type="xs:anyURI"  use="required"/>
+            <xs:attribute name="titulo"       id="titulo_tupla"       type="xs:string"  use="required"/>
+            <xs:attribute name="descripcion"  id="descripcion_tupla"  type="xs:string"  use="optional"/>
+            <xs:attribute name="imagen_tubla" id="imagen_tubla"       type="xs:anyURI"  use="required"/>
           </xs:extension>
         </xs:simpleContent>
       </xs:complexType>

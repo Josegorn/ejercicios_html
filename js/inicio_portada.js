@@ -9,7 +9,7 @@ const IDP = "portada";
 const ID_H_TITULO = "head>title";
 const ID_PRETITULO = "#pre_titulo_portada";
 const ID_TITULO = "#texto_cabecera_portada>h1";
-const ID_CUERPO = "#texto_cabecera_portada>h2";
+const ID_CUERPO = "#cuerpo_portada";
 const ID_PIE = "#epitafio";
 const TITULO = PAG_INDEX.descripcion;
 const NIVEL = PAG_INDEX.nivel;
@@ -25,7 +25,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto(ID_PRETITULO, NIVEL);
 	insertar_texto(ID_TITULO, TITULO);
 	// Cuerpo
-	iniciar_contenido({seccion: ID_CUERPO});
+	iniciar_contenido({seccion: ID_CUERPO, plantilla: RUTA_HTML, archivo_xml: RUTA_XML});
 	// Píe
 	iniciar_pie({texto_pretitulo: NIVEL, texto_cuerpo: TITULO, texto_pie: TITULO_PAGINA, id_pie: ID_PIE});
 })
+const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
+	let sec = document.getElementById(ID_CUERPO);
+	const doc_xml = new XMLDocument(archivo_xml);
+	
+	doc_xml.getRootNode().childNodes.forEach((articulo) => (
+		switch (articulo.tagName) {
+			case XPathExpression(doc_xml) ;
+				}
+		
+		doc_xml.propiedades ("propiedades")
+	) );
+}

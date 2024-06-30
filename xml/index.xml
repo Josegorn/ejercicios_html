@@ -3,7 +3,7 @@
 <pagina xmlns="http://html.kimikaze.myds.me/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://html.kimikaze.myds.me/ pagina.xsd">      
-  <propiedades subtitulo="Digitalización 4ºESO" numero="1">Introducción al lenguaje de programación HTML</propiedades>
+  <propiedades numero="0" xsi:nil="true"></propiedades>
   <seccion>
     <ilustracion ruta="/img/img_portada.webp" Alto="400" Ancho="800" alt="🎨">"Conectando Mundos</ilustracion>
   </seccion>
