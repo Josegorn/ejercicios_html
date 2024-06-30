@@ -33,12 +33,13 @@ const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
 	let sec = document.getElementById(ID_CUERPO);
 	const doc_xml = new XMLDocument(archivo_xml);
 	
-	doc_xml.getRootNode().childNodes.forEach((articulo) => (
-		switch (articulo.tagName) {
-			case "bloque_texto":
-				sec.
-
+	doc_xml.getRootNode().forEach((articulo) => {
+		switch(articulo.tagName) {
+			case document.doctype.childNodes.item("BLOQUE_TEXTO").nodeValue : {
+				sec.appendChild(document.createElement("article"));
+				break;
+			}
 		}
-		doc_xml.propiedades ("propiedades")
-	) );
+		doc_xml.propiedades ("propiedades");
+	}) ;
 }
