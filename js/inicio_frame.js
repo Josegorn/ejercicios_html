@@ -45,7 +45,7 @@ export const insertar_texto = function(id, texto) {
 }
 // 🔴Insertar favicon
 const insertar_favicon = function(id, archivo) {
-	let link = document.getElementById(id);
+	let link = document.querySelector(id);
 	link.href = archivo;
 }
 // 🔴Botón HOME
