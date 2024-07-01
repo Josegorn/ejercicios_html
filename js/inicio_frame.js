@@ -10,10 +10,11 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
-const ID_FAVICON = "head>link\[rel='icon'\]";
+const ID_FAVICON = "head>link\[rel=\'icon\'\]";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
 const ID_CAJA_NIVEL = "#caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "#caja_titulo_nombre";
+const ID_CONTENIDO = "#contenido";
 const TIPO_BOTON = DZ.TIPO_BOTON;
 const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
-	cargarContenido(IDP_PORTADA,RUTA_PORTADA);
+	cargarContenido({idz: IDP_PORTADA,ruta: RUTA_PORTADA});
 })
 // 🔴Insertar texto
 export const insertar_texto = function(id, texto) {
@@ -66,8 +67,8 @@ const insertar_home = function(id, url, menu) {
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
-	let cont = document.getElementById('contenido');
-	redim_iframe(cont.firstChild, cont);
+	let contenido = document.getElementById(ID_CONTENIDO);
+	redim_iframe(cont.firstChild, contenido);
 })
 
 // 🔴Montar menus
@@ -149,7 +150,7 @@ function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido(idp, ruta) {
+function cargarContenido({idp, ruta}) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;
