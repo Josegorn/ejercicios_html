@@ -73,10 +73,10 @@ window.addEventListener("resize", function() {
 })
 
 // 🔴Montar menus
-function iniciar_menus({root_menu = Node}) {
+function iniciar_menus({root_menu = DocumentFragment}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
-	
+
 	// 🔷Crear boton
 	const crear_boton = function ({clase = String, id = String, texto = String, tipo =  Symbol, submenu = Node | null, enlace = URL | null}) {
 				
