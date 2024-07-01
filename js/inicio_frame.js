@@ -10,7 +10,7 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
-const ID_FAVICON = "head>link:first-of-type";
+const ID_FAVICON = "head>link[rel='icon']";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
 const ID_CAJA_NIVEL = "#caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "#caja_titulo_nombre";
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 // 🔴Insertar texto
 export const insertar_texto = function(id, texto) {
-	let contenedor = document.querySelector(id);
+	const contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
 const insertar_favicon = function({id, archivo}) {
-	let link = document.querySelector(id);
+	const link = document.querySelector(id);
 	link.href = archivo;
 }
 // 🔴Botón HOME
