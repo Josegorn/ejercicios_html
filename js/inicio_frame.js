@@ -10,7 +10,7 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
-const ID_FAVICON = "head\>link\[rel\=\'icon\'\]";
+const ID_FAVICON = "head>link:first-of-type";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
 const ID_CAJA_NIVEL = "#caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "#caja_titulo_nombre";
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const NIVEL = PAG_INDEX.atributos.nivel;
 	const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
 	// Título (HEAD)
-	insertar_texto(ID_H_TITULO, TITULO);
+	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	cargarContenido({idz: IDP_PORTADA,ruta: RUTA_PORTADA});
 })
 // 🔴Insertar texto
-export const insertar_texto = function(id, texto) {
+export const insertar_texto = function({id = String, texto = String}) {
 	let contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
-const insertar_favicon = function({id, archivo}) {
+const insertar_favicon = function({id = String, archivo = URL}) {
 	let link = document.querySelector(id);
 	link.href = archivo;
 }
