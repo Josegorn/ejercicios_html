@@ -20,7 +20,7 @@ const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
 
 // 🔴 Inicialización
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
@@ -53,17 +53,17 @@ const insertar_favicon = function({id , archivo }) {
 // 🔴Botón HOME
 const insertar_home = function({id, url, n_menu}) {
 	let contenedor = document.querySelector(id);
+	contenedor.addEventListener("click", function() {
+		cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
+		cambiarSubmenu({n_menu: n_menu});
+	});
 	const parser = new DOMParser();
-	fetch( new Request(url))
+	fetch(url)
 		.then(response => response.text())
 		.then(text => {
 		let imagen = parser.parseFromString(text, "text/xml");
 		contenedor.appendChild(imagen.documentElement);
 	})
-	contenedor.addEventListener("click", function() {
-		cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
-		cambiarSubmenu({n_menu: n_menu});
-	});
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
