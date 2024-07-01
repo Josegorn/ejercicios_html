@@ -58,7 +58,7 @@ const insertar_home = function({id = String, url = String, n_menu = Node}) {
 		.then((text) => {
 		const parser = new DOMParser();
 		const imagen = parser.parseFromString(text, "text/xml");
-		contenedor.appendChild(imagen);
+		contenedor.appendChild(imagen.getRootNode());
 	})
 	
 	contenedor.addEventListener("click", function() {
