@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home({id: ID_CAJA_LOGO, url: String(HOME), n_menu: menu_def});
+	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
 	// Texto
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
@@ -41,26 +41,25 @@ document.addEventListener("DOMContentLoaded", function() {
 	cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
 })
 // 🔴Insertar texto
-export const insertar_texto = function({id = String, texto = String}) {
-	const contenedor = document.querySelector(id);
+export const insertar_texto = function({id , texto}) {
+	let contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
-const insertar_favicon = function({id = String, archivo = String}) {
+const insertar_favicon = function({id , archivo }) {
 	const link = document.querySelector(id);
 	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
-const insertar_home = function({id = String, url = String, n_menu = Node}) {
-	const contenedor = document.querySelector(id);
-	fetch(url)
-		.then((response) => response.text())
-		.then((text) => {
-		const parser = new DOMParser();
-		const imagen = parser.parseFromString(text, "text/xml");
-		contenedor.appendChild(imagen.getRootNode());
+const insertar_home = function({id, url, n_menu}) {
+	let contenedor = document.querySelector(id);
+	const parser = new DOMParser();
+	fetch( new Request(url))
+		.then(response => response.text())
+		.then(text => {
+		let imagen = parser.parseFromString(text, "text/xml");
+		contenedor.appendChild(imagen.documentElement);
 	})
-	
 	contenedor.addEventListener("click", function() {
 		cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
 		cambiarSubmenu({n_menu: n_menu});
@@ -68,17 +67,17 @@ const insertar_home = function({id = String, url = String, n_menu = Node}) {
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
-	const contenido = document.querySelector(ID_CONTENIDO);
+	let contenido = document.querySelector(ID_CONTENIDO);
 	redim_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 
 // 🔴Montar menus
-function iniciar_menus({root_menu = Node}) {
+function iniciar_menus({root_menu}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
 
 	// 🔷Crear boton
-	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node , enlace = String}) {
+	const crear_boton = function ({clase, id, texto, tipo, submenu, enlace}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -102,7 +101,7 @@ function iniciar_menus({root_menu = Node}) {
 		return nodo_boton;
 	}
 	// 🔷Crear submenu
-	const crear_submenu = function ({clase = String, id = String}) {
+	const crear_submenu = function ({clase, id}) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
 		nodo_submenu.id = id;
@@ -132,7 +131,7 @@ function iniciar_menus({root_menu = Node}) {
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node}) {
+function cambiarSubmenu({nodo_menu, nodo_submenu}) {
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -151,7 +150,7 @@ function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido({idp = String, ruta_pagina = String}) {
+function cargarContenido({idp, ruta_pagina}) {
 
     const cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
@@ -174,7 +173,7 @@ function cargarContenido({idp = String, ruta_pagina = String}) {
 	})
 }
 // 🔴Redimensionar contenido
-function redim_iframe({contenido = Node, continente = Node}) {
+function redim_iframe({contenido, continente}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
