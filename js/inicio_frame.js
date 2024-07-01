@@ -61,14 +61,14 @@ const insertar_home = function(id, url, menu) {
 	})
 	
 	contenedor.addEventListener("click", function() {
-		cargarContenido({idp:IDP_PORTADA,ruta:RUTA_PORTADA});
+		cargarContenido({idp:IDP_PORTADA, ruta:RUTA_PORTADA});
 		cambiarSubmenu({menu: menu});
 	});
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
-	let contenido = document.querySelector(ID_CONTENIDO);
-	redim_iframe(contenido.firstChild, contenido);
+	const contenido = document.querySelector(ID_CONTENIDO);
+	redim_iframe({contenido:contenido.firstChild, continente:contenido);
 })
 
 // 🔴Montar menus
@@ -173,7 +173,7 @@ function cargarContenido({idp, ruta}) {
 	})
 }
 // 🔴Redimensionar contenido
-function redim_iframe(contenido, continente) {
+function redim_iframe({contenido, continente}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
