@@ -67,8 +67,8 @@ const insertar_home = function(id, url, menu) {
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
-	let contenido = document.getElementById(ID_CONTENIDO);
-	redim_iframe(cont.firstChild, contenido);
+	let contenido = document.querySelector(ID_CONTENIDO);
+	redim_iframe(contenido.firstChild, contenido);
 })
 
 // 🔴Montar menus
