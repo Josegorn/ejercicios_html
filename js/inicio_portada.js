@@ -1,7 +1,7 @@
 "use strict";
 // 🔴 Inicialización
-import { PAG_INDEX } from "../contenido/def/esquema.js";
-import { insertar_texto } from "./inicio_frame.js";
+import { PAG_INDEX } from "../esquema.js";
+import { insertar_texto } from "inicio_frame.js";
 
 // 🔴Algunós valores
 const IDP = "portada";
