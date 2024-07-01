@@ -79,7 +79,7 @@ function iniciar_menus({root_menu = DocumentFragment}) {
 	// 🟢Declaraciones de funciones auxiliares
 
 	// 🔷Crear boton
-	const crear_boton = function ({clase = String, id = String, texto = String, tipo =  Symbol, submenu = Node | null, enlace = URL | null}) {
+	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node | null, enlace = URL | null}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -133,7 +133,7 @@ function iniciar_menus({root_menu = DocumentFragment}) {
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu({nodo_menu =  DocumentFragment, nodo_submenu = DocumentFragment | null}) {
+function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node | null}) {
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -160,7 +160,7 @@ function cargarContenido({idp = String, ruta_pagina = URL}) {
 	cuadro.Id = idp;
 	cuadro.title = "Frame_Interior";
 	
-	let recipiente = new DocumentFragment(ID_CONTENIDO);
+	let recipiente = document.getElementById(ID_CONTENIDO);
 	if(recipiente.childElementCount !== 0){
 		recipiente.removeChild(recipiente.firstChild);
 	}
@@ -175,7 +175,7 @@ function cargarContenido({idp = String, ruta_pagina = URL}) {
 	})
 }
 // 🔴Redimensionar contenido
-function redim_iframe({contenido = DocumentFragment, continente = DocumentFragment}) {
+function redim_iframe({contenido = Node, continente = Node}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
