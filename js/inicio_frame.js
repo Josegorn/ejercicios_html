@@ -102,7 +102,7 @@ function iniciar_menus({root_menu = DocumentFragment}) {
 		return nodo_boton;
 	}
 	// 🔷Crear submenu
-	const crear_submenu = function({clase = String, id = String}) {
+	const crear_submenu = function ({clase = String, id = String}) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
 		nodo_submenu.id = id;
@@ -112,7 +112,7 @@ function iniciar_menus({root_menu = DocumentFragment}) {
 	// 🟢Menú
 	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
-		const nuevo_submenu = crear_submenu({clase: "submenu", id: "submenu"+n});
+		const nuevo_submenu = crear_submenu({clase: "submenu", id: "submenu"+toString(n)});
 		root_menu.appendChild(crear_boton({
 			clase: "boton-menu", 
 			id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, 
