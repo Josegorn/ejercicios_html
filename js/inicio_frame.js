@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home(ID_CAJA_LOGO, HOME, MENU);
+	insertar_home({id:ID_CAJA_LOGO, url:HOME, id_menu:MENU});
 	// Texto
-	insertar_texto(ID_CAJA_NIVEL, NIVEL);
-	insertar_texto(ID_CAJA_NOMBRE, TITULO);
+	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
+	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
 	iniciar_menus({menu: MENU});
 	// Píe
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 // 🔴Insertar texto
 export const insertar_texto = function({id = String, texto = String}) {
-	let contenedor = document.querySelector(id);
+	const contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
@@ -50,7 +50,7 @@ const insertar_favicon = function({id = String, archivo = String}) {
 	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
-const insertar_home = function(id = String, url = URL, id_menu = String) {
+const insertar_home = function({id = String, url = URL, id_menu = String}) {
 	const contenedor = document.querySelector(id);
 	const menu = document.querySelector(id_menu);
 	fetch(new Request(url))
@@ -62,23 +62,23 @@ const insertar_home = function(id = String, url = URL, id_menu = String) {
 	})
 	
 	contenedor.addEventListener("click", function() {
-		cargarContenido({idp:IDP_PORTADA, ruta:RUTA_PORTADA});
-		cambiarSubmenu({menu: menu});
+		cargarContenido({idp: IDP_PORTADA, ruta: RUTA_PORTADA});
+		cambiarSubmenu({nodo_menu: menu});
 	});
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
 	const contenido = document.querySelector(ID_CONTENIDO);
-	redim_iframe({contenido:contenido.firstChild, continente:contenido});
+	redim_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 
 // 🔴Montar menus
-function iniciar_menus({menu}) {
+function iniciar_menus({nodo_menu = Node}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
 	
 	// 🔷Crear boton
-	const crear_boton = function ({clase, id, texto, tipo , submenu, enlace}) {
+	const crear_boton = function ({clase = String, id = String, texto = String, tipo =  Symbol, submenu = Node, enlace = String}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -90,29 +90,29 @@ function iniciar_menus({menu}) {
 		nodo_boton.type = "button";
 		
 		if(tipo === TIPO_BOTON){
-			nodo_boton.addEventListener("click", function(){	
-				cambiarSubmenu({menu: menu, submenu: submenu});
+			nodo_boton.addEventListener( "click", function(){	
+				cambiarSubmenu({obj_menu: nodo_menu, obj_submenu: submenu});
 			})
 		}
 		if(tipo === TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
-				cargarContenido(id, enlace);
+				cargarContenido({idp: id, enlace: enlace});
 			})
 		}	
 		return nodo_boton;
 	}
 	// 🔷Crear submenu
-	const crear_submenu = function({clase, id}) {
+	const crear_submenu = function({clase = String, id = String}) {
 		let nodo_submenu = document.createElement("div");
 		nodo_submenu.className = clase;
 		nodo_submenu.id = id;
 		nodo_submenu.style.height = PX_CERRADO;
 		return nodo_submenu;
-	}	
+	} 	
 	// 🟢Menú
 	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
-		let nuevo_submenu = crear_submenu({clase:"submenu", id:"submenu"+n});
+		let nuevo_submenu = crear_submenu({clase: "submenu", id: "submenu"+n});
 		menu.appendChild(crear_boton({
 			clase: "boton-menu", 
 			id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, 
@@ -128,11 +128,11 @@ function iniciar_menus({menu}) {
 				enlace: Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta
 			}));
 		}
-		menu.appendChild(nuevo_submenu);
+		nodo_menu.appendChild(nuevo_submenu);
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
+function cambiarSubmenu({nodo_menu =  DocumentFragment, nodo_submenu = DocumentFragment | null}) {
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -151,7 +151,7 @@ function cambiarSubmenu({menu: nodo_menu , submenu: nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido({idp, ruta}) {
+function cargarContenido({idp = String, ruta = URL}) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;
@@ -166,15 +166,15 @@ function cargarContenido({idp, ruta}) {
 	recipiente.appendChild(cuadro);	
 	// 🔷Redimensionar al cargar
 	cuadro.addEventListener("load", function() {
-		redim_iframe(cuadro, recipiente);
+		redim_iframe({contenido: cuadro, continente: recipiente});
 	})
 	// 🔷Redimensionar cuando cambie
 	cuadro.addEventListener("resize", function() {
-		redim_iframe(cuadro, recipiente);
+		redim_iframe({contenido: cuadro, continente: recipiente});
 	})
 }
 // 🔴Redimensionar contenido
-function redim_iframe({contenido, continente}) {
+function redim_iframe({contenido = DocumentFragment, continente = DocumentFragment}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
