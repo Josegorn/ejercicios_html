@@ -11,14 +11,15 @@ const ID_PRETITULO = "#tcabecera_portada>div:nth-child(0)";
 const ID_TITULO = "#tcabecera_portada>div:nth-child(1)";
 const ID_CUERPO = "#cuerpo_portada";
 const ID_PIE = "#epitafio";
-const TITULO = PAG_INDEX.descripcion;
-const NIVEL = PAG_INDEX.nivel;
-const TITULO_PAGINA = PAG_INDEX[IDP].titulo;
 const RUTA_HTML = "/contenido/index.html";
-const RUTA_XML = PAG_INDEX[IDP].ruta+PAG_INDEX[IDP].archivo;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
+
+	const RUTA_XML = PAG_INDEX[IDP].ruta+PAG_INDEX[IDP].archivo;
+	const TITULO_PAGINA = PAG_INDEX[IDP].titulo;
+	const TITULO = PAG_INDEX.descripcion;
+	const NIVEL = PAG_INDEX.nivel;
 	// Título (Head)
 	insertar_texto(ID_H_TITULO, TITULO_PAGINA);
     // Cartel
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
 	let sec = document.getElementById(ID_CUERPO);
-	const doc_xml = new XMLDocument(archivo_xml);
+	let doc_xml = new XMLDocument(archivo_xml);
 	
 	doc_xml.getRootNode().forEach((articulo) => {
 		switch(articulo.tagName) {
