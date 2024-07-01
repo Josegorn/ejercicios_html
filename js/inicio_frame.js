@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
-	iniciar_menus({menu: MENU});
+	iniciar_menus({root_menu: MENU});
 	// Píe
 	cargarContenido({idz: IDP_PORTADA,ruta: RUTA_PORTADA});
 })
