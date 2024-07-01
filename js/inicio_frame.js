@@ -2,7 +2,7 @@
 // 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { FAVICON, HOME } from "/img/iconos.js";
+import { FAVICON, HOME } from "/js/iconos.js";
 
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
