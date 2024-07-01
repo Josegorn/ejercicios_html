@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = new URL(PAG_INDEX.atributos.portada);
+	const RUTA_PORTADA = String(PAG_INDEX.atributos.portada);
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home({id: ID_CAJA_LOGO, url: new URL(HOME), n_menu: menu_def});
+	insertar_home({id: ID_CAJA_LOGO, url: String(HOME), n_menu: menu_def});
 	// Texto
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
@@ -51,9 +51,9 @@ const insertar_favicon = function({id = String, archivo = String}) {
 	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
-const insertar_home = function({id = String, url = URL, n_menu = Node}) {
+const insertar_home = function({id = String, url = String, n_menu = Node}) {
 	const contenedor = document.querySelector(id);
-	fetch(new Request(url))
+	fetch(url)
 		.then((response) => response.text())
 		.then((text) => {
 		const parser = new DOMParser();
@@ -78,7 +78,7 @@ function iniciar_menus({root_menu = Node}) {
 	// 🟢Declaraciones de funciones auxiliares
 
 	// 🔷Crear boton
-	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node , enlace = URL}) {
+	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node , enlace = String}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -125,14 +125,14 @@ function iniciar_menus({root_menu = Node}) {
 				id: "subboton"+n+"_"+j, 
 				texto: Object.values(Object.values(PAG_INDEX)[i].pag)[j].titulo, 
 				tipo: TIPO_SUBBOTON, 
-				enlace: new URL( Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta )
+				enlace: String( Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta )
 			}));
 		}
 		root_menu.appendChild(nuevo_submenu);
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node | null}) {
+function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node}) {
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -151,7 +151,7 @@ function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node | null}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido({idp = String, ruta_pagina = URL}) {
+function cargarContenido({idp = String, ruta_pagina = String}) {
 
     const cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
