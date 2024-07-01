@@ -73,12 +73,12 @@ window.addEventListener("resize", function() {
 })
 
 // 🔴Montar menus
-function iniciar_menus({nodo_menu = Node}) {
+function iniciar_menus({root_menu = Node}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
 	
 	// 🔷Crear boton
-	const crear_boton = function ({clase = String, id = String, texto = String, tipo =  Symbol, submenu = Node, enlace = String}) {
+	const crear_boton = function ({clase = String, id = String, texto = String, tipo =  Symbol, submenu = Node | null, enlace = URL | null}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -91,12 +91,12 @@ function iniciar_menus({nodo_menu = Node}) {
 		
 		if(tipo === TIPO_BOTON){
 			nodo_boton.addEventListener( "click", function(){	
-				cambiarSubmenu({obj_menu: nodo_menu, obj_submenu: submenu});
+				cambiarSubmenu({nodo_menu: root_menu, nodo_submenu: submenu});
 			})
 		}
 		if(tipo === TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
-				cargarContenido({idp: id, enlace: enlace});
+				cargarContenido({idp: id, enlace_pagina: enlace});
 			})
 		}	
 		return nodo_boton;
@@ -112,8 +112,8 @@ function iniciar_menus({nodo_menu = Node}) {
 	// 🟢Menú
 	for(let i = 1; i < Object.values(PAG_INDEX).length; i++){
 		let n= i - 1;
-		let nuevo_submenu = crear_submenu({clase: "submenu", id: "submenu"+n});
-		menu.appendChild(crear_boton({
+		const nuevo_submenu = crear_submenu({clase: "submenu", id: "submenu"+n});
+		root_menu.appendChild(crear_boton({
 			clase: "boton-menu", 
 			id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, 
 			tipo: TIPO_BOTON, 
@@ -151,7 +151,7 @@ function cambiarSubmenu({nodo_menu =  DocumentFragment, nodo_submenu = DocumentF
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido({idp = String, ruta = URL}) {
+function cargarContenido({idp = String, ruta_pagina = URL}) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta;
