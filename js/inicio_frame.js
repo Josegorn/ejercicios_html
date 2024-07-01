@@ -8,7 +8,7 @@ import { FAVICON, HOME } from "/js/iconos.js";
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 const IDP_PORTADA = "portada";
-const MENU = "#menu";
+const MENU = "menu";
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link:first-of-type";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
@@ -24,21 +24,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
-	const menu_def = document.querySelector(MENU);
+	const RUTA_PORTADA = PAG_INDEX.atributos.portada;
+	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home({id:ID_CAJA_LOGO, url:HOME, id_menu:MENU});
+	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: MENU});
 	// Texto
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
 	iniciar_menus({root_menu: menu_def});
 	// Píe
-	cargarContenido({idz: IDP_PORTADA,ruta: RUTA_PORTADA});
+	cargarContenido({idz: IDP_PORTADA, ruta: RUTA_PORTADA});
 })
 // 🔴Insertar texto
 export const insertar_texto = function({id = String, texto = String}) {
@@ -51,9 +51,8 @@ const insertar_favicon = function({id = String, archivo = String}) {
 	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
-const insertar_home = function({id = String, url = URL, id_menu = String}) {
+const insertar_home = function({id = String, url = URL, n_menu = String}) {
 	const contenedor = document.querySelector(id);
-	const menu = document.querySelector(id_menu);
 	fetch(new Request(url))
 		.then((response) => response.text())
 		.then((text) => {
@@ -63,8 +62,8 @@ const insertar_home = function({id = String, url = URL, id_menu = String}) {
 	})
 	
 	contenedor.addEventListener("click", function() {
-		cargarContenido({idp: IDP_PORTADA, ruta: RUTA_PORTADA});
-		cambiarSubmenu({nodo_menu: menu});
+		cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
+		cambiarSubmenu({n_menu: n_menu});
 	});
 }
 // 🔴Reajustar
@@ -74,7 +73,7 @@ window.addEventListener("resize", function() {
 })
 
 // 🔴Montar menus
-function iniciar_menus({root_menu = DocumentFragment}) {
+function iniciar_menus({root_menu = Node}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
 
