@@ -2,7 +2,7 @@
 // 🔴 Inicialización
 //import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { insertar_texto } from "./inicio_frame";
+import { insertar_texto } from "./inicio_frame.js";
 
 // 🔴Algunós valores
 const IDP = "portada";
