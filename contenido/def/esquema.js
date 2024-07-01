@@ -6,7 +6,7 @@ export const PAG_INDEX = Object.freeze({
 				ruta: 			"/XML/"},
 	// 1
 	menu_0:	{titulo: "Introdución", pag: { 
-		portada:	{titulo: "Inicio",							archivo: "/contenido/index.html"},
+		portada:	{titulo: "Inicio",							archivo: "index.xml"},
 		intro_1:	{titulo: "El lenguaje de la web",			archivo: "/contenido/introduccion.html"},
 		intro_2:	{titulo: "Beneficos de la programación",	archivo: "/contenido/beneficios.html"},
 		intro_3:	{titulo: "Conocimientos previos",			archivo: "/contenido/conocimientos.html"},

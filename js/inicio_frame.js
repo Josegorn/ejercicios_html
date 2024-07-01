@@ -10,7 +10,7 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 const IDP_PORTADA = "portada";
 const MENU = document.getElementById("menu");
 const ID_H_TITULO = "head>title";
-const ID_FAVICON = "head>link[rel='shortcut icon']";
+const ID_FAVICON = "head>link[rel='icon']";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
 const ID_CAJA_NIVEL = "#caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "#caja_titulo_nombre";
