@@ -5,44 +5,47 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
 
 // 🔴Algunós valores
-const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
-const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
+const PX_ABIERTO = undefined; 
+const PX_CERRADO = undefined;
 const IDP_PORTADA = "portada";
 const MENU = "menu";
-const ID_H_TITULO = "head>title";
+const ID_H_TITULO = "htitulo";
 const ID_FAVICON = "head>link:first-of-type";
-const ID_CAJA_LOGO = "#caja_titulo_logo";
-const ID_CAJA_NIVEL = "#caja_titulo_nivel";
-const ID_CAJA_NOMBRE = "#caja_titulo_nombre";
-const ID_CONTENIDO = "#contenido";
+const ID_CAJA_LOGO = "caja_titulo_logo";
+const ID_CAJA_NIVEL = "caja_titulo_nivel";
+const ID_CAJA_NOMBRE = "caja_titulo_nombre";
+const ID_CONTENIDO = "contenido";
 const TIPO_BOTON = DZ.TIPO_BOTON;
 const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
 
 // 🔴 Inicialización
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function() {
+	
+
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = String(PAG_INDEX.atributos.portada);
+	const RUTA_PORTADA = PAG_INDEX.atributos.portada;
+		
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
-	insertar_texto({id: ID_H_TITULO, texto: TITULO});
+	insertar_texto(ID_H_TITULO, TITULO);
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
 	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
 	// Texto
-	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
-	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
+	insertar_texto( ID_CAJA_NIVEL, NIVEL);
+	insertar_texto( ID_CAJA_NOMBRE, TITULO);
 	// Menú
 	iniciar_menus({root_menu: menu_def});
 	// Píe
-	cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
+	cargarContenido(IDP_PORTADA, RUTA_PORTADA);
 })
 // 🔴Insertar texto
-export const insertar_texto = function({id , texto}) {
-	let contenedor = document.querySelector(id);
+const insertar_texto = function(id , texto) {
+	let contenedor = document.getElementById(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
@@ -52,22 +55,22 @@ const insertar_favicon = function({id , archivo }) {
 }
 // 🔴Botón HOME
 const insertar_home = function({id, url, n_menu}) {
-	let contenedor = document.querySelector(id);
-	contenedor.addEventListener("click", function() {
-		cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
-		cambiarSubmenu({n_menu: n_menu});
-	});
-	const parser = new DOMParser();
+	let contenedor = document.getElementById(id);
+	let parser = new DOMParser();
 	fetch(url)
 		.then(response => response.text())
 		.then(text => {
 		let imagen = parser.parseFromString(text, "text/xml");
 		contenedor.appendChild(imagen.documentElement);
+		contenedor.addEventListener("click", function() {
+			cargarContenido(IDP_PORTADA, RUTA_PORTADA);
+			cambiarSubmenu(n_menu, undefined);
+		});
 	})
 }
 // 🔴Reajustar
 window.addEventListener("resize", function() {
-	let contenido = document.querySelector(ID_CONTENIDO);
+	const contenido = document.querySelector(ID_CONTENIDO);
 	redim_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 
@@ -90,7 +93,7 @@ function iniciar_menus({root_menu}) {
 		
 		if(tipo === TIPO_BOTON){
 			nodo_boton.addEventListener( "click", function(){	
-				cambiarSubmenu({nodo_menu: root_menu, nodo_submenu: submenu});
+				cambiarSubmenu(root_menu, submenu, PX_ABIERTO, PX_CERRADO);
 			})
 		}
 		if(tipo === TIPO_SUBBOTON){
@@ -131,7 +134,10 @@ function iniciar_menus({root_menu}) {
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu({nodo_menu, nodo_submenu}) {
+function cambiarSubmenu(nodo_menu, nodo_submenu) {
+
+	const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
+	const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
@@ -152,13 +158,13 @@ function cambiarSubmenu({nodo_menu, nodo_submenu}) {
 // 🔴Cargar subpágina
 function cargarContenido({idp, ruta_pagina}) {
 
-    const cuadro = document.createElement('iframe');
+    let cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
 	cuadro.className = "frame";
 	cuadro.Id = idp;
 	cuadro.title = "Frame_Interior";
 	
-	let recipiente = document.querySelector(ID_CONTENIDO);
+	let recipiente = document.getElementById(ID_CONTENIDO);
 	if(recipiente.childElementCount !== 0){
 		recipiente.removeChild(recipiente.firstChild);
 	}
@@ -177,3 +183,4 @@ function redim_iframe({contenido, continente}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
+export { insertar_texto };
