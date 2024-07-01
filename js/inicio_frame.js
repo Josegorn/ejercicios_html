@@ -8,7 +8,7 @@ import { FAVICON, HOME } from "/js/iconos.js";
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 const IDP_PORTADA = "portada";
-const MENU = document.getElementById("menu");
+const MENU = "menu";
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link:first-of-type";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
@@ -45,13 +45,14 @@ export const insertar_texto = function({id = String, texto = String}) {
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
-const insertar_favicon = function({id = String, archivo = URL}) {
-	let link = document.querySelector(id);
-	link.href = archivo;
+const insertar_favicon = function({id = String, archivo = String}) {
+	const link = document.querySelector(id);
+	link.setAttribute("href", parseFromString(archivo, "text/base64"));
 }
 // 🔴Botón HOME
-const insertar_home = function(id, url, menu) {
-	let contenedor = document.querySelector(id);
+const insertar_home = function(id = String, url = URL, id_menu = String) {
+	const contenedor = document.querySelector(id);
+	const menu = document.querySelector(id_menu);
 	fetch(new Request(url))
 		.then((response) => response.text())
 		.then((text) => {
