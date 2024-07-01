@@ -8,7 +8,7 @@ import { FAVICON, HOME } from "/js/iconos.js";
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 const IDP_PORTADA = "portada";
-const MENU = "menu";
+const MENU = "#menu";
 const ID_H_TITULO = "head>title";
 const ID_FAVICON = "head>link:first-of-type";
 const ID_CAJA_LOGO = "#caja_titulo_logo";
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
 	const RUTA_PORTADA = PAG_INDEX.atributos.portada ;
+	const menu_def = document.querySelector(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
-	iniciar_menus({root_menu: MENU});
+	iniciar_menus({root_menu: menu_def});
 	// Píe
 	cargarContenido({idz: IDP_PORTADA,ruta: RUTA_PORTADA});
 })
