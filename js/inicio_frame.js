@@ -47,7 +47,7 @@ export const insertar_texto = function({id = String, texto = String}) {
 // 🔴Insertar favicon
 const insertar_favicon = function({id = String, archivo = String}) {
 	const link = document.querySelector(id);
-	link.setAttribute("href", parseFromString(archivo, "text/base64"));
+	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
 const insertar_home = function(id = String, url = URL, id_menu = String) {
