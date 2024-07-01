@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 // 🔴Insertar texto
 export const insertar_texto = function(id, texto) {
-	const contenedor = document.querySelector(id);
+	let contenedor = document.querySelector(id);
 	contenedor.innerHTML = texto;
 }
 // 🔴Insertar favicon
 const insertar_favicon = function({id, archivo}) {
-	const link = document.querySelector(id);
+	let link = document.querySelector(id);
 	link.href = archivo;
 }
 // 🔴Botón HOME
@@ -61,7 +61,7 @@ const insertar_home = function(id, url, menu) {
 	})
 	
 	contenedor.addEventListener("click", function() {
-		cargarContenido(IDP_PORTADA,RUTA_PORTADA);
+		cargarContenido({idp:IDP_PORTADA,ruta:RUTA_PORTADA});
 		cambiarSubmenu({menu: menu});
 	});
 }
