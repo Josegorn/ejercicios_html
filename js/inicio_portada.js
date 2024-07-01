@@ -1,6 +1,7 @@
 "use strict";
 // 🔴 Inicialización
 import { PAG_INDEX } from "../esquema.js";
+import { PAG_INDEX } from "/def/esquema.js";
 import { insertar_texto } from "inicio_frame.js";
 
 // 🔴Algunós valores
