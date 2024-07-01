@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: MENU});
+	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
 	// Texto
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
@@ -51,7 +51,7 @@ const insertar_favicon = function({id = String, archivo = String}) {
 	link.setAttribute("href", archivo);
 }
 // 🔴Botón HOME
-const insertar_home = function({id = String, url = URL, n_menu = String}) {
+const insertar_home = function({id = String, url = URL, n_menu = Node}) {
 	const contenedor = document.querySelector(id);
 	fetch(new Request(url))
 		.then((response) => response.text())
