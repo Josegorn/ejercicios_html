@@ -5,8 +5,9 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
 
 // 🔴Algunós valores
-const PX_ABIERTO = undefined; 
-const PX_CERRADO = undefined;
+const TITULO = PAG_INDEX.atributos.descripcion;
+const NIVEL = PAG_INDEX.atributos.nivel;
+const RUTA_PORTADA = PAG_INDEX.atributos.portada;
 const IDP_PORTADA = "portada";
 const MENU = "menu";
 const ID_H_TITULO = "htitulo";
@@ -18,16 +19,12 @@ const ID_CONTENIDO = "contenido";
 const TIPO_BOTON = DZ.TIPO_BOTON;
 const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
 const TIPOS_NODOS = DZ.TIPOS_NODOS;
+const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
+const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
-
-	
-	const TITULO = PAG_INDEX.atributos.descripcion;
-	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = PAG_INDEX.atributos.portada;
-		
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto(ID_H_TITULO, TITULO);
@@ -136,8 +133,7 @@ function iniciar_menus({root_menu}) {
 // 🔴Manipular menú
 function cambiarSubmenu(nodo_menu, nodo_submenu) {
 
-	const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
-	const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
+
 	
 	if(nodo_submenu){
 		// 🔷Números de botones
