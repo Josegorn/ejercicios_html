@@ -155,7 +155,7 @@ function cambiarSubmenu({nodo_menu =  DocumentFragment, nodo_submenu = DocumentF
 function cargarContenido({idp = String, ruta_pagina = URL}) {
 
     let cuadro = document.createElement('iframe');
-	cuadro.src = ruta;
+	cuadro.src = ruta_pagina;
 	cuadro.className = "frame";
 	cuadro.Id = idp;
 	cuadro.title = "Frame_Interior";
