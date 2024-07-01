@@ -129,7 +129,7 @@ function iniciar_menus({root_menu = DocumentFragment}) {
 				enlace: Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta
 			}));
 		}
-		nodo_menu.appendChild(nuevo_submenu);
+		root_menu.appendChild(nuevo_submenu);
 	}
 }
 // 🔴Manipular menú
