@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = new URL(PAG_INDEX.atributos.archivo);
+	const RUTA_PORTADA = new URL(PAG_INDEX.atributos.portada);
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
