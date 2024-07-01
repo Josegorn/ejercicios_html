@@ -159,7 +159,7 @@ function cargarContenido({idp = String, ruta_pagina = URL}) {
 	cuadro.Id = idp;
 	cuadro.title = "Frame_Interior";
 	
-	let recipiente = document.getElementById(ID_CONTENIDO);
+	let recipiente = document.querySelector(ID_CONTENIDO);
 	if(recipiente.childElementCount !== 0){
 		recipiente.removeChild(recipiente.firstChild);
 	}
