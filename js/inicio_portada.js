@@ -16,9 +16,9 @@ const RUTA_HTML = "/contenido/index.html";
 document.addEventListener("DOMContentLoaded", function() {
 	
 	const RUTA_XML = PAG_INDEX.atributos.ruta+PAG_INDEX.menu_0.pag[IDP].archivo;
-	const TITULO_PAGINA = PAG_INDEX[IDP].titulo;
-	const TITULO = PAG_INDEX.descripcion;
-	const NIVEL = PAG_INDEX.nivel;
+	const TITULO_PAGINA = PAG_INDEX.ID_H_TITULOmenu_0.pag[IDP].titulo;
+	const TITULO = PAG_INDEX.atributos.descripcion;
+	const NIVEL = PAG_INDEX.atributos.nivel;
 	// Título (Head)
 	insertar_texto(ID_H_TITULO, TITULO_PAGINA);
     // Cartel
