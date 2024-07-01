@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = PAG_INDEX.atributos.portada;
+	const RUTA_PORTADA = PAG_INDEX.atributos.archivo;
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Menú
 	iniciar_menus({root_menu: menu_def});
 	// Píe
-	cargarContenido({idz: IDP_PORTADA, ruta: RUTA_PORTADA});
+	cargarContenido({idp: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
 })
 // 🔴Insertar texto
 export const insertar_texto = function({id = String, texto = String}) {
@@ -153,7 +153,7 @@ function cambiarSubmenu({nodo_menu =  Node, nodo_submenu = Node | null}) {
 // 🔴Cargar subpágina
 function cargarContenido({idp = String, ruta_pagina = URL}) {
 
-    let cuadro = document.createElement('iframe');
+    const cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
 	cuadro.className = "frame";
 	cuadro.Id = idp;
