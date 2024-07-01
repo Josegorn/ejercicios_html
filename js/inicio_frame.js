@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
-	const RUTA_PORTADA = PAG_INDEX.atributos.archivo;
+	const RUTA_PORTADA = new URL(PAG_INDEX.atributos.archivo);
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
 	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
 	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
 	// Botón HOME
-	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
+	insertar_home({id: ID_CAJA_LOGO, url: new URL(HOME), n_menu: menu_def});
 	// Texto
 	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
 	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
@@ -78,7 +78,7 @@ function iniciar_menus({root_menu = Node}) {
 	// 🟢Declaraciones de funciones auxiliares
 
 	// 🔷Crear boton
-	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node | null, enlace = URL | null}) {
+	const crear_boton = function ({clase = String, id = String, texto = String, tipo = Symbol(), submenu = Node , enlace = URL}) {
 				
 		if(!TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
@@ -96,7 +96,7 @@ function iniciar_menus({root_menu = Node}) {
 		}
 		if(tipo === TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
-				cargarContenido({idp: id, enlace_pagina: enlace});
+				cargarContenido({idp: id, ruta_pagina: enlace});
 			})
 		}	
 		return nodo_boton;
@@ -125,7 +125,7 @@ function iniciar_menus({root_menu = Node}) {
 				id: "subboton"+n+"_"+j, 
 				texto: Object.values(Object.values(PAG_INDEX)[i].pag)[j].titulo, 
 				tipo: TIPO_SUBBOTON, 
-				enlace: Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta
+				enlace: new URL( Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta )
 			}));
 		}
 		root_menu.appendChild(nuevo_submenu);
