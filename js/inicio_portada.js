@@ -5,10 +5,10 @@ import { insertar_texto }  from "./inicio_frame.js";
 
 // 🔴Algunós valores
 const IDP = "portada";
-const ID_H_TITULO = "head>title";
-const ID_PRETITULO = "#tcabecera_portada>div:nth-child(0)";
-const ID_TITULO = "#tcabecera_portada>div:nth-child(1)";
-const ID_CUERPO = "#cuerpo_portada";
+const ID_H_TITULO = "htitulo";
+const ID_PRETITULO = "pretitulo_portada";
+const ID_TITULO = "titulo_portada";
+const ID_CUERPO = "cuerpo_portada";
 const ID_PIE = "#epitafio";
 const RUTA_HTML = "/contenido/index.html";
 

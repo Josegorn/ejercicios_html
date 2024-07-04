@@ -27,21 +27,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
-	insertar_texto(ID_H_TITULO, TITULO);
+	insertar_texto({id: ID_H_TITULO, texto: TITULO});
 	// Favicon
-	insertar_favicon({id:ID_FAVICON, archivo:FAVICON});
+	insertar_favicon({id: ID_FAVICON, archivo: FAVICON});
 	// Botón HOME
 	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
 	// Texto
-	insertar_texto( ID_CAJA_NIVEL, NIVEL);
-	insertar_texto( ID_CAJA_NOMBRE, TITULO);
+	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
+	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
 	iniciar_menus({root_menu: menu_def});
 	// Píe
-	cargarContenido(IDP_PORTADA, RUTA_PORTADA);
+	cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
 })
 // 🔴Insertar texto
-const insertar_texto = function(id , texto) {
+const insertar_texto = function({id , texto}) {
 	let contenedor = document.getElementById(id);
 	contenedor.innerHTML = texto;
 }
@@ -60,7 +60,7 @@ const insertar_home = function({id, url, n_menu}) {
 		let imagen = parser.parseFromString(text, "text/xml");
 		contenedor.appendChild(imagen.documentElement);
 		contenedor.addEventListener("click", function() {
-			cargarContenido(IDP_PORTADA, RUTA_PORTADA);
+			cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
 			cambiarSubmenu(n_menu, undefined);
 		});
 	})
@@ -90,7 +90,7 @@ function iniciar_menus({root_menu}) {
 		
 		if(tipo === TIPO_BOTON){
 			nodo_boton.addEventListener( "click", function(){	
-				cambiarSubmenu(root_menu, submenu, PX_ABIERTO, PX_CERRADO);
+				cambiarSubmenu({nodo_menu: root_menu,nodo_submenu: submenu});
 			})
 		}
 		if(tipo === TIPO_SUBBOTON){
@@ -131,7 +131,7 @@ function iniciar_menus({root_menu}) {
 	}
 }
 // 🔴Manipular menú
-function cambiarSubmenu(nodo_menu, nodo_submenu) {
+function cambiarSubmenu({nodo_menu, nodo_submenu}) {
 
 
 	
