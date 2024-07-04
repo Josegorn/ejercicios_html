@@ -3,6 +3,9 @@
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
+import { 	modificarTextoPorId,
+			modificarTituloDocumento
+ } from "./inicio_pagina";
 
 // 🔴Algunós valores
 const TITULO = PAG_INDEX.atributos.descripcion;
@@ -10,8 +13,6 @@ const NIVEL = PAG_INDEX.atributos.nivel;
 const RUTA_PORTADA = PAG_INDEX.atributos.portada;
 const IDP_PORTADA = "portada";
 const MENU = "menu";
-const ID_H_TITULO = "htitulo";
-const ID_FAVICON = "head>link:first-of-type";
 const ID_CAJA_LOGO = "caja_titulo_logo";
 const ID_CAJA_NIVEL = "caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "caja_titulo_nombre";
@@ -25,54 +26,55 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
-	const menu_def = document.getElementById(MENU);
 	// Título (HEAD)
-	insertar_texto({id: ID_H_TITULO, texto: TITULO});
+	modificarTituloDocumento({texto: TITULO});
 	// Favicon
-	insertar_favicon({id: ID_FAVICON, archivo: FAVICON});
+	modificarFavicon({id: ID_FAVICON, archivo: FAVICON});
 	// Botón HOME
-	insertar_home({id: ID_CAJA_LOGO, url: HOME, n_menu: menu_def});
-	// Texto
-	insertar_texto({id: ID_CAJA_NIVEL, texto: NIVEL});
-	insertar_texto({id: ID_CAJA_NOMBRE, texto: TITULO});
+	insertarSVG({id: ID_CAJA_LOGO, url: HOME});
+	insertarLinkHome({id_contenedor: ID_CAJA_LOGO, n_menu: menu_def});
+	// Título
+	modificarTextoPorId({id: ID_CAJA_NIVEL, texto: NIVEL});
+	modificarTextoPorId({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
-	iniciar_menus({root_menu: menu_def});
+	iniciarMenu({id_menu: MENU});
 	// Píe
 	cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
 })
-// 🔴Insertar texto
-const insertar_texto = function({id , texto}) {
-	let contenedor = document.getElementById(id);
-	contenedor.innerHTML = texto;
-}
+window.addEventListener("resize", function() {
+	const contenido = document.querySelector(ID_CONTENIDO);
+	redimesionar_iframe({contenido: contenido.firstChild, continente: contenido});
+})
 // 🔴Insertar favicon
-const insertar_favicon = function({id , archivo }) {
-	const link = document.querySelector(id);
+const modificarFavicon = function({id , archivo }) {
+	const link = document.querySelector("head>link[rel='icon']");
 	link.setAttribute("href", archivo);
 }
-// 🔴Botón HOME
-const insertar_home = function({id, url, n_menu}) {
-	let contenedor = document.getElementById(id);
+// 🔴Insertar SVG
+const insertarSVG = function({id_contenedor, url_SVG}) {
+	let contenedor = document.getElementById(id_contenedor);
 	let parser = new DOMParser();
-	fetch(url)
+	fetch(url_SVG)
 		.then(response => response.text())
 		.then(text => {
 		let imagen = parser.parseFromString(text, "text/xml");
 		contenedor.appendChild(imagen.documentElement);
-		contenedor.addEventListener("click", function() {
-			cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
-			cambiarSubmenu(n_menu, undefined);
-		});
 	})
 }
-// 🔴Reajustar
-window.addEventListener("resize", function() {
-	const contenido = document.querySelector(ID_CONTENIDO);
-	redim_iframe({contenido: contenido.firstChild, continente: contenido});
-})
+// 🔴Botón HOME
+const insertarLinkHome = function({id_contenedor, n_menu}) {
+	let contenedor = document.getElementById(id_contenedor);
+	contenedor.addEventListener("click", function() {
+		cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
+		cambiarSubmenu(n_menu, undefined);
+	});
+}
 
 // 🔴Montar menus
-function iniciar_menus({root_menu}) {
+function iniciarMenu({id_menu}) {
+	
+	// 🟢Obtener nodo raiz
+	const root_menu = document.getElementById(id_menu);
 	
 	// 🟢Declaraciones de funciones auxiliares
 
@@ -175,8 +177,7 @@ function cargarContenido({idp, ruta_pagina}) {
 	})
 }
 // 🔴Redimensionar contenido
-function redim_iframe({contenido, continente}) {
+function redimesionar_iframe({contenido, continente}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }
-export { insertar_texto };

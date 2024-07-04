@@ -5,31 +5,42 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { insertar_texto } from "./inicio_frame";
 
 // 🔴Algunós valores
-const ID_CONTENIDO = "";
-const ID_H_TITULO = "head>title";
-const ID_PRETITULO = "#pre_titulo_portada";
-const ID_TITULO = "#texto_cabecera_portada>h1";
-const ID_CUERPO = "#texto_cabecera_portada>h2";
-const ID_PIE = "#epitafio";
-const TITULO = PAG_INDEX.atributos.descripcion;
-const NIVEL = PAG_INDEX.atributos.nivel;
-const TITULO_PAGINA = ;
-const RUTA = "";
-
-// 🔴 Inicialización
-document.addEventListener("DOMContentLoaded", function() {
-	// Título (Head)
-	insertar_texto(ID_H_TITULO, TITULO_PAGINA);
-    // Cartel
-	insertar_texto(ID_PRETITULO, NIVEL);
-	insertar_texto(ID_TITULO, TITULO);
-	// Cuerpo
-	iniciar_contenido({seccion: ID_CUERPO});
-	// Píe
-	iniciar_pie({texto_pretitulo: NIVEL, texto_cuerpo: TITULO, texto_pie: TITULO_PAGINA, id_pie: ID_PIE});
-})
-
-// 🔴 Contenido cuerpo
-const iniciar_contenido = function ({seccion}) {
-    
+export const iniciarPiePorId = function ({id_pie, texto_nivel, texto_titulo, texto_tilulo_pagina, separador}) {
+	nodo_pie = document.getElementById(id_pie);
+	nodo_pie.appendChild(crear_nodo_texto({nombre_nodo: "scan", texto: texto_nivel}));
+	nodo_pie.appendChild(crear_nodo_texto({nombre_nodo: "scan", texto: separador}));
+	nodo_pie.appendChild(crear_nodo_texto({nombre_nodo: "scan", texto: texto_titulo}));
+	nodo_pie.appendChild(crear_nodo_texto({nombre_nodo: "scan", texto: separador}));
+	nodo_pie.appendChild(crear_nodo_texto({nombre_nodo: "scan", texto: texto_tilulo_pagina}));
 }
+// 🔴Insertar texto
+export const modificarTituloDocumento = function({texto}) {
+	let nodo_titulo = document.querySelector("head>title");
+	nodo_titulo.innerHTML = texto;
+}
+export const modificarTextoPorId = function({id , texto}) {
+	let contenedor = document.getElementById(id);
+	contenedor.innerHTML = texto;
+}
+export const crearNodoTexto = function ({nombre_nodo, texto, id}) {
+	let nodo_texto = document.createElement(nombre_nodo);
+	nodo_texto.innerHTML = texto;
+	if (id) nodo_texto.id = id;
+	return nodo_texto;
+}
+export const iniciarContenido = function ({seccion, archivo_xml}) {
+	let sec = document.getElementById(ID_CUERPO);
+	let doc_xml = new XMLDocument(archivo_xml);
+	
+	doc_xml.getRootNode().forEach((articulo) => {
+		switch(articulo.tagName) {
+			case document.doctype.childNodes.item("BLOQUE_TEXTO").nodeValue : {
+				sec.appendChild(document.createElement("article"));
+				break;
+			}
+
+		}
+		
+	}) ;
+}
+

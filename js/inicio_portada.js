@@ -1,16 +1,18 @@
 "use strict";
 // 🔴 Inicialización
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { insertar_texto }  from "./inicio_frame.js";
+import { 	modificarTituloDocumento,
+			iniciarPiePorId, 
+			crear_nodo_texto,
+			iniciarContenido 
+		}  from "./inicio_pagina.js";
 
 // 🔴Algunós valores
 const IDP = "portada";
-const ID_H_TITULO = "htitulo";
-const ID_PRETITULO = "pretitulo_portada";
-const ID_TITULO = "titulo_portada";
+const ID_CARTEL = "tcabecera_portada";
 const ID_CUERPO = "cuerpo_portada";
-const ID_PIE = "#epitafio";
-const RUTA_HTML = "/contenido/index.html";
+const ID_PIE = "pie_pagina";
+const SEPARADOR_PIE = " - ";
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,27 +22,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
 	// Título (Head)
-	insertar_texto(ID_H_TITULO, TITULO_PAGINA);
+	modificarTituloDocumento({texto: TITULO_PAGINA});
     // Cartel
-	insertar_texto(ID_PRETITULO, NIVEL);
-	insertar_texto(ID_TITULO, TITULO);
+	insertar_texto({id: ID_PRETITULO,texto: NIVEL});
+	insertar_texto({id: ID_TITULO, texto: TITULO});
+	iniciarCartel({id_cartel: ID_CARTEL, texto_pretitulo: NIVEL, texto_titulo: TITULO});
 	// Cuerpo
-	iniciar_contenido({seccion: ID_CUERPO, plantilla: RUTA_HTML, archivo_xml: RUTA_XML});
+	iniciarContenido({seccion: ID_CUERPO, archivo_xml: RUTA_XML});
 	// Píe
-	iniciar_pie({texto_pretitulo: NIVEL, texto_cuerpo: TITULO, texto_pie: TITULO_PAGINA, id_pie: ID_PIE});
+	iniciarPiePorId({id_pie: ID_PIE, texto_nivel: NIVEL, texto_titulo: TITULO, texto_tilulo_pagina: TITULO_PAGINA, separador: SEPARADOR_PIE});
 })
-const iniciar_contenido = function ({seccion, plantilla, archivo_xml}) {
-	let sec = document.getElementById(ID_CUERPO);
-	let doc_xml = new XMLDocument(archivo_xml);
-	
-	doc_xml.getRootNode().forEach((articulo) => {
-		switch(articulo.tagName) {
-			case document.doctype.childNodes.item("BLOQUE_TEXTO").nodeValue : {
-				sec.appendChild(document.createElement("article"));
-				break;
-			}
-
-		}
-		
-	}) ;
+const iniciarCartel = function ({id_cartel, texto_pretitulo, texto_titulo}) {
+	const nodo_cartel = document.getElementById(id_cartel);
+	const nodo_div = document.createElement("div");
+	nodo_div.appendChild(crear_nodo_texto({nombre_nodo: "h1", texto: texto_pretitulo}));
+	nodo_div.appendChild(crear_nodo_texto({nombre_nodo: "h1", texto: texto_titulo}));
+	nodo_cartel.appendChild(nodo_div);
 }
+
