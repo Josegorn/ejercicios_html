@@ -3,6 +3,7 @@
 @import "/css/fuentes.css";
 
 body {
+	overflow: hidden;
 	font-family: var(--fuente_primaria);
 	height: 100%;
 	color: var(--color_texto_normal);
@@ -16,6 +17,47 @@ header h1 {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-shadow: var(--sombra_texto);
+}
+#cabecera {
+	height: 100%;
+	border-bottom: 4px solid rgba(180,50,200,0.5);
+	background-image: linear-gradient(to right, rgba(180,50,200,0.5), rgba(180,50,200,0));
+}
+.texto_cabecera h1 {
+	font-size: 1.3em;
+	padding: 25px 25px 0px 25px;
+}
+#principal {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: var(--margen_externo);
+}
+#cuerpo h1 {
+	font-size: 1.1em;
+	padding: 5px 25px 0px 25px;
+}
+#cuerpo figure {
+	display: block;
+}
+#cuerpo figure>img {
+	height: auto;
+	max-width: var(--ancho_imagen_max);
+	width: var(--ancho_imagen_relativo);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: var(--borde_imagen); 
+}
+#cuerpo figure>figcaption {
+  text-align: center;
+  font-style: italic;
+  padding: var(--relleno_titulos);	
+}
+
+
+#cuerpo article {
+  padding: var(--relleno_articulo);
 }
 .tablon {
 	color: var(--color_texto_normal);
@@ -76,3 +118,9 @@ button.boton_enlace:hover {
 p b, li b {
 	color: var(--color_texto_enfasis);
 }
+
+
+
+
+
+

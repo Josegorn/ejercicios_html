@@ -106,7 +106,7 @@
 	/* Imágenes */
 	--ancho_imagen_max: 800px;
 	--ancho_imagen_relativo: 80%;
-	--borde_imagen: 4px solid var(--marino);
+	--borde_imagen: 4px solid var(--indigo_oscuro);
 	/* Botones (enlaces) */
 	--relleno_boton_enlace: 5px 8px;
 	--borde_boton_enlace: 2px solid rgba(200, 200, 230,0.4);

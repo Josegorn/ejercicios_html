@@ -2,17 +2,9 @@
 @import "/css/variables.css";
 @import "/css/fuentes.css";
 
-body {
-	font-family: var(--fuente_primaria);
-	overflow: hidden;
-}
 
-#principal_portada {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	margin: var(--margen_externo);
-}
+
+
 #tcabecera_portada {
 	height: 100%;
 	padding: var(--relleno_cabecera_contenido);
@@ -33,24 +25,3 @@ body {
 	padding: var(--relleno_titulos);
   	color: var(--color_titulo); 
 }
-
-#cuerpo img {
-  	height: auto;
-  	max-width: var(--ancho_imagen_max);
-  	width: var(--ancho_imagen_relativo);
-  	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	border: var(--borde_imagen); 
-}
-#cuerpo figcaption {
-	text-align: center;
-	font-style: italic;
-	padding: var(--relleno_titulos);	
-}
-
-#cuerpo article {
-	padding: var(--relleno_articulo);
-}
-
-
