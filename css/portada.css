@@ -43,6 +43,12 @@ body {
   	margin-right: auto;
   	border: var(--borde_imagen); 
 }
+#cuerpo figcaption {
+	text-align: center;
+	font-style: italic;
+	padding: var(--relleno_titulos);	
+}
+
 #cuerpo article {
 	padding: var(--relleno_articulo);
 }

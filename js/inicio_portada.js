@@ -4,8 +4,7 @@ import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { 	modificarTituloDocumento,
 			iniciarPiePorId, 
-			crearNodoTexto,
-			iniciarContenido 
+			crearNodoTexto
 		}  from "/js/inicio_pagina.js";
 
 // 🔴Algunós valores
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Cartel
 	iniciarCartel({id_cartel: ID_CARTEL, texto_pretitulo: NIVEL, texto_titulo: TITULO});
 	// Cuerpo
-	iniciarContenido({id_seccion: ID_CUERPO, archivo_xml: RUTA_XML});
+	//iniciarContenido({id_seccion: ID_CUERPO, archivo_xml: RUTA_XML});
 	// Píe
 	iniciarPiePorId({id_pie: ID_PIE, texto_nivel: NIVEL, texto_titulo: TITULO, texto_tilulo_pagina: TITULO_PAGINA, separador: SEPARADOR_PIE});
 })

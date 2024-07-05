@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	modificarFavicon({archivo: FAVICON});
 	// Botón HOME
 	insertarSVG({id_contenedor: ID_CAJA_LOGO, url_SVG: HOME});
-	insertarLinkHome({id_contenedor: ID_CAJA_LOGO, id_menu: MENU});
+	insertarLinkHome({id_contenedor: ID_CAJA_LOGO, ruta_portada: RUTA_PORTADA, id_menu: MENU});
 	// Título
 	modificarTextoPorId({id: ID_CAJA_NIVEL, texto: NIVEL});
 	modificarTextoPorId({id: ID_CAJA_NOMBRE, texto: TITULO});
@@ -56,17 +56,17 @@ const insertarSVG = function({id_contenedor, url_SVG}) {
 	let parser = new DOMParser();
 	fetch(url_SVG)
 		.then(response => response.text())
-		.then(text => {
-		let imagen = parser.parseFromString(text, "text/xml");
+		.then(texto => {
+		let imagen = parser.parseFromString(texto, "text/xml");
 		contenedor.appendChild(imagen.documentElement);
 	})
 }
 // 🔴Botón HOME
-const insertarLinkHome = function({id_contenedor, id_menu}) {
+const insertarLinkHome = function({id_contenedor, ruta_portada, id_menu}) {
 	let contenedor = document.getElementById(id_contenedor);
 	let n_menu = document.getElementById(id_menu);
 	contenedor.addEventListener("click", function() {
-		cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
+		cargarContenido({id: IDP_PORTADA, ruta_pagina: ruta_portada});
 		cambiarSubmenu(n_menu, undefined);
 	});
 }
@@ -127,7 +127,7 @@ function iniciarMenu({id_menu}) {
 				id: "subboton"+n+"_"+j, 
 				texto: Object.values(Object.values(PAG_INDEX)[i].pag)[j].titulo, 
 				tipo: TIPO_SUBBOTON, 
-				enlace: String( Object.values(Object.values(PAG_INDEX)[i].pag)[j].ruta )
+				enlace: PAG_INDEX.atributos.ruta + Object.values(Object.values(PAG_INDEX)[i].pag)[j].archivo 
 			}));
 		}
 		root_menu.appendChild(nuevo_submenu);
