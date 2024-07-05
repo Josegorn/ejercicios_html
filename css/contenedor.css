@@ -81,13 +81,13 @@ svg#logo_svg {
 	display: flex;   
     flex: 1;
 }
-#contenido {
+div#contenido {
     height: 100%;
     width: 100%;
     padding: 0px;
 	flex-grow: 1;
 }
-iframe.frame {
+div#contenido>iframe {
     display: block;
     height: 100%;
     width: 100%;
