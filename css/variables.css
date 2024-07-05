@@ -27,6 +27,7 @@
 	/* Fuentes */
 	--fuente_enfasis: "Eras Demi", Arial, Segoe;
 	--fuente_primaria: Eras, Arial, Segoe;
+	--fuente_imagen: "Eras Book", Arial, Segoe;
 	/* Maquetación encabezado */
 	--tamv_img_cabecera: 40px;
 	--margen_cabecera: 15px 10px 10px 10px;

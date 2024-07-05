@@ -51,6 +51,7 @@ header h1 {
 }
 #cuerpo figure>figcaption {
   text-align: center;
+  font-family: var(--fuente_imagen);
   font-style: italic;
   padding: var(--relleno_titulos);	
 }
