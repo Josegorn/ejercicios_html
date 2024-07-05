@@ -1,8 +1,7 @@
 "use strict";
 // 🔴 Inicialización
-import * as DZ from "/js/diccionario.js";
-import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { insertar_texto } from "./inicio_frame";
+// import * as DZ from "/js/diccionario.js";
+// import { PAG_INDEX } from "/contenido/def/esquema.js";
 
 // 🔴Algunós valores
 export const iniciarPiePorId = function ({id_pie, texto_nivel, texto_titulo, texto_tilulo_pagina, separador}) {
@@ -28,8 +27,12 @@ export const crearNodoTexto = function ({nombre_nodo, texto, id}) {
 	if (id) nodo_texto.id = id;
 	return nodo_texto;
 }
-export const iniciarContenido = function ({seccion, archivo_xml}) {
-	let sec = document.getElementById(ID_CUERPO);
+export const iniciarContenido = function ({id_seccion, archivo_xml}) {
+	const sec = document.getElementById(id_seccion);
+	
+	sec.appendChild(document.createElement("p").textContent(archivo_xml));
+
+	/*
 	let doc_xml = new XMLDocument(archivo_xml);
 	
 	doc_xml.getRootNode().forEach((articulo) => {
@@ -42,5 +45,6 @@ export const iniciarContenido = function ({seccion, archivo_xml}) {
 		}
 		
 	}) ;
+	*/
 }
 

@@ -5,12 +5,9 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
 import { 	modificarTextoPorId,
 			modificarTituloDocumento
- } from "./inicio_pagina";
+ } from "/js/inicio_pagina.js";
 
 // 🔴Algunós valores
-const TITULO = PAG_INDEX.atributos.descripcion;
-const NIVEL = PAG_INDEX.atributos.nivel;
-const RUTA_PORTADA = PAG_INDEX.atributos.portada;
 const IDP_PORTADA = "portada";
 const MENU = "menu";
 const ID_CAJA_LOGO = "caja_titulo_logo";
@@ -26,27 +23,30 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
+	const TITULO = PAG_INDEX.atributos.descripcion;
+	const NIVEL = PAG_INDEX.atributos.nivel;
+	const RUTA_PORTADA = PAG_INDEX.atributos.portada;
 	// Título (HEAD)
 	modificarTituloDocumento({texto: TITULO});
 	// Favicon
-	modificarFavicon({id: ID_FAVICON, archivo: FAVICON});
+	modificarFavicon({archivo: FAVICON});
 	// Botón HOME
-	insertarSVG({id: ID_CAJA_LOGO, url: HOME});
-	insertarLinkHome({id_contenedor: ID_CAJA_LOGO, n_menu: menu_def});
+	insertarSVG({id_contenedor: ID_CAJA_LOGO, url_SVG: HOME});
+	insertarLinkHome({id_contenedor: ID_CAJA_LOGO, id_menu: MENU});
 	// Título
 	modificarTextoPorId({id: ID_CAJA_NIVEL, texto: NIVEL});
 	modificarTextoPorId({id: ID_CAJA_NOMBRE, texto: TITULO});
 	// Menú
 	iniciarMenu({id_menu: MENU});
 	// Píe
-	cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
+	cargarContenido({id: IDP_PORTADA, ruta_pagina: RUTA_PORTADA});
 })
 window.addEventListener("resize", function() {
 	const contenido = document.querySelector(ID_CONTENIDO);
 	redimesionar_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 // 🔴Insertar favicon
-const modificarFavicon = function({id , archivo }) {
+const modificarFavicon = function({archivo}) {
 	const link = document.querySelector("head>link[rel='icon']");
 	link.setAttribute("href", archivo);
 }
@@ -62,8 +62,9 @@ const insertarSVG = function({id_contenedor, url_SVG}) {
 	})
 }
 // 🔴Botón HOME
-const insertarLinkHome = function({id_contenedor, n_menu}) {
+const insertarLinkHome = function({id_contenedor, id_menu}) {
 	let contenedor = document.getElementById(id_contenedor);
+	let n_menu = document.getElementById(id_menu);
 	contenedor.addEventListener("click", function() {
 		cargarContenido({id: IDP_PORTADA, ruta: RUTA_PORTADA});
 		cambiarSubmenu(n_menu, undefined);
@@ -154,13 +155,13 @@ function cambiarSubmenu({nodo_menu, nodo_submenu}) {
 	});
 }
 // 🔴Cargar subpágina
-function cargarContenido({idp, ruta_pagina}) {
+function cargarContenido({id, ruta_pagina}) {
 
     let cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
 	cuadro.className = "frame";
-	cuadro.Id = idp;
-	cuadro.title = "Frame_Interior";
+	cuadro.Id = id;
+	cuadro.title = id;
 	
 	let recipiente = document.getElementById(ID_CONTENIDO);
 	if(recipiente.childElementCount !== 0){
@@ -169,11 +170,11 @@ function cargarContenido({idp, ruta_pagina}) {
 	recipiente.appendChild(cuadro);	
 	// 🔷Redimensionar al cargar
 	cuadro.addEventListener("load", function() {
-		redim_iframe({contenido: cuadro, continente: recipiente});
+		redimesionar_iframe({contenido: cuadro, continente: recipiente});
 	})
 	// 🔷Redimensionar cuando cambie
 	cuadro.addEventListener("resize", function() {
-		redim_iframe({contenido: cuadro, continente: recipiente});
+		redimesionar_iframe({contenido: cuadro, continente: recipiente});
 	})
 }
 // 🔴Redimensionar contenido

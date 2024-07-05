@@ -23,18 +23,18 @@ body {
 	margin-bottom: var(--separacion_inferior_cabecera);
 }
 
-#tcabecera_portada div:nth-child(0) {
+#tcabecera_portada>div>h1:nth-child(1) {
   	font-size: var(--tam_fuente_pretitulo);
 	padding: var(--relleno_titulos);
   	color: var(--color_pretitulo);
 }
-#tcabecera_portada div:nth-child(1) {
+#tcabecera_portada>div>h1:nth-child(2) {
   	font-size: var(--tam_fuente_titulo);
 	padding: var(--relleno_titulos);
   	color: var(--color_titulo); 
 }
 
-#cuerpo_portada img {
+#cuerpo img {
   	height: auto;
   	max-width: var(--ancho_imagen_max);
   	width: var(--ancho_imagen_relativo);
@@ -43,7 +43,7 @@ body {
   	margin-right: auto;
   	border: var(--borde_imagen); 
 }
-#cuerpo_portada article {
+#cuerpo article {
 	padding: var(--relleno_articulo);
 }
 
