@@ -67,7 +67,10 @@ button.boton_enlace:hover {
 	box-shadow: var(--sombra_tablon);
 	padding: var(--relleno_pie);
 }
-#pie_pagina span:nth-child(1) :nth-child(5) {
+#pie_pagina>span:nth-child(1) {
+	color:var(--color_texto_pie_enfasis);
+}
+#pie_pagina>span:nth-child(5) {
 	color:var(--color_texto_pie_enfasis);
 }
 p b, li b {

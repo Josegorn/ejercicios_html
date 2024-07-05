@@ -21,14 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	const TITULO = PAG_INDEX.atributos.descripcion;
 	const NIVEL = PAG_INDEX.atributos.nivel;
 	const TITULO_PAGINA = PAG_INDEX.menu_0.pag[IDP].titulo;
-	const RUTA_XML = PAG_INDEX.atributos.ruta+PAG_INDEX.menu_0.pag[IDP].archivo;
-	console.log(RUTA_XML);
+	const RUTA_XML = PAG_INDEX.atributos.ruta + PAG_INDEX.menu_0.pag[IDP].archivo;
 	// Título (Head)
 	modificarTituloDocumento({texto: TITULO_PAGINA});
 	// Cartel
 	iniciarCartel({id_cartel: ID_CARTEL, texto_pretitulo: NIVEL, texto_titulo: TITULO});
 	// Cuerpo
-	iniciarContenido({seccion: ID_CUERPO, archivo_xml: RUTA_XML});
+	iniciarContenido({id_seccion: ID_CUERPO, archivo_xml: RUTA_XML});
 	// Píe
 	iniciarPiePorId({id_pie: ID_PIE, texto_nivel: NIVEL, texto_titulo: TITULO, texto_tilulo_pagina: TITULO_PAGINA, separador: SEPARADOR_PIE});
 })

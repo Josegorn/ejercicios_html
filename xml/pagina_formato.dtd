@@ -1,7 +1,0 @@
-<!--#Formato de texto-->
-<!ENTITY bi SYSTEM "&lt;b&gt;">
-<!ENTITY bo SYSTEM "&lt;/b&gt;">
-<!ENTITY ui SYSTEM "&lt;u&gt;">
-<!ENTITY uo SYSTEM "&lt;/u&gt;">
-<!ENTITY ii SYSTEM "&lt;i&gt;">
-<!ENTITY io SYSTEM "&lt;/i&gt;">

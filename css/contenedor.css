@@ -95,7 +95,7 @@ iframe.frame {
     border: none;
 }
 /* 🟠PIÉ */
-footer#pie_pagina {
+footer#pie_marco {
     height: var(--tamv_pie);
 	position: relative;
 	bottom: 0px;
