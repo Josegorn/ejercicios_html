@@ -78,6 +78,8 @@
 	--separacion_inferior_cabecera: 25px;
 	--relleno_cabecera_contenido: 20px;
 	--relleno_titulos: 5px 5px 5px 10px;
+	--relleno_titulo_pagina: 25px 25px 0px 25px;
+	--relleno_titulo_apartado: 5px 25px 0px 25px;
 	--separacion_pie: 30px;
 	--relleno_tablon: 5px 20px;
 	--separacion_inferior_tablon: 15px;
@@ -86,10 +88,13 @@
 	--sangria_lista: 30px;
 	--posicion_lista: 30px;
 	/* Detalles del contenido */
+	--degradado_cabecera: linear-gradient(to right, var(--indigo_pastel), rgba(0,0,0,0));
 	--borde_cabecera_contenido: 3px outset var(--rosa_pastel);
 	--tam_fuente_pretitulo: 22px;
 	--color_pretitulo: var(--tinto);
 	--tam_fuente_titulo: 25px;
+	--tam_fuente_titulo_pagina: 20px;
+	--tam_fuente_titulo_apartado: 18px;
 	--color_titulo: var(--indigo_oscuro);
 	--relleno_articulo: 5px 15px 5px 15px;
 	--color_texto_normal: var(--marino);

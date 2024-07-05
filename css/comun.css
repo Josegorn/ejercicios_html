@@ -10,6 +10,12 @@ body {
 	padding-bottom: var(--separacion_pie);
 	background: var(--color_fondo);
 }
+#principal {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: var(--margen_externo);
+}
 header h1 {
 	font-family: var(--fuente_enfasis);
 	text-align: left;
@@ -20,22 +26,16 @@ header h1 {
 }
 #cabecera {
 	height: 100%;
-	border-bottom: 4px solid rgba(180,50,200,0.5);
-	background-image: linear-gradient(to right, rgba(180,50,200,0.5), rgba(180,50,200,0));
+	border-bottom: var(--borde_cabecera_contenido);
+	background-image: var(--degradado_cabecera);
 }
-.texto_cabecera h1 {
-	font-size: 1.3em;
-	padding: 25px 25px 0px 25px;
-}
-#principal {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	margin: var(--margen_externo);
+#cabecera h1 {
+	font-size: var(--tam_fuente_titulo_pagina);
+	padding: var(--relleno_titulo_pagina);
 }
 #cuerpo h1 {
-	font-size: 1.1em;
-	padding: 5px 25px 0px 25px;
+	font-size: var(--tam_fuente_titulo_apartado);
+	padding: var(--relleno_titulo_apartado);
 }
 #cuerpo figure {
 	display: block;
@@ -54,8 +54,6 @@ header h1 {
   font-style: italic;
   padding: var(--relleno_titulos);	
 }
-
-
 #cuerpo article {
   padding: var(--relleno_articulo);
 }

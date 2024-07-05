@@ -2,9 +2,6 @@
 @import "/css/variables.css";
 @import "/css/fuentes.css";
 
-
-
-
 #tcabecera_portada {
 	height: 100%;
 	padding: var(--relleno_cabecera_contenido);
