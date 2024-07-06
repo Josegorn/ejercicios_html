@@ -1,14 +1,16 @@
-export const PAG_INDEX = Object.freeze({
+"use strict";
+export const PAG_INDEX = {
+
 	// 0
-	atributos:{	nivel: 			"Digitalización 4ºESO",
-				descripcion: 	"Introducción al lenguaje HTML",
-				portada: 		"/contenido/portada.html",
-				ruta: 			"/contenido/"},
+	atributos:	{	nivel: 			"Digitalización 4ºESO",
+					descripcion: 	"Introducción al lenguaje HTML",
+					portada: 		"/contenido/portada.html",
+					ruta: 			"/contenido/"},
 	// 1
 	menu_0:	{titulo: "Introdución", pag: { 
 		portada:	{titulo: "Inicio",							archivo: "portada.html"},
 		intro_1:	{titulo: "El lenguaje de la web",			archivo: "introduccion.html"},
-		intro_2:	{titulo: "Beneficos de la programación",	archivo: "beneficios.html"},
+		intro_2:	{titulo: "Beneficios de la programación",	archivo: "beneficios.html"},
 		intro_3:	{titulo: "Conocimientos previos",			archivo: "conocimientos.html"},
 		intro_4: 	{titulo: "Materiales necesarios",			archivo: "materiales.html"}
 	}},
@@ -66,5 +68,86 @@ export const PAG_INDEX = Object.freeze({
 		teo_9:		{titulo: "Teoría",				archivo: "teoria_9.html"},
 		eje_9:		{titulo: "Ejercicios",			archivo: "ejercicio_9.html"}
 	}}
-})
+};
+export const numUD = Object.defineProperty(PAG_INDEX, "numUD", {
+	get() {
+		return Object.keys(this).filter(key => typeof(this[key]) === typeof({}) ).length - 1;
+	},
+	enumerable: false,
+});
+export const tituloDocumento = Object.defineProperty(PAG_INDEX, "tituloDocumento", {
+	get() {
+		return this.atributos.descripcion;
+	},
+	enumerable: false,
+});
+export const nivel = Object.defineProperty(PAG_INDEX, "nivel", {
+	get() {
+		return this.atributos.nivel;
+	},
+	enumerable: false,
+});
+export const rutaPortada = Object.defineProperty(PAG_INDEX, "rutaPortada", {
+	get() {
+		return this.atributos.portada;
+	},
+	enumerable: false,
+});
+export const ruta = Object.defineProperty(PAG_INDEX, "ruta", {
+	get() {
+		return this.atributos.ruta;
+	},
+	enumerable: false,
+});
+export const primeraUD = Object.defineProperty(PAG_INDEX, "primeraUD", {
+	get() {
+		let id = Object.keys(this)[1];
+		return this[id];
+	},
+	enumerable: false,
+});
+export const ultimaUD = Object.defineProperty(PAG_INDEX, "ultimaUD", {
+	get() {
+		let id = Object.keys(this)[this.numUD];
+		return this[id];
+	},
+	enumerable: false,
+});
+PAG_INDEX.UD = function(indexUD = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	return this[id];
+};	
 
+PAG_INDEX.idUD = function(indexUD = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	return id;
+};	
+
+PAG_INDEX.numPag = function(indexUD = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	return Object.keys(this[id].pag).length;
+};	
+PAG_INDEX.tituloPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
+	let idPag = Object.keys(this[id].pag)[indexPag];
+	return this[id].pag[idPag].titulo;
+};
+PAG_INDEX.archivoPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
+	let idPag = Object.keys(this[id].pag)[indexPag];
+	return this[id].pag[idPag].archivo;
+};
+PAG_INDEX.idPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
+	let id = Object.keys(this)[indexUD + 1];
+	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
+	let idPag = Object.keys(this[id].pag)[indexPag];
+	return this[id].pag[idPag].archivo;
+};
