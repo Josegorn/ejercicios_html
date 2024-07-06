@@ -54,13 +54,13 @@
 	/* Detalles pie */
 	--color_pie: var(--lavanda_pastel);
 	/* Maquetación del menú */
-	--relleno_menu: 10px;
+	--relleno_menu: 15px;
 	--relleno_boton: 8px;
 	--relleno_submenu: 0px 0px 0px 15px;
 	--margen_boton: 0px 0px 5px 0px;
-	--ancho_panel_menu: 250px;
+	--ancho_panel_menu: 265px;
 	--tamv_submenu: 38px;
-	--tamh_submenu: 233px;
+	--tamh_submenu: 248px;
 	--tamv_efectivo_subboton: 43px;
 	--tamv_nulo: 0px;
 	/* Detalles del menú */

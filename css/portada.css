@@ -12,6 +12,11 @@
 	margin-bottom: var(--separacion_inferior_cabecera);
 }
 
+#tcabecera_portada>div>h1 {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
 #tcabecera_portada>div>h1:nth-child(1) {
   	font-size: var(--tam_fuente_pretitulo);
 	padding: var(--relleno_titulos);
