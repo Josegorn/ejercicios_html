@@ -5,22 +5,18 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { iniciarPie }  from "/js/comun.js";
 
 // 🔴Algunós valores
-const SEPARADOR_PIE = DZ.SEPARADOR_PIE;
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
-	const TITULO = 			PAG_INDEX.atributos.descripcion;
-	const NIVEL = 			PAG_INDEX.atributos.nivel;
-	const TITULO_PAGINA = 	window.document.title;
-	console.log(TITULO_PAGINA);
+	document.title = PAG_INDEX.tituloPag(0,0);
 	// Píe
-	let div_principal = document.getElementById("principal");
+	let div_principal = document.getElementById(DZ.ID_DIV);
 	iniciarPie({	nodo_padre: div_principal, 
-					texto_nivel: NIVEL, 
-					texto_titulo: TITULO, 
-					texto_tilulo_pagina: TITULO_PAGINA, 
-					separador: SEPARADOR_PIE
+					texto_nivel: PAG_INDEX.nivel, 
+					texto_titulo: PAG_INDEX.tituloDocumento, 
+					texto_tilulo_pagina: PAG_INDEX.tituloPag(0,0), 
+					separador: DZ.SEPARADOR_PIE
 				});
 })
 

@@ -15,5 +15,8 @@ ID_IFRAME = "frame_pagina",
 ID_CAJA_LOGO = "caja_titulo_logo",
 ID_CAJA_NIVEL = "caja_titulo_nivel",
 ID_CAJA_NOMBRE = "caja_titulo_nombre",
-ID_CONTENIDO = "contenido";
+ID_CONTENIDO = "contenido",
+ID_DIV_PORTADA = "principal_portada",
+ID_DIV = "principal",
+ID_CARTEL = "tcabeerta_portada";
 

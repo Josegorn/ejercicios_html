@@ -5,27 +5,19 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { 	iniciarPie, 
 			crearNodoTexto
 		}  from "/js/comun.js";
-
-// 🔴Algunós valores
-const IDP = "portada";
-const ID_CARTEL = "tcabecera_portada";
-const SEPARADOR_PIE = DZ.SEPARADOR_PIE;
-
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
-	const TITULO = 			PAG_INDEX.atributos.descripcion;
-	const NIVEL = 			PAG_INDEX.atributos.nivel;
-	const TITULO_PAGINA = 	PAG_INDEX.menu_0.pag[IDP].titulo;
+	document.title = PAG_INDEX.tituloPag(0,0);
 	// Cartel
-	iniciarCartel({id_cartel: ID_CARTEL, texto_pretitulo: NIVEL, texto_titulo: TITULO});
+	iniciarCartel({id_cartel: DZ.ID_CARTEL, texto_pretitulo: PAG_INDEX.nivel, texto_titulo: PAG_INDEX.tituloDocumento});
 	// Píe
-	let div_principal = document.getElementById("principal_portada");
+	const div_principal = document.getElementById(DZ.ID_DIV_PORTADA);
 	iniciarPie({	nodo_padre: div_principal,
-					texto_nivel: NIVEL,
-					texto_titulo: TITULO,
-					texto_tilulo_pagina: TITULO_PAGINA,
-					separador: SEPARADOR_PIE
+					texto_nivel: PAG_INDEX.nivel,
+					texto_titulo: PAG_INDEX.tituloDocumento,
+					texto_tilulo_pagina: PAG_INDEX.tituloPag(0,0),
+					separador: DZ.SEPARADOR_PIE
 				});
 })
 const iniciarCartel = function ({id_cartel, texto_pretitulo, texto_titulo}) {
