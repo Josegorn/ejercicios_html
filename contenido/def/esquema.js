@@ -113,41 +113,41 @@ export const ultimaUD = Object.defineProperty(PAG_INDEX, "ultimaUD", {
 	},
 	enumerable: false,
 });
-PAG_INDEX.UD = function(indexUD = Number() | 0 ) {
+PAG_INDEX.UD = function(indexUD = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	return this[id];
 };	
 
-PAG_INDEX.idUD = function(indexUD = Number() | 0 ) {
+PAG_INDEX.idUD = function(indexUD = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	return id;
 };	
 
-PAG_INDEX.numPag = function(indexUD = Number() | 0 ) {
+PAG_INDEX.numPag = function(indexUD = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	return Object.keys(this[id].pag).length;
 };	
-PAG_INDEX.tituloPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+PAG_INDEX.tituloPag = function(indexUD = Number() || 0, indexPag = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
 	let idPag = Object.keys(this[id].pag)[indexPag];
 	return this[id].pag[idPag].titulo;
 };
-PAG_INDEX.archivoPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+PAG_INDEX.archivoPag = function(indexUD = Number() || 0, indexPag = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
 	let idPag = Object.keys(this[id].pag)[indexPag];
 	return this[id].pag[idPag].archivo;
 };
-PAG_INDEX.idPag = function(indexUD = Number() | 0, indexPag = Number() | 0 ) {
+PAG_INDEX.idPag = function(indexUD = Number() || 0, indexPag = Number() || 0 ) {
 	if(indexUD < 0 || indexUD >= this.numUD) return undefined;
 	let id = Object.keys(this)[indexUD + 1];
 	if(indexPag < 0 || indexPag >= this.numPag(indexUD)) return undefined;
 	let idPag = Object.keys(this[id].pag)[indexPag];
-	return this[id].pag[idPag].archivo;
+	return idPag;
 };

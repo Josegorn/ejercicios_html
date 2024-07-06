@@ -8,6 +8,7 @@ import {	modificarTextoPorId,
 			insertarSVG
 } from "/js/comun.js";
 
+
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
@@ -45,12 +46,12 @@ window.addEventListener("resize", function({id_contenedor = DZ.ID_CONTENIDO}) {
 	redimesionar_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 // 🔴Botón HOME
-const insertarLinkHome = function({	id_contenedor = String | any,
-									id_portada,
-									ruta_portada,
-									id_menu,
-									id_contenedor_pagina,
-									id_iframe
+const insertarLinkHome = function({ id_contenedor = String(),
+									id_portada = String(),
+									ruta_portada = String(),
+									id_menu = String(),
+									id_contenedor_pagina = String(),
+									id_iframe = String()
 								}) {
 	const contenedor = document.getElementById(id_contenedor);
 	const n_menu = document.getElementById(id_menu);
@@ -60,19 +61,22 @@ const insertarLinkHome = function({	id_contenedor = String | any,
 	});
 }
 // 🔴Montar menus
-const iniciarMenu = function({id_menu, id_contenedor, id_iframe}) {
+const iniciarMenu = function({	id_menu =  String(),
+								id_contenedor = String(), 
+								id_iframe = String()
+							}) {
 	
 	// 🟢Obtener nodo raiz
 	const root_menu = document.getElementById(id_menu);
 	
 	// 🟢Declaraciones de funciones auxiliares
 	// 🔷Crear boton
-	const crear_boton = function ({	clase,
-									id,
-									texto,
-									tipo,
-									submenu = undefined, 
-									id_pagina = undefined, 
+	const crear_boton = function ({ clase = String(),
+									id = String(),
+									texto = String(),
+									tipo = DZ.TIPOS_NODOS.includes(tipo) ? tipo = Symbol() : undefined,
+									submenu =  undefined, 
+									id_pagina =  undefined, 
 									enlace = undefined
 								}) {
 				
@@ -129,7 +133,9 @@ const iniciarMenu = function({id_menu, id_contenedor, id_iframe}) {
 	}
 }
 // 🔴Manipular menú
-const cambiarSubmenu = function ({nodo_menu, nodo_submenu = undefined}) {
+const cambiarSubmenu = function ({	nodo_menu = HTMLElement,
+									nodo_submenu = undefined
+								}) {
 	
 	// 🔷Abrir/Cerrar submenú
 	if(nodo_submenu !== undefined){
@@ -149,13 +155,18 @@ const cambiarSubmenu = function ({nodo_menu, nodo_submenu = undefined}) {
 	});
 }
 // 🔴Cargar subpágina
-const cargarContenido = function ({id_contenedor, id_pagina, ruta_pagina, id_iframe}) {
+const cargarContenido = function ({	id_contenedor = String(), 
+									id_pagina = String(), 
+									ruta_pagina = String(), 
+									id_iframe = String()
+								}) {
 
     const cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
 	cuadro.name = id_pagina;
-	cuadro.title = id_pagina;
-	cuadro.Id = id_iframe;
+	let ud  = Object.keys(PAG_INDEX).find( ud => Object.keys(PAG_INDEX[ud].pag).includes(id_pagina) ? ud : undefined);
+	cuadro.title = PAG_INDEX[ud].pag[id_pagina].titulo;
+	cuadro.id = id_iframe;
 	
 	const recipiente = document.getElementById(id_contenedor);
 	if(recipiente.childElementCount !== 0){
@@ -173,7 +184,7 @@ const cargarContenido = function ({id_contenedor, id_pagina, ruta_pagina, id_ifr
 	redimesionar_iframe({contenido: cuadro, continente: recipiente});
 }
 // 🔴Redimensionar contenido
-function redimesionar_iframe({contenido, continente}) {
+function redimesionar_iframe({contenido = HTMLIFrameElement, continente = HTMLDivElement}) {
 	contenido.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
     continente.style.height = contenido.contentWindow.document.body.scrollHeight + 'px';
 }

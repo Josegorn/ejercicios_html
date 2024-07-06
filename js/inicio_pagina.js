@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.title = PAG_INDEX.tituloPag(0,0);
 	// Píe
 	let div_principal = document.getElementById(DZ.ID_DIV);
+	
 	iniciarPie({	nodo_padre: div_principal, 
 					texto_nivel: PAG_INDEX.nivel, 
 					texto_titulo: PAG_INDEX.tituloDocumento, 
