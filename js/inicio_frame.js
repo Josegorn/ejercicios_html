@@ -5,8 +5,7 @@ import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
 import {	modificarTextoPorId,
 			modificarFavicon,
-			insertarSVG,
-
+			insertarSVG
 } from "/js/comun.js";
 
 // 🔴Algunós valores
@@ -17,9 +16,6 @@ const ID_CAJA_LOGO = "caja_titulo_logo";
 const ID_CAJA_NIVEL = "caja_titulo_nivel";
 const ID_CAJA_NOMBRE = "caja_titulo_nombre";
 const ID_CONTENIDO = "contenido";
-const TIPO_BOTON = DZ.TIPO_BOTON;
-const TIPO_SUBBOTON = DZ.TIPO_SUBBOTON;
-const TIPOS_NODOS = DZ.TIPOS_NODOS;
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
 
@@ -65,9 +61,16 @@ const iniciarMenu = function({id_menu, id_iframe}) {
 	
 	// 🟢Declaraciones de funciones auxiliares
 	// 🔷Crear boton
-	const crear_boton = function ({clase, id, texto, tipo, submenu, enlace}) {
+	const crear_boton = function ({	clase,
+									id,
+									texto,
+									tipo,
+									submenu = undefined, 
+									id_pagina = undefined, 
+									enlace = undefined
+								}) {
 				
-		if(!TIPOS_NODOS.includes(tipo)){
+		if(!DZ.TIPOS_NODOS.includes(tipo)){
 			throw new SyntaxError("Error: Submenú no definido");
 		}
 		let nodo_boton = document.createElement("button");
@@ -76,14 +79,14 @@ const iniciarMenu = function({id_menu, id_iframe}) {
 		nodo_boton.innerHTML = texto;
 		nodo_boton.type = "button";
 		
-		if(tipo === TIPO_BOTON){
+		if(tipo === DZ.TIPO_BOTON){
 			nodo_boton.addEventListener( "click", function(){	
 				cambiarSubmenu({nodo_menu: root_menu, nodo_submenu: submenu});
 			})
 		}
-		if(tipo === TIPO_SUBBOTON){
+		if(tipo === DZ.TIPO_SUBBOTON){
 			nodo_boton.addEventListener("click", function(){
-				cargarContenido({id_pagina: id, ruta_pagina: enlace, id_iframe: id_iframe});
+				cargarContenido({id_pagina: id_pagina, ruta_pagina: enlace, id_iframe: id_iframe});
 			})
 		}	
 		return nodo_boton;
@@ -103,7 +106,7 @@ const iniciarMenu = function({id_menu, id_iframe}) {
 		root_menu.appendChild(crear_boton({
 			clase: "boton-menu", 
 			id: "boton"+n, texto: Object.values(PAG_INDEX)[i].titulo, 
-			tipo: TIPO_BOTON, 
+			tipo: DZ.TIPO_BOTON, 
 			submenu: nuevo_submenu
 		}));								 
 		for(let j = 0; j < Object.values(Object.values(PAG_INDEX)[i].pag).length ; j++){
@@ -111,8 +114,9 @@ const iniciarMenu = function({id_menu, id_iframe}) {
 				clase: "boton-submenu",
 				id: "subboton"+n+"_"+j, 
 				texto: Object.values(Object.values(PAG_INDEX)[i].pag)[j].titulo, 
-				tipo: TIPO_SUBBOTON, 
-				enlace: PAG_INDEX.atributos.ruta + Object.values(Object.values(PAG_INDEX)[i].pag)[j].archivo 
+				tipo: DZ.TIPO_SUBBOTON, 
+				id_pagina: Object.values(Object.values(PAG_INDEX)[i].pag)[j],
+				enlace: PAG_INDEX.atributos.ruta + Object.values(Object.values(PAG_INDEX)[i].pag)[j].archivo
 			}));
 		}
 		root_menu.appendChild(nuevo_submenu);
@@ -160,7 +164,6 @@ const cargarContenido = function ({id_pagina, ruta_pagina, id_iframe}) {
 	cuadro.addEventListener("resize", function() {
 		redimesionar_iframe({contenido: cuadro, continente: recipiente});
 	})
-	redimesionar_iframe({contenido: cuadro, continente: recipiente});
 }
 // 🔴Redimensionar contenido
 function redimesionar_iframe({contenido, continente}) {
