@@ -18,5 +18,5 @@ ID_CAJA_NOMBRE = "caja_titulo_nombre",
 ID_CONTENIDO = "contenido",
 ID_DIV_PORTADA = "principal_portada",
 ID_DIV = "principal",
-ID_CARTEL = "tcabeerta_portada";
+ID_CARTEL = "tcabecera_portada";
 

@@ -39,17 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	const contenedor = document.getElementById(DZ.ID_CONTENIDO);
 	redimesionar_iframe({contenido: contenedor.firstChild, continente: contenedor});
 
-	for(let i = 0; i < PAG_INDEX.numUD; i++)  {
-		console.log(PAG_INDEX.UD(i).titulo);
-	};
-
 })
 window.addEventListener("resize", function({id_contenedor = DZ.ID_CONTENIDO}) {
 	const contenido = document.getElementById(id_contenedor);
 	redimesionar_iframe({contenido: contenido.firstChild, continente: contenido});
 })
 // 🔴Botón HOME
-const insertarLinkHome = function({	id_contenedor,
+const insertarLinkHome = function({	id_contenedor = String | any,
 									id_portada,
 									ruta_portada,
 									id_menu,
