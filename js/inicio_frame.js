@@ -6,12 +6,13 @@ import { FAVICON, HOME } from "/js/iconos.js";
 import {	modificarTextoPorId,
 			modificarFavicon,
 			insertarSVG
-} from "/js/comun.js";
+} from "/js/comun.ts";
 
 
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
 const PX_CERRADO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_nulo");
+
 
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {

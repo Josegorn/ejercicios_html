@@ -1,6 +1,12 @@
 "use strict";
-export const iniciarPie = function ({nodo_padre, texto_nivel, texto_titulo, texto_tilulo_pagina, separador}) {
-	let nodo_pie = document.createElement("footer");
+export const iniciarPie = function (  	nodo_padre = HTMLDivElement, 
+										texto_nivel = String(), 
+										texto_titulo = String(), 
+										texto_tilulo_pagina = String(), 
+										Optional : {
+											separador = String() || " - "
+										}) {
+	const nodo_pie = document.createElement("footer");
 	const objetos = [texto_nivel, separador, texto_titulo, separador, texto_tilulo_pagina];
 	objetos.forEach(objeto => {
 		const nodo_span = crearNodoTexto({nombre_nodo: "span", texto: objeto});
@@ -27,9 +33,5 @@ export const insertarSVG = async function({id_contenedor, url_SVG})  {
 	const contenedor = document.getElementById(id_contenedor);
 	const promesa = await fetch(url_SVG);
 	contenedor.innerHTML = await promesa.text();
-	console.dir(document);
-	console.trace(promesa) << "🔴Insertar SVG";
-	null <<  console.info();
-	
 }	
 
