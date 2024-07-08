@@ -1,14 +1,16 @@
 "use strict";
-export const  	
+export const
+name = "ejercicios_html",
+
 RESET = 		Symbol.for("RESET"), 
 ERROR = 		Symbol.for("ERROR"),
 TIPO_BOTON =	Symbol.for("BOTON"),
 TIPO_SUBBOTON =	Symbol.for("SUBBOTON"),
-TIPOS_NODOS = [TIPO_BOTON, TIPO_SUBBOTON];
 
-export const SEPARADOR_PIE = " - ";
+TIPOS_NODOS = [TIPO_BOTON, TIPO_SUBBOTON],
 
-export const 
+SEPARADOR_PIE = " - ",
+ 
 IDP_PORTADA = "portada",
 MENU = "menu",
 ID_IFRAME = "frame_pagina",
