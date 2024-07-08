@@ -23,13 +23,13 @@ export const modificarFavicon = function({archivo}) {
 	link.setAttribute("href", archivo);
 }
 // 🔴Insertar SVG
-export const insertarSVG = function({id_contenedor, url_SVG}) {
-	let contenedor = document.getElementById(id_contenedor);
-	let parser = new DOMParser();
-	fetch(url_SVG)
-		.then(response => response.text())
-		.then(texto => {
-		let imagen = parser.parseFromString(texto, "text/xml");
-		contenedor.appendChild(imagen.documentElement);
-	})
-}
+export const insertarSVG = async function({id_contenedor, url_SVG})  {
+	const contenedor = document.getElementById(id_contenedor);
+	const promesa = await fetch(url_SVG);
+	contenedor.innerHTML = await promesa.text();
+	console.dir(document);
+	console.trace(promesa) << "🔴Insertar SVG";
+	null <<  console.info();
+	
+}	
+

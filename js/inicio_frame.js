@@ -164,7 +164,7 @@ const cargarContenido = function ({	id_contenedor = String(),
     const cuadro = document.createElement('iframe');
 	cuadro.src = ruta_pagina;
 	cuadro.name = id_pagina;
-	let ud  = Object.keys(PAG_INDEX).find( ud => Object.keys(PAG_INDEX[ud].pag).includes(id_pagina) ? ud : undefined);
+	let ud  = Object.keys(PAG_INDEX).find(({index: ud}) => { ud = [1,...PAG_INDEX.numUD], Object.keys(Object.keys(PAG_INDEX)[ud].pag).includes(id_pagina) ? ud : undefined ;}); 
 	cuadro.title = PAG_INDEX[ud].pag[id_pagina].titulo;
 	cuadro.id = id_iframe;
 	
