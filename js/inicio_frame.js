@@ -6,7 +6,7 @@ import { FAVICON, HOME } from "/js/iconos.js";
 import {	modificarTextoPorId,
 			modificarFavicon,
 			insertarSVG
-} from "/js/comun.ts";
+} from "/js/comun.js";
 
 
 // 🔴Algunós valores
