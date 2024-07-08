@@ -5,44 +5,20 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.port": 5502
+		"liveServer.settings.port": 5502,
+		"npm.autoDetect": "on",
+		"task.autoDetect": "on",
+		"typescript.tsc.autoDetect": "on"
 	},
 	"launch": {
 		"configurations": [
 			{
 				"type": "msedge",
-				"name": "http://127.0.0.1:3000/index.html",
+				"name": "Edge",
 				"request": "launch",
 				"url": "http://127.0.0.1:3000/index.html"
 			}
 		]
-	},
-	"tasks": {
-		"version": "2.0.0",
-		"tasks": [
-			{
-				"label": "Instalar Typestrict",
-				"type": "shell",
-				"dependsOn": "tsc",
-				"args": [
-					"install",
-					"-p",
-					"${workspaceFolder}",
-					"typestrict"
-				]
-			},
-			{
-				"label": "tsc",
-				"type": "typescript",
-				"dependsOn": "tsc",
-				"tsconfig": "tsconfig.json"
-			},
-			{
-				"label": "init tsconfing.json",
-				"type": "typescript",
-				"tsconfig": "tsconfig.json",
-				"dependsOn": "init tsconfing.json"							
-			}
-		]
 	}
+	
 }
