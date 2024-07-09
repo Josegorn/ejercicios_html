@@ -1,6 +1,6 @@
 ﻿"use strict";
 // 🔴 Inicialización
-import * as DZ from "/json/diccionario.json";
+import * as DZ from "../json/diccionario.json";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
 import { FAVICON, HOME } from "/js/iconos.js";
 import {	modificarTextoPorId,
