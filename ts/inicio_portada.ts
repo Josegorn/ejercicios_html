@@ -1,10 +1,10 @@
 "use strict";
 // 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
-import { PAG_INDEX } from "/contenido/def/esquema.js";
+import { PAG_INDEX } from "/json/esquema.json";
 import { 	iniciarPie, 
 			crearNodoTexto
-		}  from "/js/comun.js";
+		}  from "/ts/comun.js";
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
