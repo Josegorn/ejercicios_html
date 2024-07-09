@@ -23,5 +23,5 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const DZ = __importStar(require("/js/diccionario.json"));
+const DZ = __importStar(require("/json/diccionario.json"));
 Object.entries(DZ).forEach(([key, value]) => { globalThis[key] = value; });

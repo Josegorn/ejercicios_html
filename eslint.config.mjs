@@ -9,7 +9,7 @@ export default [{
         },
 
         ecmaVersion: 6,
-        sourceType: "CommonJS",
+        sourceType: "ES6",
 
         parserOptions: {
             ecmaFeatures: {

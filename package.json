@@ -6,7 +6,7 @@
     "typescript": "^5.5.3"
   },
   "scripts": {
-    "c": "ts-node",
+    "c": "ts-node --transpile-only --project ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

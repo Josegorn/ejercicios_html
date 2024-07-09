@@ -2,7 +2,7 @@
 // 🔴 Inicialización
 import * as DZ from "/js/diccionario.js";
 import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { iniciarPie }  from "./js/comun.js";
+import { iniciarPie }  from "/js/comun.js";
 
 // 🔴Algunós valores
 
