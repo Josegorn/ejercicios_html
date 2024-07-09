@@ -3,10 +3,6 @@
   "ERROR": "ERROR",
   "TIPO_BOTON": "BOTON",
   "TIPO_SUBBOTON": "SUBBOTON",
-  "TIPOS_NODOS": [
-    "BOTON",
-    "SUBBOTON"
-  ],
   "SEPARADOR_PIE": " - ",
   "IDP_PORTADA": "portada",
   "MENU": "menu",

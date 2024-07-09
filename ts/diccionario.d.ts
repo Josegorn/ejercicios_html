@@ -1,7 +1,6 @@
-export class TipoObjeto { 
-    
-    private o : symbol; 
-    
+ export class TipoObjeto { 
+
+    private o : symbol;     
     constructor() : symbol {
         if(this.o === undefined) return this.o;
         return undefined;
@@ -13,15 +12,15 @@ export class TipoObjeto {
         return Symbol().keyFor(this.o);
     }
 }
-export class Entrada<const T = string | number | boolean | symbol > {
+ export class Entrada {
 
-    private v : T ;
+    private v : string | number | boolean | symbol ;
     
-    constructor() : T {
+    constructor() : string | number | boolean | symbol {
         if (this.v === undefined) return this.v;
         return undefined;  
     }
-    constructor(valor : T) {
+    constructor(valor : string | number | boolean ) {
         this.v = valor;
     }
     constructor(valor : symbol) : void {
@@ -34,3 +33,4 @@ export class Entrada<const T = string | number | boolean | symbol > {
         return typeof(this.v);
     } 
 }
+
