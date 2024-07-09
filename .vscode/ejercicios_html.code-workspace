@@ -17,10 +17,8 @@
 		"typescript.suggest.classMemberSnippets.enabled": true,
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
-		"typescript.tsdk": "${env:VSCODE_TS_SDK}",
-		"extensions.experimental.issueQuickAccess": true,
-}
-		
+		"typescript.tsdk": "${workspaceFolder}/node_modules/typescript/lib",
+		"extensions.experimental.issueQuickAccess": true
 	},
 	"launch": {
 		"configurations": [
