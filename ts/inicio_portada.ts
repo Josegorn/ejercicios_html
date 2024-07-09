@@ -1,6 +1,6 @@
 "use strict";
 // 🔴 Inicialización
-import * as DZ from "@js/diccionario.js";
+import * as DZ from "@json/diccionario.json";
 import { PAG_INDEX } from "@json/esquema.json";
 import { 	iniciarPie, 
 			crearNodoTexto

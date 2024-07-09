@@ -17,14 +17,14 @@
 		"typescript.suggest.classMemberSnippets.enabled": true,
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
-		"typescript.tsdk": "../node_modules/typescript/lib",
+		"typescript.tsdk": "./node_modules/typescript/lib/*.d.ts",
 		
 	},
 	"launch": {
 		"configurations": [
 			
 			{
-				"type": "msedge",
+				"type": "chrome",
 				"name": "Edge",
 				"request": "launch",
 				"url": "http://127.0.0.1:3000/index.html"
