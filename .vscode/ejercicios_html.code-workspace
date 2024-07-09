@@ -17,7 +17,7 @@
 		"typescript.suggest.classMemberSnippets.enabled": true,
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
-		"typescript.tsdk": "../node_modules/typescript/lib",
+		"typescript.tsdk": "../node_modules/typescript/lib/",
 		"extensions.experimental.issueQuickAccess": true
 	},
 	"launch": {
