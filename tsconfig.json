@@ -37,26 +37,25 @@
         "pretty": true,                        /* Control what method is used to detect module-format JS files. */
 
         /* Modules */
-        "module": "ES2022",                                /* Specify what module code is generated. */
-        "rootDir": "/ts",                                    /* Specify the root folder within your source files. */
-        "moduleResolution": "Bundler",                      /* Specify how TypeScript looks up a file from a given module specifier. */
-        "baseUrl": "D:/Programas/Web/ejercicios_html/",                                  /* Specify the base directory to resolve non-relative module names. */
+        "module": "Node16",                                /* Specify what module code is generated. */
+        "rootDir": "$workspaceRoot/js",                                    /* Specify the root folder within your source files. */
+        "moduleResolution": "node16",                         /* Specify how TypeScript looks up a file from a given module specifier. */
+        "baseUrl": "${workspaceRoot}",                                  /* Specify the base directory to resolve non-relative module names. */
         "paths": { 
-          "/js/*": ["./js/*"], 
-          "/ts/*": ["./ts/*"],
-          "/css/*": ["./css/*"],  
-          "/json/*": ["./json/*"]
+          "@js/*"     : ["./js/*"], 
+          "@src/*"    : ["./ts/*"],
+          "@css/*"    : ["./css/*"],  
+          "@json/*"   : ["./json/*"],
+          "@img/*"    : ["./img/*"],
+          "@fuentes/*": ["./fuentes/*"],
+          "@*"        : ["./*"],
+          "@workspace_A/*" : ["./packages/a/*"]
           },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
-        // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-        // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+        "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
+        "typeRoots": [ "./node_modules/@types"],              /* Specify multiple folders that act like './node_modules/@types'. */
         //"types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
         // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
-        "moduleSuffixes": [
-          ".ts",
-          ".d.ts",
-          ".json"
-          
-        ],                             /* List of file name suffixes to search when resolving a module. */
+        // "moduleSuffixes": [".ts",".d.ts",".json"        /* List of file name suffixes to search when resolving a module. */
         //"allowImportingTsExtensions": true,               /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */
         "resolvePackageJsonExports": true,                /* Use the package.json 'exports' field when resolving package imports. */
         "resolvePackageJsonImports": true,                /* Use the package.json 'imports' field when resolving imports. */
@@ -77,7 +76,7 @@
         // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
         // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
         // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-        "outDir": "/js",                                     /* Specify an output folder for all emitted files. */
+        "outDir": "./js",                                     /* Specify an output folder for all emitted files. */
         // "removeComments": true,                           /* Disable emitting comments. */
         // "noEmit": true,                                   /* Disable emitting files from a compilation. */
         // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */

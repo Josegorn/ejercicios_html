@@ -1,8 +1,8 @@
 "use strict";
 // 🔴 Inicialización
-import * as DZ from "/json/diccionario.json";
-import { PAG_INDEX } from "/contenido/def/esquema.js";
-import { iniciarPie }  from "/js/comun.js";
+import * as DZ from "@json/diccionario.json";
+import { PAG_INDEX } from "@json/esquema.json";
+import { iniciarPie }  from "@js/comun.js";
 
 // 🔴Algunós valores
 

@@ -6,7 +6,7 @@ import { FAVICON, HOME } from "/js/iconos.js";
 import {	modificarTextoPorId,
 			modificarFavicon,
 			insertarSVG
-} from "./js/comun.js";
+} from "/js/comun.js";
 
 
 Object.entries(DZ).forEach(([key, value]) => {(globalThis as any)[key] = value as string});
