@@ -10,15 +10,14 @@
 		"task.autoDetect": "on",
 		"typescript.tsc.autoDetect": "on",
 		"task.quickOpen.detail": true,
-		"js/ts.implicitProjectConfig.checkJs": true,
 		"js/ts.implicitProjectConfig.experimentalDecorators": true,
 		"typescript.format.enable": true,
 		"typescript.implementationsCodeLens.enabled": false,
 		"typescript.suggest.classMemberSnippets.enabled": true,
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
-		"typescript.tsdk": "/typescript/lib/",
-		"extensions.experimental.issueQuickAccess": true
+		"typescript.tsdk": "node_modules\\typescript\\lib"
+		
 	},
 	"launch": {
 		"configurations": [
