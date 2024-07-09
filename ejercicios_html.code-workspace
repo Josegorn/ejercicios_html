@@ -2,7 +2,8 @@
 	"folders": [
 		{
 			"path": ".",
-			"name": "Web curso de HTML",
+			"name": "Web curso de HTML"
+			
 		}
 	],
 	"settings": {
@@ -18,13 +19,15 @@
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
 		"typescript.tsdk": "./node_modules/typescript/lib/*.d.ts",
+		"eslint.nodePath": "./node_modules/eslint/",
+		"typescript.tsserver.nodePath": "./node_modules/typescript/lib/tsserver.js"
 		
 	},
 	"launch": {
 		"configurations": [
 			
 			{
-				"type": "chrome",
+				"type": "msedge",
 				"name": "Edge",
 				"request": "launch",
 				"url": "http://127.0.0.1:3000/index.html"
