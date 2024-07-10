@@ -18,7 +18,7 @@
 		"typescript.suggest.classMemberSnippets.enabled": true,
 		"typescript.suggest.completeJSDocs": true,
 		"typescript.suggest.enabled": true,
-		"typescript.tsdk": "node_modules/typescript/lib",
+		"typescript.tsdk": "./node_modules/typescript/lib",
 		"eslint.nodePath": "./node_modules/eslint/",
 		"typescript.tsserver.nodePath": "./node_modules/typescript/lib/tsserver.js"
 		
