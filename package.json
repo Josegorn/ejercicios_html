@@ -1,4 +1,5 @@
 {
+  "name": "ejercicios_html",
   "devDependencies": {
     "@cypress/request": "^3.0.1",
     "eslint": "^9.6.0",
@@ -12,13 +13,35 @@
   },
   "scripts": {
     "c": "ts-node --transpile-only --project ./tsconfig.json",
-    "test": "ts-node --transpile-only --project ./tsconfig.json test/test.ts"
+    "test": "ts-node --transpile-only --project ./tsconfig.json test/test.ts",
+    "build": "tsc",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "audit": "^0.0.6",
     "fix": "^0.0.3",
     "package-lock.json": "^1.0.0",
-    "package.json": "^0.0.0"
+    "package.json": "^0.0.0",
+    "tslint": "^6.1.3"
   },
-  "name": "ejercicios_html"
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "ejercicios_html"
+  },
+  "keywords": [
+    "html"
+  ],
+  "author": {
+    "name": "Kimikaze"
+  },
+  "license": "ISC",
+  "files": [
+    "./bin/*",
+    "./lib/*"
+  ],
+  "typings": "./lib/index.d.ts"
 }
