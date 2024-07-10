@@ -1,11 +1,14 @@
 "use strict";
-// 🔴 Inicialización
+/**
+ * 
+ * 
+ */
 import * as DZ from "@json/diccionario.json";
 import { PAG_INDEX } from "@json/esquema.json";
 import { 	iniciarPie, 
 			crearNodoTexto
 		}  from "@src/comun.js";
-// 🔴 Inicialización
+// 
 document.addEventListener("DOMContentLoaded", function() {
 	
 	document.title = PAG_INDEX.tituloPag(0,0);

@@ -1,6 +1,7 @@
-"use strict";
-export class PAG_INDEX  {
+/* "use strict"; */
+ function algo(f){ cosas : number } = 24312;
 
+/*
 	//#region Objetos
 	static #o = {
 		

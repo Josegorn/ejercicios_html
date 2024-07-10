@@ -1,15 +1,22 @@
 ﻿"use strict";
-// 🔴 Inicialización
+/**
+ * Importar diccionario, cuaderno, iconos y otras cosas
+ * @import  DZ from "@json/diccionario.json";
+ * @import PAG_INDEX from "@json/esquema.json";
+ * @import FAVICON from "@json/iconos.json";
+ * @import HOME from "@json/iconos.json";
+ * @import { modificarTextoPorId, modificarFavicon, insertarSVG } from "@ts/comun";
+ */
 import * as DZ from "@json/diccionario.json";
 import { PAG_INDEX } from "@json/esquema.json";
-import { FAVICON, HOME } from "@js/iconos.js";
+import { FAVICON, HOME } from "@json/iconos.json";
 import {	modificarTextoPorId,
 			modificarFavicon,
 			insertarSVG
-} from "@js/comun.js";
+} from "@ts/comun";
+// Carcargar 
+  Object.entries( DZ as any ).forEach(({key , value} : { key: string, value: string}) : any => {(globalThis as any)[key] = value as string});
 
-
-Object.entries(DZ).forEach(([key, value]) => {(globalThis as any)[key] = value as string});
 
 
 // 🔴Algunós valores
