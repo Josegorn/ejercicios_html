@@ -94,4 +94,4 @@ export async function insertarSVG(
 	let promesa = await fetch(url_SVG);
 	contenedor.innerHTML = await promesa.text();
 }	
-
+t

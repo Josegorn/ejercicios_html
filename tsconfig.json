@@ -1,15 +1,31 @@
 {
+	"compilerOnSafe": true,
 	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs",
-		"moduleResolution": "node",
+		"target": "ES6",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"moduleDetection": "auto",
 		"lib": [
-			"es2015"
+			"ES2015",
+			"ESNext",
+			"DOM",
+			"ES6"
 		],
 
-		"rootDir": "src",
-		"outDir": "lib",
-
+	"baseUrl": "D:/Programas/Web/ejercicios_html/",                             
+    "paths": { 
+		  "@html/*"    	: ["./html/*"],
+		  "@js/*"    	: ["./js/*"], 
+          "@src/*"    	: ["./ts/*"],
+          "@css/*"    	: ["./css/*"],  
+          "@json/*"   	: ["./json/*"],
+          "@img/*"    	: ["./img/*", "./audio/*", "./videos/*", "./animaciones/*"],
+          "@fuentes/*"	: ["./fuentes/*"],
+          "@*"        	: ["./*"],
+          },                                     
+		"resolvePackageJsonExports": true,                
+        "resolvePackageJsonImports": true,
+		"resolveJsonModule": true,
 		"strict": true,
 		"alwaysStrict": true,
 		"strictFunctionTypes": true,
@@ -31,8 +47,11 @@
 
 		"pretty": true
 	},
+	
 	"include": [
-		"typings/**/*",
-		"src/**/*"
+		"**/*.ts",
+		"**/*.json",
+		"**/*.css",
+		"**/*.d.ts",
 	]
 }
