@@ -12,7 +12,7 @@
     "typescript": "^5.5.3"
   },
   "scripts": {
-    "c": "ts-node --transpile-only --project ./tsconfig.json",
+    "make": "ts-node --transpile-only --project ./tsconfig.json",
     "test": "ts-node --transpile-only --project ./tsconfig.json test/test.ts",
     "build": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
