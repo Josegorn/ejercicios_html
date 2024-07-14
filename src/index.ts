@@ -1,4 +1,4 @@
 
-export function diHolaMundo(munndo: string) {
-  return `Culo ${munndo}`;
+export function sayHelloWorld(world: string) {
+  return `Hello ${world}`;
 }

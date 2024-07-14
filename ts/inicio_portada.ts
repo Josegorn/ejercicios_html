@@ -1,13 +1,10 @@
 "use strict";
-/**
- * 
- * 
- */
+
 import * as DZ from "@json/diccionario.json";
 import { PAG_INDEX } from "@json/esquema.json";
 import { 	iniciarPie, 
 			crearNodoTexto
-		}  from "@src/comun.js";
+		}  from "@src/comun";
 // 
 document.addEventListener("DOMContentLoaded", function() {
 	

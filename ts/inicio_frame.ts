@@ -7,17 +7,15 @@
  * @import HOME from "@json/iconos.json";
  * @import { modificarTextoPorId, modificarFavicon, insertarSVG } from "@ts/comun";
  */
-import * as DZ from "@json/diccionario.json";
-import { PAG_INDEX } from "@json/esquema.json";
-import { FAVICON, HOME } from "@json/iconos.json";
+import 		DZ from "@json/diccionario.json";
+import 		PAG_INDEX from "@json/esquema.json";
+import	{	FAVICON,
+			HOME 
+		} from "@json/iconos.json";
 import {	modificarTextoPorId,
 			modificarFavicon,
 			insertarSVG
-} from "@ts/comun";
-// Carcargar 
-  Object.entries( DZ as any ).forEach(({key , value} : { key: string, value: string}) : any => {(globalThis as any)[key] = value as string});
-
-
+		} from "@ts/comun";
 
 // 🔴Algunós valores
 const PX_ABIERTO = window.getComputedStyle(document.documentElement).getPropertyValue("--tamv_efectivo_subboton");
@@ -27,6 +25,9 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
+	Object.entries(DZ["[string]"]).forEach(({key, value}:{key: string, value: string}) => {(globalThis).[key] = value});
+		
+
 	// Título (HEAD)
 	document.title = PAG_INDEX.titulo;
 	// Favicon
