@@ -25,9 +25,9 @@ const PX_CERRADO = window.getComputedStyle(document.documentElement).getProperty
 // 🔴 Inicialización
 document.addEventListener("DOMContentLoaded", function() {
 	
-	Object.entries(DZ["[string]"]).forEach(({key, value}:{key: string, value: string}) => {(globalThis).[key] = value});
-		
-
+	Object.entries(DZ["[string]"]).forEach(([key, value]) => {(globalThis as any)[key] = value});
+	Object.entries(DZ["[symbol]"]).forEach(([key, value]) => {(globalThis as any)[key] = Symbol.for(value)});
+	
 	// Título (HEAD)
 	document.title = PAG_INDEX.titulo;
 	// Favicon
